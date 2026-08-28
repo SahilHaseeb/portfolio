@@ -83,9 +83,8 @@ export const PROJECTS = [
     description:
       "Crafted from the ground up prioritizing web performance, accessibility (WCAG 2.1 AA standards), fluid typography, and clean dark-mode aesthetics. Fully responsive across all devices and deployed on Render.",
     technologies: ["HTML5", "CSS3", "JavaScript", "Render"],
-    image: null,
-    githubUrl: "https://github.com/placeholder-username/developer-portfolio",
-    liveUrl: "https://yourportfolio.onrender.com",
+    githubUrl: "https://github.com/SahilHaseeb/portfolio",
+    liveUrl: "https://haseebsahil-portfolio.onrender.com",
     featured: true,
     status: "Completed",
   },
