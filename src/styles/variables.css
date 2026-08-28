@@ -1,0 +1,356 @@
+﻿/* ============================================================
+   DESIGN TOKENS — variables.css
+   Single source of truth for all design system values.
+   All colours, spacing, and scale live here.
+   NEVER hard-code values outside this file.
+   ============================================================ */
+
+:root {
+
+  /* ══════════════════════════════════════════════════════════
+     COLOUR PALETTE
+     Raw palette values — use semantic aliases in components.
+  ══════════════════════════════════════════════════════════ */
+
+  /* Primary — electric violet */
+  --palette-violet-50:  #EEEEFF;
+  --palette-violet-100: #D5D4FF;
+  --palette-violet-200: #ABA9FF;
+  --palette-violet-300: #8280FF;
+  --palette-violet-400: #6C63FF;   /* ← brand primary */
+  --palette-violet-500: #5248E8;
+  --palette-violet-600: #4A42D4;
+  --palette-violet-700: #3730B0;
+  --palette-violet-800: #26218C;
+
+  /* Accent — developer teal */
+  --palette-teal-50:  #E0FFFE;
+  --palette-teal-300: #5EF5E8;
+  --palette-teal-400: #00E5D1;     /* ← brand accent */
+  --palette-teal-500: #00C9B8;
+  --palette-teal-600: #00B8A8;
+
+  /* Neutral dark scale (deep space theme) */
+  --palette-dark-950: #08080F;
+  --palette-dark-900: #0D0D14;
+  --palette-dark-800: #111119;
+  --palette-dark-750: #13131E;
+  --palette-dark-700: #181828;
+  --palette-dark-650: #1C1C2E;
+  --palette-dark-600: #222235;
+  --palette-dark-500: #2A2A42;
+  --palette-dark-400: #35354F;
+  --palette-dark-300: #44446A;
+
+  /* Neutral light (text on dark) */
+  --palette-light-50:  #FFFFFF;
+  --palette-light-100: #F0F0FF;
+  --palette-light-200: #D4D4F0;
+  --palette-light-300: #A8A8C8;
+  --palette-light-400: #7C7CA0;
+  --palette-light-500: #6B6B8D;
+  --palette-light-600: #555570;
+
+  /* State colours */
+  --palette-green-400: #22C55E;
+  --palette-green-500: #16A34A;
+  --palette-amber-400: #F59E0B;
+  --palette-amber-500: #D97706;
+  --palette-red-400:   #F87171;
+  --palette-red-500:   #DC2626;
+  --palette-blue-400:  #60A5FA;
+  --palette-blue-500:  #2563EB;
+
+  /* ══════════════════════════════════════════════════════════
+     SEMANTIC COLOUR TOKENS (Dark Theme — Default)
+     Components reference these, not palette values directly.
+  ══════════════════════════════════════════════════════════ */
+
+  /* Brand */
+  --clr-primary:        var(--palette-violet-400);
+  --clr-primary-hover:  var(--palette-violet-300);
+  --clr-primary-dark:   var(--palette-violet-600);
+  --clr-primary-light:  var(--palette-violet-200);
+  --clr-primary-subtle: rgba(108, 99, 255, 0.10);
+  --clr-primary-glow:   rgba(108, 99, 255, 0.25);
+
+  --clr-accent:         var(--palette-teal-400);
+  --clr-accent-hover:   var(--palette-teal-300);
+  --clr-accent-dark:    var(--palette-teal-600);
+  --clr-accent-subtle:  rgba(0, 229, 209, 0.10);
+
+  /* Backgrounds — layered depth system */
+  --clr-bg-base:        var(--palette-dark-900);   /* page base */
+  --clr-bg-sunken:      var(--palette-dark-950);   /* inset areas */
+  --clr-bg-surface:     var(--palette-dark-750);   /* cards, panels */
+  --clr-bg-elevated:    var(--palette-dark-650);   /* raised cards */
+  --clr-bg-overlay:     var(--palette-dark-500);   /* overlays, tooltips */
+  --clr-bg-hover:       var(--palette-dark-600);   /* hover state on surfaces */
+
+  /* Text */
+  --clr-text-primary:   var(--palette-light-100);  /* main body text */
+  --clr-text-secondary: var(--palette-light-300);  /* secondary text */
+  --clr-text-muted:     var(--palette-light-500);  /* timestamps, captions */
+  --clr-text-disabled:  var(--palette-light-600);  /* disabled elements */
+  --clr-text-inverse:   var(--palette-dark-900);   /* text on light bg */
+  --clr-text-on-primary:#FFFFFF;                   /* text on primary bg */
+
+  /* Borders */
+  --clr-border-subtle:  rgba(255, 255, 255, 0.05);
+  --clr-border:         rgba(108, 99, 255, 0.16);
+  --clr-border-medium:  rgba(108, 99, 255, 0.28);
+  --clr-border-strong:  rgba(108, 99, 255, 0.50);
+  --clr-border-focus:   var(--palette-violet-400);
+
+  /* State colours */
+  --clr-success:        var(--palette-green-400);
+  --clr-success-subtle: rgba(34, 197, 94, 0.12);
+  --clr-warning:        var(--palette-amber-400);
+  --clr-warning-subtle: rgba(245, 158, 11, 0.12);
+  --clr-error:          var(--palette-red-400);
+  --clr-error-subtle:   rgba(248, 113, 113, 0.12);
+  --clr-info:           var(--palette-blue-400);
+  --clr-info-subtle:    rgba(96, 165, 250, 0.12);
+
+  /* ══════════════════════════════════════════════════════════
+     GRADIENTS
+  ══════════════════════════════════════════════════════════ */
+
+  --gradient-primary:       linear-gradient(135deg, #6C63FF 0%, #00E5D1 100%);
+  --gradient-primary-soft:  linear-gradient(135deg, rgba(108,99,255,0.8) 0%, rgba(0,229,209,0.8) 100%);
+  --gradient-primary-text:  linear-gradient(135deg, #9D97FF 0%, #5EF5E8 100%);
+  --gradient-surface:       linear-gradient(160deg, var(--clr-bg-surface) 0%, var(--clr-bg-elevated) 100%);
+  --gradient-radial-primary: radial-gradient(ellipse at 50% 0%, rgba(108,99,255,0.18) 0%, transparent 65%);
+  --gradient-radial-accent:  radial-gradient(ellipse at 50% 100%, rgba(0,229,209,0.12) 0%, transparent 60%);
+  --gradient-overlay:       linear-gradient(180deg, transparent 0%, var(--clr-bg-base) 100%);
+
+  /* ══════════════════════════════════════════════════════════
+     SHADOWS
+  ══════════════════════════════════════════════════════════ */
+
+  --shadow-xs:     0 1px 3px rgba(0, 0, 0, 0.30);
+  --shadow-sm:     0 2px 8px rgba(0, 0, 0, 0.40);
+  --shadow-md:     0 4px 16px rgba(0, 0, 0, 0.45);
+  --shadow-lg:     0 8px 32px rgba(0, 0, 0, 0.50);
+  --shadow-xl:     0 16px 48px rgba(0, 0, 0, 0.55);
+  --shadow-glow-primary: 0 0 24px rgba(108, 99, 255, 0.30);
+  --shadow-glow-accent:  0 0 24px rgba(0, 229, 209, 0.20);
+  --shadow-card:   0 2px 12px rgba(0, 0, 0, 0.35),
+                   0 0 0 1px var(--clr-border);
+  --shadow-card-hover: 0 8px 32px rgba(0, 0, 0, 0.50),
+                       0 0 0 1px var(--clr-border-medium),
+                       0 0 20px rgba(108, 99, 255, 0.15);
+  --shadow-btn-primary: 0 4px 16px rgba(108, 99, 255, 0.35);
+  --shadow-btn-primary-hover: 0 6px 24px rgba(108, 99, 255, 0.50);
+
+  /* ══════════════════════════════════════════════════════════
+     TYPOGRAPHY
+  ══════════════════════════════════════════════════════════ */
+
+  /* Font families */
+  --font-sans: 'Inter', 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Courier New', monospace;
+
+  /* ── Fluid type scale (clamp: min, preferred-vw, max) ──── */
+  /* xs  → caption, labels, badges          */
+  --fs-xs:     clamp(0.6875rem, 1.6vw, 0.75rem);     /* 11–12px */
+  /* sm  → small body, footnotes            */
+  --fs-sm:     clamp(0.8125rem, 1.9vw, 0.875rem);    /* 13–14px */
+  /* base → primary body copy               */
+  --fs-base:   clamp(0.9375rem, 2.1vw, 1rem);        /* 15–16px */
+  /* md  → lead paragraph, subtitles        */
+  --fs-md:     clamp(1.0625rem, 2.3vw, 1.125rem);    /* 17–18px */
+  /* lg  → small headings, nav items        */
+  --fs-lg:     clamp(1.125rem, 2.6vw, 1.25rem);      /* 18–20px */
+  /* xl  → sub-section headings             */
+  --fs-xl:     clamp(1.25rem, 3.0vw, 1.5rem);        /* 20–24px */
+  /* 2xl → section headings (H3)            */
+  --fs-2xl:    clamp(1.5rem, 3.8vw, 2rem);           /* 24–32px */
+  /* 3xl → page headings (H2)               */
+  --fs-3xl:    clamp(1.875rem, 4.5vw, 2.75rem);      /* 30–44px */
+  /* 4xl → hero headings (H1)               */
+  --fs-4xl:    clamp(2.25rem, 5.5vw, 3.5rem);        /* 36–56px */
+  /* display → oversized hero accent        */
+  --fs-display: clamp(2.75rem, 7vw, 5rem);           /* 44–80px */
+
+  /* Font weights */
+  --fw-normal:  400;
+  --fw-medium:  500;
+  --fw-semi:    600;
+  --fw-bold:    700;
+  --fw-black:   900;
+
+  /* Line heights */
+  --lh-none:    1.0;
+  --lh-tight:   1.15;
+  --lh-snug:    1.3;
+  --lh-normal:  1.6;
+  --lh-relaxed: 1.75;
+  --lh-loose:   1.9;
+
+  /* Letter spacing */
+  --ls-tighter: -0.04em;
+  --ls-tight:   -0.02em;
+  --ls-normal:   0em;
+  --ls-wide:     0.04em;
+  --ls-wider:    0.08em;
+  --ls-widest:   0.14em;
+
+  /* Measure (line length) */
+  --measure-xs:  32ch;
+  --measure-sm:  45ch;
+  --measure-md:  55ch;
+  --measure-lg:  65ch;
+  --measure-xl:  75ch;
+
+  /* ══════════════════════════════════════════════════════════
+     SPACING — 4px base scale
+  ══════════════════════════════════════════════════════════ */
+
+  --sp-px:  1px;
+  --sp-0-5: 0.125rem;   /*  2px */
+  --sp-1:   0.25rem;    /*  4px */
+  --sp-1-5: 0.375rem;   /*  6px */
+  --sp-2:   0.5rem;     /*  8px */
+  --sp-2-5: 0.625rem;   /* 10px */
+  --sp-3:   0.75rem;    /* 12px */
+  --sp-3-5: 0.875rem;   /* 14px */
+  --sp-4:   1rem;       /* 16px */
+  --sp-5:   1.25rem;    /* 20px */
+  --sp-6:   1.5rem;     /* 24px */
+  --sp-7:   1.75rem;    /* 28px */
+  --sp-8:   2rem;       /* 32px */
+  --sp-9:   2.25rem;    /* 36px */
+  --sp-10:  2.5rem;     /* 40px */
+  --sp-12:  3rem;       /* 48px */
+  --sp-14:  3.5rem;     /* 56px */
+  --sp-16:  4rem;       /* 64px */
+  --sp-18:  4.5rem;     /* 72px */
+  --sp-20:  5rem;       /* 80px */
+  --sp-24:  6rem;       /* 96px */
+  --sp-28:  7rem;       /* 112px */
+  --sp-32:  8rem;       /* 128px */
+
+  /* ══════════════════════════════════════════════════════════
+     BORDER RADIUS
+  ══════════════════════════════════════════════════════════ */
+
+  --radius-xs:   4px;
+  --radius-sm:   6px;
+  --radius-md:   10px;
+  --radius-lg:   16px;
+  --radius-xl:   24px;
+  --radius-2xl:  32px;
+  --radius-full: 9999px;
+
+  /* ══════════════════════════════════════════════════════════
+     TRANSITIONS
+  ══════════════════════════════════════════════════════════ */
+
+  --ease-default:  cubic-bezier(0.4, 0, 0.2, 1);   /* material standard */
+  --ease-in:       cubic-bezier(0.4, 0, 1, 1);
+  --ease-out:      cubic-bezier(0, 0, 0.2, 1);
+  --ease-spring:   cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  --duration-instant: 80ms;
+  --duration-fast:    150ms;
+  --duration-base:    250ms;
+  --duration-slow:    380ms;
+  --duration-slower:  550ms;
+
+  --transition-fast:   var(--duration-fast)   var(--ease-default);
+  --transition-base:   var(--duration-base)   var(--ease-default);
+  --transition-slow:   var(--duration-slow)   var(--ease-default);
+  --transition-colors: var(--duration-fast)   var(--ease-default);
+  --transition-transform: var(--duration-base) var(--ease-out);
+
+  /* ══════════════════════════════════════════════════════════
+     LAYOUT
+  ══════════════════════════════════════════════════════════ */
+
+  /* Container widths */
+  --container-sm:  640px;
+  --container-md:  768px;
+  --container-lg:  1024px;
+  --container-max: 1180px;    /* primary content column */
+  --container-xl:  1400px;    /* wide layouts */
+
+  /* Horizontal page padding — fluid */
+  --container-pad: clamp(1rem, 5vw, 2.5rem);
+
+  /* Section vertical rhythm */
+  --section-gap:   clamp(4rem, 9vw, 7rem);
+  --section-gap-sm: clamp(2rem, 5vw, 3.5rem);
+
+  /* Navbar */
+  --navbar-height: 68px;
+
+  /* ══════════════════════════════════════════════════════════
+     Z-INDEX STACK
+  ══════════════════════════════════════════════════════════ */
+
+  --z-below:    -1;
+  --z-base:      0;
+  --z-raised:   10;
+  --z-float:    50;
+  --z-dropdown: 100;
+  --z-sticky:   200;
+  --z-overlay:  300;
+  --z-modal:    400;
+  --z-toast:    500;
+  --z-top:     9999;
+
+  /* ══════════════════════════════════════════════════════════
+     COMPONENT-SPECIFIC TOKENS
+  ══════════════════════════════════════════════════════════ */
+
+  /* Buttons */
+  --btn-height-sm:  36px;
+  --btn-height-md:  44px;
+  --btn-height-lg:  52px;
+  --btn-pad-x-sm:   var(--sp-4);
+  --btn-pad-x-md:   var(--sp-6);
+  --btn-pad-x-lg:   var(--sp-8);
+  --btn-radius:     var(--radius-full);
+  --btn-font-size:  var(--fs-sm);
+  --btn-font-weight: var(--fw-semi);
+
+  /* Cards */
+  --card-radius:    var(--radius-lg);
+  --card-pad:       var(--sp-6);
+  --card-pad-sm:    var(--sp-4);
+  --card-pad-lg:    var(--sp-8);
+  --card-border:    1px solid var(--clr-border);
+
+  /* Icons */
+  --icon-sm:  1rem;
+  --icon-md:  1.25rem;
+  --icon-lg:  1.5rem;
+  --icon-xl:  2rem;
+
+  /* Badges / Pills */
+  --badge-radius: var(--radius-full);
+  --badge-pad-x:  var(--sp-3);
+  --badge-pad-y:  var(--sp-1);
+  --badge-font-size: var(--fs-xs);
+
+}
+
+/* ══════════════════════════════════════════════════════════════
+   LIGHT THEME OVERRIDES — prepared but not activated yet.
+   To enable: add class="light" to <html> or use media query.
+   All component CSS uses semantic tokens so this works
+   automatically once enabled.
+══════════════════════════════════════════════════════════════ */
+/* [data-theme="light"] { */
+/*   --clr-bg-base:       #F8F8FF; */
+/*   --clr-bg-surface:    #FFFFFF; */
+/*   --clr-bg-elevated:   #F0F0FA; */
+/*   --clr-bg-overlay:    #E8E8F5; */
+/*   --clr-text-primary:  #0D0D14; */
+/*   --clr-text-secondary:#3A3A5C; */
+/*   --clr-text-muted:    #6B6B8D; */
+/*   --clr-border:        rgba(108, 99, 255, 0.15); */
+/*   --clr-border-medium: rgba(108, 99, 255, 0.30); */
+/*   --shadow-card: 0 2px 12px rgba(0,0,0,0.08), 0 0 0 1px var(--clr-border); */
+/* } */

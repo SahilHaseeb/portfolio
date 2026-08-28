@@ -1,0 +1,213 @@
+﻿/* ============================================================
+   MODERN CSS RESET — reset.css
+   Normalises browser defaults, sets sensible base styles,
+   and applies design tokens to bare HTML elements.
+   ============================================================ */
+
+/* ── Box model & margin reset ───────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Root ────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+  /* Prevent font inflation on iOS landscape */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  /* Reserve scrollbar gutter to prevent layout shift */
+  overflow-y: scroll;
+  scrollbar-gutter: stable;
+  /* Optical font rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-synthesis: none;
+}
+
+/* ── Body ────────────────────────────────────────────────── */
+body {
+  min-height: 100vh;
+  font-family: var(--font-sans);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-normal);
+  color: var(--clr-text-primary);
+  background-color: var(--clr-bg-base);
+  /* Hard stop for horizontal overflow */
+  overflow-x: hidden;
+}
+
+/* ── Headings — base styles (components override sizes) ─── */
+h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+  hyphens: auto;
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-tight);
+  color: var(--clr-text-primary);
+  letter-spacing: var(--ls-tight);
+}
+
+h1 { font-size: var(--fs-4xl);  font-weight: var(--fw-black); letter-spacing: var(--ls-tighter); }
+h2 { font-size: var(--fs-3xl);  font-weight: var(--fw-bold); }
+h3 { font-size: var(--fs-2xl);  font-weight: var(--fw-bold); }
+h4 { font-size: var(--fs-xl);   font-weight: var(--fw-semi); }
+h5 { font-size: var(--fs-lg);   font-weight: var(--fw-semi); }
+h6 { font-size: var(--fs-base); font-weight: var(--fw-semi); }
+
+/* ── Body text ───────────────────────────────────────────── */
+p {
+  overflow-wrap: break-word;
+  hyphens: auto;
+  line-height: var(--lh-relaxed);
+  color: var(--clr-text-secondary);
+  max-width: var(--measure-lg);
+}
+
+/* Remove max-width when paragraph is inside a text-block utility */
+.text-block p,
+p.full-width {
+  max-width: none;
+}
+
+/* ── Links ───────────────────────────────────────────────── */
+a {
+  color: var(--clr-primary);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 1px;
+  text-decoration-color: transparent;
+  transition: color var(--transition-colors),
+              text-decoration-color var(--transition-colors);
+}
+a:hover {
+  color: var(--clr-primary-hover);
+  text-decoration-color: currentColor;
+}
+/* Links that are buttons/navitems — override in component */
+a.btn,
+a[class*="nav"],
+a[class*="link--"] {
+  text-decoration: none;
+}
+
+/* ── Inline text ─────────────────────────────────────────── */
+strong, b { font-weight: var(--fw-semi); }
+em, i      { font-style: italic; }
+
+code, kbd, samp {
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+  background: var(--clr-bg-elevated);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-xs);
+  padding: 0.1em 0.35em;
+  color: var(--clr-accent);
+}
+
+pre {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  background: var(--clr-bg-sunken);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  padding: var(--sp-6);
+  overflow-x: auto;
+  white-space: pre;
+  tab-size: 2;
+  line-height: var(--lh-relaxed);
+}
+pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: inherit;
+  color: var(--clr-text-primary);
+}
+
+/* ── Lists ───────────────────────────────────────────────── */
+ul, ol { list-style: none; }
+
+/* Prose lists (inside article/prose context) */
+.prose ul  { list-style: disc;    padding-inline-start: 1.5rem; }
+.prose ol  { list-style: decimal; padding-inline-start: 1.5rem; }
+.prose li  { margin-top: var(--sp-1-5); }
+
+/* ── Interactive elements ────────────────────────────────── */
+input, button, textarea, select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* ── Media defaults ──────────────────────────────────────── */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+img { object-fit: cover; }
+
+/* ── Table ───────────────────────────────────────────────── */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+th, td {
+  text-align: left;
+  padding: var(--sp-3) var(--sp-4);
+  border-bottom: 1px solid var(--clr-border-subtle);
+}
+th {
+  font-weight: var(--fw-semi);
+  color: var(--clr-text-primary);
+  font-size: var(--fs-sm);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+
+/* ── Horizontal rule ─────────────────────────────────────── */
+hr {
+  border: none;
+  height: 1px;
+  background: var(--clr-border-subtle);
+  margin-block: var(--sp-8);
+}
+
+/* ── Blockquote ──────────────────────────────────────────── */
+blockquote {
+  padding-inline-start: var(--sp-6);
+  border-inline-start: 3px solid var(--clr-primary);
+  color: var(--clr-text-secondary);
+  font-style: italic;
+  font-size: var(--fs-md);
+  margin-block: var(--sp-6);
+}
+
+/* ── Address ─────────────────────────────────────────────── */
+address { font-style: normal; }
+
+/* ── Reduced motion ──────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ── Print ───────────────────────────────────────────────── */
+@media print {
+  body { background: white; color: black; }
+  a    { text-decoration: underline; }
+  nav, .glow-orb, [aria-hidden] { display: none; }
+}

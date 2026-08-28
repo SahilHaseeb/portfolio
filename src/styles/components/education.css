@@ -1,0 +1,397 @@
+/* ============================================================
+   EDUCATION & LEARNING JOURNEY — education.css
+   Two-column desktop presentation: Formal Degree & Roadmap.
+   Mobile: Stacked timeline and cards.
+   ============================================================ */
+
+/* ── Scroll-margin: clears fixed navbar on anchor jump ───── */
+#education {
+  scroll-margin-top: var(--navbar-height);
+}
+
+/* ══════════════════════════════════════════════════════════
+   SECTION WRAPPER
+══════════════════════════════════════════════════════════ */
+
+.education {
+  position: relative;
+  overflow: hidden;
+}
+
+.education::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 70% 50% at 85% 30%,
+    rgba(0, 229, 209, 0.06) 0%,
+    transparent 65%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Two-column layout on desktop: Left = Degree, Right = Roadmap */
+.education__grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: start;
+  gap: clamp(var(--sp-8), 5vw, var(--sp-16));
+  position: relative;
+  z-index: 1;
+}
+
+/* ══════════════════════════════════════════════════════════
+   FORMAL EDUCATION CARD
+══════════════════════════════════════════════════════════ */
+
+.education__column-title {
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-bold);
+  color: var(--clr-text-primary);
+  margin-bottom: var(--sp-6);
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+.education__column-title::before {
+  content: '';
+  display: block;
+  width: 4px;
+  height: 20px;
+  border-radius: var(--radius-full);
+  background: var(--gradient-primary);
+}
+
+.edu-card {
+  background: var(--clr-bg-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-5);
+  position: relative;
+  box-shadow: var(--shadow-card);
+  transition:
+    border-color var(--transition-slow),
+    box-shadow   var(--transition-slow),
+    transform    var(--transition-slow);
+}
+
+.edu-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--gradient-primary);
+  opacity: 0.8;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+@media (hover: hover) {
+  .edu-card:hover {
+    border-color: var(--clr-border-medium);
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-4px);
+  }
+}
+
+.edu-card:focus-visible {
+  outline: 2px solid var(--clr-border-focus);
+  outline-offset: 3px;
+}
+
+.edu-card__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2-5);
+  padding-bottom: var(--sp-4);
+  border-bottom: 1px solid var(--clr-border-subtle);
+}
+
+.edu-card__badge-wrap {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+.edu-card__icon {
+  font-size: var(--fs-xl);
+  line-height: 1;
+}
+
+.edu-card__period {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--clr-text-muted);
+  letter-spacing: var(--ls-wide);
+  margin-left: var(--sp-2);
+}
+
+.edu-card__degree {
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-bold);
+  color: var(--clr-text-primary);
+  line-height: var(--lh-snug);
+}
+
+.edu-card__institution {
+  font-size: var(--fs-md);
+  color: var(--clr-primary-light);
+  font-weight: var(--fw-medium);
+}
+
+.edu-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-5);
+}
+
+.edu-card__desc {
+  font-size: var(--fs-sm);
+  color: var(--clr-text-secondary);
+  line-height: var(--lh-relaxed);
+}
+
+.edu-card__subheading {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semi);
+  font-family: var(--font-mono);
+  color: var(--clr-text-primary);
+  letter-spacing: var(--ls-wider);
+  text-transform: uppercase;
+  margin-bottom: var(--sp-3);
+}
+
+.edu-card__highlights {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.edu-card__highlights li {
+  font-size: var(--fs-sm);
+  color: var(--clr-text-secondary);
+  line-height: var(--lh-normal);
+  position: relative;
+  padding-left: var(--sp-5);
+}
+
+.edu-card__highlights li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--clr-accent);
+  font-weight: bold;
+}
+
+.edu-card__coursework {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* ══════════════════════════════════════════════════════════
+   LEARNING JOURNEY ROADMAP
+══════════════════════════════════════════════════════════ */
+
+.roadmap-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  position: relative;
+  padding-left: var(--sp-8);
+}
+
+/* Continuous vertical connector line */
+.roadmap-timeline::before {
+  content: '';
+  position: absolute;
+  left: 17px;
+  top: var(--sp-4);
+  bottom: var(--sp-4);
+  width: 2px;
+  background: linear-gradient(
+    180deg,
+    var(--clr-accent) 0%,
+    var(--clr-primary) 50%,
+    var(--clr-border) 100%
+  );
+  border-radius: var(--radius-full);
+}
+
+.roadmap-node {
+  position: relative;
+  outline: none;
+}
+
+.roadmap-node__marker {
+  position: absolute;
+  left: calc(-1 * var(--sp-8) + 3px);
+  top: var(--sp-4);
+  width: 30px;
+  height: 30px;
+  border-radius: var(--radius-full);
+  background: var(--clr-bg-base);
+  border: 2px solid var(--clr-border-strong);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transition:
+    border-color var(--transition-fast),
+    box-shadow   var(--transition-fast),
+    transform    var(--transition-fast);
+}
+
+.roadmap-node__phase {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  color: var(--clr-text-primary);
+  line-height: 1;
+}
+
+/* Active node marker glow */
+.roadmap-node--in-progress .roadmap-node__marker {
+  border-color: var(--clr-accent);
+  box-shadow: 0 0 12px rgba(0, 229, 209, 0.4);
+}
+
+.roadmap-node--completed .roadmap-node__marker {
+  border-color: var(--clr-primary);
+  background: var(--clr-primary-subtle);
+}
+
+.roadmap-node__card {
+  background: var(--clr-bg-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  padding: var(--sp-4) var(--sp-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2-5);
+  box-shadow: var(--shadow-card);
+  transition:
+    border-color var(--transition-slow),
+    transform    var(--transition-slow),
+    box-shadow   var(--transition-slow);
+}
+
+@media (hover: hover) {
+  .roadmap-node:hover .roadmap-node__card {
+    border-color: var(--clr-border-medium);
+    transform: translateX(4px);
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  .roadmap-node:hover .roadmap-node__marker {
+    transform: scale(1.1);
+  }
+}
+
+.roadmap-node:focus-visible .roadmap-node__card {
+  outline: 2px solid var(--clr-border-focus);
+  outline-offset: 2px;
+}
+
+.roadmap-node__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  flex-wrap: wrap;
+}
+
+.roadmap-node__title {
+  font-size: var(--fs-base);
+  font-weight: var(--fw-semi);
+  color: var(--clr-text-primary);
+}
+
+.roadmap-node__desc {
+  font-size: var(--fs-xs);
+  color: var(--clr-text-secondary);
+  line-height: var(--lh-normal);
+}
+
+.roadmap-node__topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-1-5);
+  margin-top: var(--sp-1);
+}
+
+.roadmap-node__tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: var(--radius-xs);
+  background: var(--clr-bg-elevated);
+  border: 1px solid var(--clr-border-subtle);
+  color: var(--clr-text-muted);
+}
+
+/* ══════════════════════════════════════════════════════════
+   RESPONSIVE LAYOUT
+══════════════════════════════════════════════════════════ */
+
+@media (max-width: 1023px) {
+  .education__grid {
+    grid-template-columns: 1fr;
+    gap: var(--sp-10);
+  }
+}
+
+@media (max-width: 767px) {
+  .edu-card {
+    padding: var(--sp-5);
+  }
+
+  .roadmap-timeline {
+    padding-left: var(--sp-7);
+  }
+
+  .roadmap-timeline::before {
+    left: 14px;
+  }
+
+  .roadmap-node__marker {
+    left: calc(-1 * var(--sp-7) + 1px);
+    width: 26px;
+    height: 26px;
+  }
+
+  .roadmap-node__phase {
+    font-size: 10px;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════
+   REDUCED MOTION
+══════════════════════════════════════════════════════════ */
+
+@media (prefers-reduced-motion: reduce) {
+  .edu-card,
+  .roadmap-node__card,
+  .roadmap-node__marker {
+    transition: none;
+    transform: none;
+  }
+
+  .roadmap-node:hover .roadmap-node__card {
+    transform: none;
+  }
+
+  .roadmap-node:hover .roadmap-node__marker {
+    transform: none;
+  }
+}

@@ -1,0 +1,384 @@
+﻿/* ============================================================
+   NAVBAR — navbar.css
+   Fixed top navigation bar with mobile hamburger menu.
+   Tokens from variables.css, utilities from utilities.css.
+   ============================================================ */
+
+/* ══════════════════════════════════════════════════════════
+   NAV ROOT
+══════════════════════════════════════════════════════════ */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-sticky);
+  height: var(--navbar-height);
+  /* Glassmorphism surface — legible over hero content */
+  background: rgba(13, 13, 20, 0.80);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--clr-border-subtle);
+  /* Smooth scroll-shadow transition */
+  transition:
+    background var(--transition-base),
+    border-color var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+/* Scrolled state — added by JS when page scrolls */
+.navbar.is-scrolled {
+  background: rgba(13, 13, 20, 0.95);
+  border-bottom-color: var(--clr-border);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.40);
+}
+
+/* Inner flex row */
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  gap: var(--sp-6);
+}
+
+/* ══════════════════════════════════════════════════════════
+   LOGO / BRAND
+══════════════════════════════════════════════════════════ */
+
+.navbar__logo {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2-5);
+  text-decoration: none;
+  flex-shrink: 0;
+  border-radius: var(--radius-sm);
+  /* Focus visible handled globally */
+}
+
+.navbar__logo-mark {
+  /* Gradient square badge */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-sm);
+  background: var(--gradient-primary);
+  font-family: var(--font-mono);
+  font-size: var(--fs-md);
+  font-weight: var(--fw-black);
+  color: #fff;
+  letter-spacing: var(--ls-tighter);
+  flex-shrink: 0;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.navbar__logo:hover .navbar__logo-mark {
+  transform: rotate(-4deg) scale(1.05);
+  box-shadow: var(--shadow-glow-primary);
+}
+
+.navbar__logo-text {
+  font-size: var(--fs-base);
+  font-weight: var(--fw-semi);
+  color: var(--clr-text-primary);
+  letter-spacing: var(--ls-tight);
+  transition: color var(--transition-colors);
+}
+
+.navbar__logo:hover .navbar__logo-text {
+  color: var(--clr-primary-hover);
+}
+
+/* ══════════════════════════════════════════════════════════
+   DESKTOP NAV LINKS
+══════════════════════════════════════════════════════════ */
+
+.navbar__nav {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-1);
+  /* Hidden on mobile — shown at breakpoint */
+}
+
+.navbar__link {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--sp-2) var(--sp-3);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  color: var(--clr-text-secondary);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  letter-spacing: var(--ls-wide);
+  position: relative;
+  transition:
+    color var(--transition-colors),
+    background var(--transition-fast);
+  white-space: nowrap;
+}
+
+.navbar__link::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  right: 50%;
+  height: 2px;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-full);
+  transition: left var(--transition-base), right var(--transition-base);
+}
+
+.navbar__link:hover {
+  color: var(--clr-text-primary);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.navbar__link:hover::after {
+  left: var(--sp-3);
+  right: var(--sp-3);
+}
+
+/* Active nav link — set by JS IntersectionObserver */
+.navbar__link.is-active {
+  color: var(--clr-primary-hover);
+  background: var(--clr-primary-subtle);
+}
+
+.navbar__link.is-active::after {
+  left: var(--sp-3);
+  right: var(--sp-3);
+  background: var(--gradient-primary);
+}
+
+/* ══════════════════════════════════════════════════════════
+   NAVBAR CTA (desktop — right side)
+══════════════════════════════════════════════════════════ */
+
+.navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  flex-shrink: 0;
+}
+
+/* ══════════════════════════════════════════════════════════
+   HAMBURGER BUTTON (mobile only)
+══════════════════════════════════════════════════════════ */
+
+.navbar__hamburger {
+  display: none;           /* hidden on desktop */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  border: 1px solid var(--clr-border);
+  cursor: pointer;
+  padding: var(--sp-2);
+  transition: border-color var(--transition-fast),
+              background   var(--transition-fast);
+  /* min touch target already met by width/height */
+}
+
+.navbar__hamburger:hover {
+  border-color: var(--clr-border-medium);
+  background: var(--clr-primary-subtle);
+}
+
+.navbar__hamburger:focus-visible {
+  outline: 2px solid var(--clr-border-focus);
+  outline-offset: 2px;
+}
+
+.navbar__bar {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--clr-text-secondary);
+  border-radius: var(--radius-full);
+  transform-origin: center;
+  transition:
+    transform  var(--transition-base),
+    opacity    var(--transition-fast),
+    background var(--transition-fast);
+}
+
+/* Animated X when menu is open */
+.navbar__hamburger[aria-expanded="true"] .navbar__bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+  background: var(--clr-primary-hover);
+}
+.navbar__hamburger[aria-expanded="true"] .navbar__bar:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.navbar__hamburger[aria-expanded="true"] .navbar__bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+  background: var(--clr-primary-hover);
+}
+
+/* ══════════════════════════════════════════════════════════
+   MOBILE MENU DRAWER
+══════════════════════════════════════════════════════════ */
+
+.navbar__mobile-menu {
+  /* Hidden by default */
+  display: none;
+  position: fixed;
+  top: var(--navbar-height);
+  left: 0;
+  right: 0;
+  /* Stop menu overflowing viewport height */
+  max-height: calc(100vh - var(--navbar-height));
+  overflow-y: auto;
+  background: rgba(13, 13, 20, 0.98);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--clr-border);
+  z-index: calc(var(--z-sticky) - 1);
+  padding-block: var(--sp-4) var(--sp-8);
+  /* Start off-screen for slide-in */
+  transform: translateY(-8px);
+  opacity: 0;
+  transition:
+    opacity    var(--transition-base),
+    transform  var(--transition-base);
+}
+
+/* When JS opens the menu */
+.navbar__mobile-menu.is-open {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Mobile nav link list */
+.navbar__mobile-nav {
+  display: flex;
+  flex-direction: column;
+  padding-inline: var(--container-pad);
+}
+
+.navbar__mobile-link {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: var(--sp-4) var(--sp-2);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-medium);
+  color: var(--clr-text-secondary);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  border-bottom: 1px solid var(--clr-border-subtle);
+  transition: color var(--transition-colors),
+              background var(--transition-fast),
+              padding-left var(--transition-base);
+  letter-spacing: var(--ls-wide);
+}
+
+.navbar__mobile-link:last-of-type {
+  border-bottom: none;
+}
+
+.navbar__mobile-link::before {
+  content: '';
+  display: block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--clr-border-medium);
+  flex-shrink: 0;
+  transition: background var(--transition-colors),
+              transform  var(--transition-base);
+}
+
+.navbar__mobile-link:hover {
+  color: var(--clr-text-primary);
+  padding-left: var(--sp-4);
+}
+
+.navbar__mobile-link:hover::before {
+  background: var(--clr-primary);
+  transform: scale(1.4);
+}
+
+.navbar__mobile-link.is-active {
+  color: var(--clr-primary-hover);
+}
+
+.navbar__mobile-link.is-active::before {
+  background: var(--clr-primary);
+}
+
+/* Mobile CTA area */
+.navbar__mobile-cta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  padding: var(--sp-6) var(--container-pad) var(--sp-2);
+  padding-top: var(--sp-6);
+}
+
+.navbar__mobile-cta .btn {
+  width: 100%;
+  justify-content: center;
+}
+
+/* ══════════════════════════════════════════════════════════
+   RESPONSIVE BREAKPOINTS
+══════════════════════════════════════════════════════════ */
+
+/* Mobile: ≤ 767px */
+@media (max-width: 767px) {
+  .navbar__nav     { display: none; }
+  .navbar__actions { display: none; }
+  .navbar__hamburger { display: flex; }
+}
+
+/* Tablet and up: ≥ 768px */
+@media (min-width: 768px) {
+  .navbar__hamburger  { display: none; }
+  .navbar__mobile-menu {
+    /* Never render on desktop — even if .is-open is set */
+    display: none !important;
+  }
+}
+
+/* Tighten nav links on smaller desktops */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .navbar__link {
+    padding-inline: var(--sp-2);
+    font-size: var(--fs-xs);
+  }
+  .navbar__nav { gap: 0; }
+}
+
+/* ══════════════════════════════════════════════════════════
+   REDUCED MOTION
+══════════════════════════════════════════════════════════ */
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar__bar,
+  .navbar__link::after,
+  .navbar__mobile-menu,
+  .navbar__logo-mark,
+  .navbar__mobile-link {
+    transition: none;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════
+   BODY OFFSET — push content below fixed navbar
+   Applied to body when navbar is present.
+══════════════════════════════════════════════════════════ */
+
+body.has-navbar {
+  padding-top: var(--navbar-height);
+}

@@ -1,0 +1,284 @@
+﻿/* ============================================================
+   TYPOGRAPHY SYSTEM — typography.css
+   Named type classes for consistent use across all sections.
+   All font sizes reference tokens from variables.css.
+   ============================================================ */
+
+/* ══════════════════════════════════════════════════════════
+   DISPLAY & HERO HEADINGS
+══════════════════════════════════════════════════════════ */
+
+/* Oversized accent heading — hero only */
+.type-display {
+  font-size: var(--fs-display);
+  font-weight: var(--fw-black);
+  line-height: var(--lh-none);
+  letter-spacing: var(--ls-tighter);
+  color: var(--clr-text-primary);
+}
+
+/* Primary page heading — one per page */
+.type-h1 {
+  font-size: var(--fs-4xl);
+  font-weight: var(--fw-black);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tighter);
+  color: var(--clr-text-primary);
+}
+
+/* Section headings */
+.type-h2 {
+  font-size: var(--fs-3xl);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-tight);
+  color: var(--clr-text-primary);
+}
+
+/* Sub-section headings */
+.type-h3 {
+  font-size: var(--fs-2xl);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-tight);
+  color: var(--clr-text-primary);
+}
+
+/* Card headings, widget titles */
+.type-h4 {
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-semi);
+  line-height: var(--lh-snug);
+  color: var(--clr-text-primary);
+}
+
+/* Small section labels */
+.type-h5 {
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-semi);
+  line-height: var(--lh-normal);
+  color: var(--clr-text-primary);
+}
+
+/* ══════════════════════════════════════════════════════════
+   BODY TEXT
+══════════════════════════════════════════════════════════ */
+
+/* Lead — first paragraph or hero subtitle */
+.type-lead {
+  font-size: var(--fs-md);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-relaxed);
+  color: var(--clr-text-secondary);
+  max-width: var(--measure-md);
+}
+
+/* Standard body */
+.type-body {
+  font-size: var(--fs-base);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-relaxed);
+  color: var(--clr-text-secondary);
+}
+
+/* Small body — footnotes, timestamps, helper text */
+.type-small {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-normal);
+  color: var(--clr-text-muted);
+}
+
+/* Caption — image captions, tooltips */
+.type-caption {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-normal);
+  color: var(--clr-text-muted);
+  letter-spacing: var(--ls-wide);
+}
+
+/* ══════════════════════════════════════════════════════════
+   LABELS & NAVIGATION
+══════════════════════════════════════════════════════════ */
+
+/* Section eyebrow / tag label */
+.type-label {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semi);
+  font-family: var(--font-mono);
+  letter-spacing: var(--ls-widest);
+  text-transform: uppercase;
+  color: var(--clr-primary);
+  line-height: var(--lh-none);
+}
+
+/* Monospace label — tech stack badges, code tags */
+.type-mono {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-normal);
+  color: var(--clr-accent);
+}
+
+/* Navigation items */
+.type-nav {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-wide);
+  line-height: 1;
+  color: var(--clr-text-secondary);
+  transition: color var(--transition-colors);
+}
+.type-nav:hover,
+.type-nav.is-active {
+  color: var(--clr-text-primary);
+}
+
+/* Button text */
+.type-btn {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semi);
+  letter-spacing: var(--ls-wide);
+  line-height: 1;
+}
+
+/* ══════════════════════════════════════════════════════════
+   COLOUR MODIFIERS
+══════════════════════════════════════════════════════════ */
+
+.text-primary   { color: var(--clr-text-primary) !important; }
+.text-secondary { color: var(--clr-text-secondary) !important; }
+.text-muted     { color: var(--clr-text-muted) !important; }
+.text-accent    { color: var(--clr-accent) !important; }
+.text-brand     { color: var(--clr-primary) !important; }
+.text-success   { color: var(--clr-success) !important; }
+.text-warning   { color: var(--clr-warning) !important; }
+.text-error     { color: var(--clr-error) !important; }
+
+/* ── Gradient text ─────────────────────────────────────── */
+.text-gradient {
+  background: var(--gradient-primary-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* Prevent invisible text in some browsers when color fails */
+  color: var(--clr-primary);
+}
+
+/* ── Shimmer text (used sparingly for hero accents) ─────── */
+.text-shimmer {
+  background: linear-gradient(
+    135deg,
+    var(--clr-primary-light) 0%,
+    var(--clr-accent)        40%,
+    var(--clr-primary)       70%,
+    var(--clr-primary-light) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--clr-primary);
+  animation: text-shimmer 4s linear infinite;
+}
+
+@keyframes text-shimmer {
+  0%   { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .text-shimmer { animation: none; background-position: 0% center; }
+}
+
+/* ── Weight modifiers ───────────────────────────────────── */
+.font-normal { font-weight: var(--fw-normal) !important; }
+.font-medium { font-weight: var(--fw-medium) !important; }
+.font-semi   { font-weight: var(--fw-semi) !important; }
+.font-bold   { font-weight: var(--fw-bold) !important; }
+.font-black  { font-weight: var(--fw-black) !important; }
+.font-mono   { font-family: var(--font-mono) !important; }
+
+/* ── Alignment helpers ──────────────────────────────────── */
+.text-left   { text-align: left !important; }
+.text-center { text-align: center !important; }
+.text-right  { text-align: right !important; }
+
+/* ── Overflow ────────────────────────────────────────────── */
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+/* ══════════════════════════════════════════════════════════
+   SECTION HEADER PATTERN
+   Consistent eyebrow → title → subtitle layout.
+══════════════════════════════════════════════════════════ */
+
+.section-header {
+  text-align: center;
+  margin-bottom: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+.section-header--left {
+  text-align: left;
+}
+
+/* Eyebrow label above section title */
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-3);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semi);
+  font-family: var(--font-mono);
+  letter-spacing: var(--ls-widest);
+  text-transform: uppercase;
+  color: var(--clr-primary);
+  margin-bottom: var(--sp-4);
+}
+
+/* Decorative lines flanking eyebrow */
+.section-eyebrow::before,
+.section-eyebrow::after {
+  content: '';
+  display: block;
+  height: 1px;
+  width: clamp(1.5rem, 3vw, 2.5rem);
+  background: var(--gradient-primary);
+  flex-shrink: 0;
+}
+
+.section-eyebrow--no-lines::before,
+.section-eyebrow--no-lines::after {
+  display: none;
+}
+
+.section-title {
+  font-size: var(--fs-3xl);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight);
+  color: var(--clr-text-primary);
+  margin-bottom: var(--sp-4);
+  text-wrap: balance;
+}
+
+.section-subtitle {
+  font-size: var(--fs-md);
+  color: var(--clr-text-secondary);
+  line-height: var(--lh-relaxed);
+  max-width: var(--measure-md);
+  margin-inline: auto;
+}
+
+.section-header--left .section-subtitle {
+  margin-inline: 0;
+}
