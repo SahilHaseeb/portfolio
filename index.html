@@ -249,19 +249,25 @@
           <!-- ── RIGHT: Profile Visual ──────────────────── -->
           <div class="hero__visual" data-entrance>
 
-            <div class="profile-frame" role="img" aria-label="Profile photo placeholder for HaseebSahil">
+            <div class="profile-frame" role="img" aria-label="Profile photo of HaseebSahil">
 
               <!-- Spinning gradient ring -->
               <div class="profile-frame__ring" aria-hidden="true"></div>
 
               <!-- Avatar inner circle -->
               <div class="profile-frame__inner">
-                <!--
-                  Real photo can be placed at /public/assets/images/profile.jpg
-                -->
-                <div class="profile-avatar-placeholder" aria-hidden="true">
+                <img
+                  src="/public/assets/images/profile.jpg"
+                  alt="HaseebSahil — Profile Photo"
+                  class="profile-frame__img"
+                  width="420"
+                  height="420"
+                  loading="eager"
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                />
+                <div class="profile-avatar-placeholder" style="display: none;" aria-hidden="true">
                   <span class="profile-avatar-placeholder__initial">HS</span>
-                  <span class="profile-avatar-placeholder__label">Photo Placeholder</span>
+                  <span class="profile-avatar-placeholder__label">HaseebSahil</span>
                 </div>
               </div>
 

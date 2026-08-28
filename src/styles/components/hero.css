@@ -1,4 +1,4 @@
-﻿/* ============================================================
+/* ============================================================
    HERO SECTION — hero.css
    Two-column layout: text left, visual right.
    Mobile: stacked vertically.
@@ -278,6 +278,20 @@
   overflow: hidden;
   background: var(--gradient-surface);
   border: 2px solid var(--clr-border);
+}
+
+/* Real profile photo */
+.profile-frame__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 18%;
+  display: block;
+  transition: transform var(--transition-base);
+}
+
+.profile-frame:hover .profile-frame__img {
+  transform: scale(1.05);
 }
 
 /* ── Avatar placeholder (shown until real photo is added) ── */
