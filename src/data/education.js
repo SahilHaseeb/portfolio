@@ -2,18 +2,17 @@
  * education.js — Academic background & Learning Journey data
  *
  * Single source of truth for formal education and self-directed learning roadmap.
- * All entries use clear placeholders ready to be customized.
  */
 
 export const EDUCATION_DATA = [
   {
     id: "degree-1",
-    degree: "Bachelor of Science in Computer Science",
-    institution: "University Name",
-    period: "20XX — Present",
+    degree: "BS Computer Science",
+    institution: "COMSATS University Islamabad",
+    period: "2024 — 2028",
     status: "In Progress",
     description:
-      "Comprehensive Computer Science curriculum with a strong emphasis on core computing fundamentals, algorithmic problem solving, database architecture, and applied artificial intelligence.",
+      "Pursuing a Bachelor of Science in Computer Science at COMSATS University Islamabad with an academic focus on core computing fundamentals, data structures, algorithmic problem solving, and modern AI technologies.",
     coursework: [
       "Data Structures & Algorithms",
       "Database Systems",
@@ -25,9 +24,9 @@ export const EDUCATION_DATA = [
       "Operating Systems",
     ],
     highlights: [
-      "Focusing on data science pipelines, statistical modeling, and machine learning techniques",
-      "Building practical hands-on projects alongside core university coursework",
-      "Active participant in technical student clubs and developer communities",
+      "Relevant Learning: Full Stack Python with AI",
+      "Building practical solutions across Data Science, Machine Learning, Deep Learning, and Web Scraping",
+      "Applying coursework concepts directly through hands-on project implementations",
     ],
   },
 ];
@@ -39,43 +38,43 @@ export const LEARNING_ROADMAP = [
     status: "Completed",
     statusLabel: "Solid Foundation",
     description:
-      "Programming fundamentals, algorithm design, data structures, and computational mathematics.",
-    topics: ["C++", "Java", "Data Structures", "Algorithms", "OOP Principles"],
+      "Object-oriented programming, data structures, algorithmic thinking, and discrete mathematics.",
+    topics: ["Python", "Data Structures", "Algorithms", "OOP Principles", "Problem Solving"],
   },
   {
     phase: "02",
-    title: "Python & Development Workflow",
+    title: "Full Stack Python & Workflow",
     status: "Completed",
     statusLabel: "Working Knowledge",
     description:
-      "Modern Python scripting, modular programming, version control with Git/GitHub, and clean code practices.",
-    topics: ["Python 3", "Git & GitHub", "VS Code", "Virtual Environments", "ES Modules"],
+      "Modular Python development, web fundamentals, version control with Git/GitHub, and development workflows.",
+    topics: ["Python", "HTML", "CSS", "JavaScript", "Git", "GitHub", "VS Code"],
   },
   {
     phase: "03",
-    title: "Data Analysis & Visualisation",
+    title: "Data Science & Analysis",
     status: "In Progress",
     statusLabel: "Active Focus",
     description:
-      "Exploratory data analysis, matrix manipulation, data wrangling, and statistical visual storytelling.",
-    topics: ["NumPy", "Pandas", "Matplotlib", "Seaborn", "Data Cleaning"],
+      "Data wrangling, matrix computation, exploratory data analysis, and visual storytelling.",
+    topics: ["NumPy", "Pandas", "Data Analysis", "Data Visualization", "Matplotlib", "Seaborn"],
   },
   {
     phase: "04",
-    title: "Machine Learning & Modeling",
+    title: "Machine Learning & AI",
     status: "In Progress",
     statusLabel: "Currently Exploring",
     description:
-      "Supervised & unsupervised learning pipelines, model training, evaluation metrics, and feature engineering.",
-    topics: ["Scikit-learn", "Regression", "Classification", "Clustering", "Model Validation"],
+      "Supervised & unsupervised learning algorithms, model training, evaluation metrics, and feature engineering.",
+    topics: ["Machine Learning", "Deep Learning", "Scikit-learn", "Classification", "Regression"],
   },
   {
     phase: "05",
-    title: "Applied AI, Scraping & Beyond",
-    status: "Planned",
-    statusLabel: "Next Horizons",
+    title: "Web Scraping & Automation",
+    status: "In Progress",
+    statusLabel: "Active Practice",
     description:
-      "Automated web scraping, deep learning fundamentals, Natural Language Processing, and cloud deployments.",
-    topics: ["BeautifulSoup", "Selenium", "NLP Basics", "Neural Networks", "API Integration"],
+      "Automated web scraping, DOM parsing, browser automation, and structured dataset curation.",
+    topics: ["Web Scraping", "BeautifulSoup", "Selenium", "Requests", "Data Extraction"],
   },
 ];

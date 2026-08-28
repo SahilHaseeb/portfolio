@@ -149,8 +149,8 @@ function handleStaticSubmission(form, fields, statusContainer) {
     `From: ${fields.name.value.trim()} (${fields.email.value.trim()})\n\n${fields.message.value.trim()}`
   );
 
-  // Mailto fallback (uses placeholder recipient)
-  const mailtoUrl = `mailto:your-email@example.com?subject=${subjectVal}&body=${messageVal}`;
+  // Mailto fallback (uses real email recipient)
+  const mailtoUrl = `mailto:haseebsahil0081@gmail.com?subject=${subjectVal}&body=${messageVal}`;
 
   statusContainer.innerHTML = `
     <div class="form-status form-status--info fade-up" role="region" aria-label="Submission feedback">
