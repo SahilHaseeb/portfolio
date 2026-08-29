@@ -11,6 +11,7 @@ import { CERTIFICATES } from "../data/certificates.js";
 import { createCertificateCardHTML } from "../components/certificateCard.js";
 import { $ } from "../js/utils.js";
 import { initScrollAnimations } from "../js/animations.js";
+import { initTilt } from "../js/tilt.js";
 
 /**
  * Initializes the Certificates section.
@@ -36,4 +37,5 @@ export function initCertificates() {
   }
 
   initScrollAnimations();
+  initTilt();
 }

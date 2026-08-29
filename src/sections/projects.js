@@ -13,6 +13,8 @@ import { CATEGORIES, PROJECTS } from "../data/projects.js";
 import { createProjectCardHTML } from "../components/projectCard.js";
 import { $, $$, on } from "../js/utils.js";
 import { initScrollAnimations } from "../js/animations.js";
+import { initTilt } from "../js/tilt.js";
+import { initMagnetic } from "../js/magnetic.js";
 
 let currentFilter = "All";
 
@@ -101,6 +103,8 @@ function renderProjects(gridContainer, filter) {
       .join("");
   }
 
-  // Re-initialize intersection observer for freshly rendered cards
+  // Re-initialize intersection observer and 3D tilt on freshly rendered cards
   initScrollAnimations();
+  initTilt();
+  initMagnetic();
 }

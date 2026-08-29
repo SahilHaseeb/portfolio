@@ -65,9 +65,11 @@
 
 /* Reusable contact item card */
 .contact-item {
-  background: var(--clr-bg-surface);
-  border: 1px solid var(--clr-border);
-  border-radius: var(--radius-lg);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
   padding: var(--sp-4) var(--sp-5);
   display: flex;
   align-items: center;
@@ -75,16 +77,15 @@
   gap: var(--sp-4);
   box-shadow: var(--shadow-card);
   transition:
-    border-color var(--transition-slow),
-    transform    var(--transition-slow),
-    box-shadow   var(--transition-slow);
+    border-color var(--transition-base),
+    transform    var(--transition-base),
+    box-shadow   var(--transition-base);
 }
 
 @media (hover: hover) {
   .contact-item:hover {
-    border-color: var(--clr-border-medium);
+    border-color: var(--glass-border-hover);
     box-shadow: var(--shadow-card-hover);
-    transform: translateY(-3px);
   }
 }
 
@@ -195,8 +196,10 @@
 ══════════════════════════════════════════════════════════ */
 
 .contact-form {
-  background: var(--clr-bg-surface);
-  border: 1px solid var(--clr-border);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-xl);
   padding: clamp(var(--sp-6), 4vw, var(--sp-8));
   display: flex;

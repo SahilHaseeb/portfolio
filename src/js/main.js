@@ -1,8 +1,8 @@
 /**
- * main.js — Application bootstrap
+ * main.js — Application bootstrap & 3D Motion Orchestration
  *
- * Imports and initialises all JS modules.
- * Future sections wire up here — one import + one init() call.
+ * Imports and initialises all JS modules and interactive engines.
+ * 100% dependency-free Vanilla ES Modules architecture.
  */
 
 import { initScrollAnimations, initPageEntrance } from './animations.js';
@@ -16,50 +16,46 @@ import { initCertificates } from '../sections/certificates.js';
 import { initContact } from '../sections/contact.js';
 import { initFooter } from '../sections/footer.js';
 
-// Future imports (added per step):
-// import { initTheme }    from '../components/themeToggle.js';
+// Interactive 3D & Motion engines
+import { initTilt } from './tilt.js';
+import { initCursor } from './cursor.js';
+import { initMagnetic } from './magnetic.js';
+import { initBackground, initScrollProgress } from './background.js';
 
 /**
  * Bootstrap — runs after DOM is parsed.
  */
 function init() {
-  // 1. Navigation (must be first — sets body padding)
+  // 1. Interactive Ambient Background & Scroll Progress
+  initBackground();
+  initScrollProgress();
+
+  // 2. Navigation
   initNavbar();
 
-  // 2. Hero entrance animations (section-specific stagger)
+  // 3. Section specific logic & entrance
   initHero();
-
-  // 3. About section
   initAbout();
-
-  // 4. Skills section
   initSkills();
-
-  // 5. Projects showcase & dynamic filtering
   initProjects();
-
-  // 6. Education & Learning Journey
   initEducation();
-
-  // 7. Certificates & Achievements
   initCertificates();
-
-  // 8. Contact section & form validation
   initContact();
-
-  // 9. Footer & Back-to-Top
   initFooter();
 
-  // 10. Generic scroll-triggered animations (IntersectionObserver)
+  // 4. Scroll & Viewport Observers
   initScrollAnimations();
-
-  // 11. Generic above-fold entrance (non-hero)
   initPageEntrance();
+
+  // 5. 3D Tilt, Magnetic Physics, & Custom Cursor
+  initTilt();
+  initMagnetic();
+  initCursor();
 
   // Developer console signature
   if (typeof console !== 'undefined') {
     console.log(
-      '%c  Portfolio  ',
+      '%c  HaseebSahil Portfolio  ',
       [
         'background: linear-gradient(135deg, #6C63FF, #00E5D1)',
         'color: #fff',
@@ -70,7 +66,7 @@ function init() {
         'letter-spacing: 1px',
       ].join(';')
     );
-    console.log('%cNavbar + Hero + About + Skills loaded. Step 4 complete.', 'color:#6B6B8D;font-size:11px;');
+    console.log('%cModern 3D & Motion System active. 0 dependencies.', 'color:#6B6B8D;font-size:11px;');
   }
 }
 
@@ -80,4 +76,3 @@ if (document.readyState === 'loading') {
 } else {
   init();
 }
-

@@ -95,7 +95,7 @@ export function createCertificateCardHTML(cert) {
 
   return `
     <article
-      class="cert-card fade-up"
+      class="cert-card card-tilt-3d fade-up"
       id="${cert.id}"
       tabindex="0"
       aria-labelledby="title-${cert.id}"

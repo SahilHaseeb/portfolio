@@ -65,9 +65,11 @@
 }
 
 .edu-card {
-  background: var(--clr-bg-surface);
-  border: 1px solid var(--clr-border);
-  border-radius: var(--radius-lg);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
   padding: var(--sp-6);
   display: flex;
   flex-direction: column;
@@ -75,9 +77,9 @@
   position: relative;
   box-shadow: var(--shadow-card);
   transition:
-    border-color var(--transition-slow),
-    box-shadow   var(--transition-slow),
-    transform    var(--transition-slow);
+    border-color var(--transition-base),
+    box-shadow   var(--transition-base),
+    transform    var(--transition-base);
 }
 
 .edu-card::before {
@@ -86,15 +88,14 @@
   top: 0; left: 0; right: 0;
   height: 2px;
   background: var(--gradient-primary);
-  opacity: 0.8;
-  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  opacity: 0.85;
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
 }
 
 @media (hover: hover) {
   .edu-card:hover {
-    border-color: var(--clr-border-medium);
+    border-color: var(--glass-border-hover);
     box-shadow: var(--shadow-card-hover);
-    transform: translateY(-4px);
   }
 }
 
@@ -272,29 +273,33 @@
 }
 
 .roadmap-node__card {
-  background: var(--clr-bg-surface);
-  border: 1px solid var(--clr-border);
-  border-radius: var(--radius-md);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur-sm));
+  -webkit-backdrop-filter: blur(var(--glass-blur-sm));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
   padding: var(--sp-4) var(--sp-5);
   display: flex;
   flex-direction: column;
   gap: var(--sp-2-5);
   box-shadow: var(--shadow-card);
   transition:
-    border-color var(--transition-slow),
-    transform    var(--transition-slow),
-    box-shadow   var(--transition-slow);
+    border-color var(--transition-base),
+    transform    var(--transition-base),
+    box-shadow   var(--transition-base);
 }
 
 @media (hover: hover) {
   .roadmap-node:hover .roadmap-node__card {
-    border-color: var(--clr-border-medium);
+    border-color: var(--glass-border-hover);
     transform: translateX(4px);
     box-shadow: var(--shadow-card-hover);
   }
 
   .roadmap-node:hover .roadmap-node__marker {
-    transform: scale(1.1);
+    transform: scale(1.15);
+    border-color: var(--palette-teal-400);
+    box-shadow: 0 0 16px var(--glow-cyan);
   }
 }
 

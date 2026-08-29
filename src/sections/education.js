@@ -10,6 +10,7 @@
 import { EDUCATION_DATA, LEARNING_ROADMAP } from "../data/education.js";
 import { $ } from "../js/utils.js";
 import { initScrollAnimations } from "../js/animations.js";
+import { initTilt } from "../js/tilt.js";
 
 /**
  * Initializes the Education & Learning Journey section.
@@ -29,6 +30,7 @@ export function initEducation() {
   }
 
   initScrollAnimations();
+  initTilt();
 }
 
 /**
@@ -46,7 +48,7 @@ function renderEducation(container) {
       .join("");
 
     return `
-      <article class="edu-card fade-up" id="${item.id}" tabindex="0" aria-labelledby="edu-title-${item.id}">
+      <article class="edu-card card-tilt-3d fade-up" id="${item.id}" tabindex="0" aria-labelledby="edu-title-${item.id}">
         <div class="edu-card__header">
           <div class="edu-card__badge-wrap">
             <span class="edu-card__icon" aria-hidden="true">🎓</span>

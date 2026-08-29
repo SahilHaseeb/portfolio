@@ -43,6 +43,18 @@
 </head>
 <body>
 
+  <!-- ── Global Scroll Progress Indicator ──────────────────── -->
+  <div id="scroll-progress" role="progressbar" aria-label="Page scroll progress" aria-valuemin="0" aria-valuemax="100"></div>
+
+  <!-- ── Custom Cursor Elements (Desktop pointer devices) ─── -->
+  <div id="custom-cursor" aria-hidden="true"></div>
+  <div id="cursor-ring" aria-hidden="true"></div>
+
+  <!-- ── Interactive Ambient Cyber Background ──────────────── -->
+  <div class="cyber-bg-grid" aria-hidden="true"></div>
+  <div class="cyber-ambient-orb cyber-ambient-orb--1" aria-hidden="true"></div>
+  <div class="cyber-ambient-orb cyber-ambient-orb--2" aria-hidden="true"></div>
+
   <!-- ══════════════════════════════════════════════════════
        SKIP TO CONTENT (keyboard/screen-reader accessibility)
   ══════════════════════════════════════════════════════════ -->
@@ -171,7 +183,7 @@
             <!-- CTA buttons -->
             <div class="hero__cta" data-entrance>
               <a href="#projects"
-                 class="btn btn--primary"
+                 class="btn btn--primary btn--magnetic"
                  id="hero-cta-projects">
                 <!-- Icon: arrow right -->
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
@@ -246,59 +258,67 @@
 
           </div><!-- /.hero__content -->
 
-          <!-- ── RIGHT: Profile Visual ──────────────────── -->
+          <!-- ── RIGHT: 3D Holographic Perspective Workspace ── -->
           <div class="hero__visual" data-entrance>
 
-            <div class="profile-frame" role="img" aria-label="Profile photo of HaseebSahil">
+            <div class="hero-3d-workspace">
 
-              <!-- Spinning gradient ring -->
-              <div class="profile-frame__ring" aria-hidden="true"></div>
+              <div class="profile-frame" role="img" aria-label="Profile photo of HaseebSahil">
 
-              <!-- Avatar inner circle -->
-              <div class="profile-frame__inner">
-                <img
-                  src="/public/assets/images/profile.jpg"
-                  alt="HaseebSahil — Profile Photo"
-                  class="profile-frame__img"
-                  width="420"
-                  height="420"
-                  loading="eager"
-                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-                />
-                <div class="profile-avatar-placeholder" style="display: none;" aria-hidden="true">
-                  <span class="profile-avatar-placeholder__initial">HS</span>
-                  <span class="profile-avatar-placeholder__label">HaseebSahil</span>
+                <!-- Ambient glow backplane -->
+                <div class="profile-frame__glow" aria-hidden="true"></div>
+
+                <!-- Spinning cyber ring orbits -->
+                <div class="profile-frame__ring" aria-hidden="true"></div>
+                <div class="profile-frame__ring-outer" aria-hidden="true"></div>
+
+                <!-- Avatar inner circle with depth -->
+                <div class="profile-frame__inner">
+                  <img
+                    src="/public/assets/images/profile.jpg"
+                    alt="HaseebSahil — Profile Photo"
+                    class="profile-frame__img"
+                    width="420"
+                    height="420"
+                    loading="eager"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                  />
+                  <div class="profile-avatar-placeholder" style="display: none;" aria-hidden="true">
+                    <span class="profile-avatar-placeholder__initial">HS</span>
+                    <span class="profile-avatar-placeholder__label">HaseebSahil</span>
+                  </div>
                 </div>
-              </div>
 
-              <!-- Floating stat card — top left -->
-              <div class="hero-stat hero-stat--tl" aria-label="Core Focus: Python and AI/ML">
-                <span class="hero-stat__icon" aria-hidden="true">🐍</span>
-                <div class="hero-stat__text">
-                  <span class="hero-stat__value">Python &amp; AI/ML</span>
-                  <span class="hero-stat__label">Core Focus</span>
+                <!-- Floating stat card — top left (Python & ML) -->
+                <div class="hero-stat hero-stat--tl card-tilt-3d" data-depth="0.06" aria-label="Core Focus: Python and AI/ML">
+                  <span class="hero-stat__icon" aria-hidden="true">🐍</span>
+                  <div class="hero-stat__text">
+                    <span class="hero-stat__value">Python &amp; AI/ML</span>
+                    <span class="hero-stat__label">Core Focus</span>
+                  </div>
                 </div>
-              </div>
 
-              <!-- Floating stat card — top right -->
-              <div class="hero-stat hero-stat--tr" aria-label="Data Science and Analysis">
-                <span class="hero-stat__icon" aria-hidden="true">📊</span>
-                <div class="hero-stat__text">
-                  <span class="hero-stat__value">Data Science</span>
-                  <span class="hero-stat__label">Analysis &amp; Viz</span>
+                <!-- Floating stat card — top right (Data Science) -->
+                <div class="hero-stat hero-stat--tr card-tilt-3d" data-depth="0.09" aria-label="Data Science and Analysis">
+                  <span class="hero-stat__icon" aria-hidden="true">📊</span>
+                  <div class="hero-stat__text">
+                    <span class="hero-stat__value">Data Science</span>
+                    <span class="hero-stat__label">Analysis &amp; Viz</span>
+                  </div>
                 </div>
-              </div>
 
-              <!-- Floating stat card — bottom right -->
-              <div class="hero-stat hero-stat--br" aria-label="Live Projects">
-                <span class="hero-stat__icon" aria-hidden="true">🚀</span>
-                <div class="hero-stat__text">
-                  <span class="hero-stat__value">Live Projects</span>
-                  <span class="hero-stat__label">Expense Tracker &amp; More</span>
+                <!-- Floating stat card — bottom right (Live Projects) -->
+                <div class="hero-stat hero-stat--br card-tilt-3d" data-depth="0.05" aria-label="Live Projects">
+                  <span class="hero-stat__icon" aria-hidden="true">🚀</span>
+                  <div class="hero-stat__text">
+                    <span class="hero-stat__value">Live Projects</span>
+                    <span class="hero-stat__label">Expense Tracker &amp; More</span>
+                  </div>
                 </div>
-              </div>
 
-            </div><!-- /.profile-frame -->
+              </div><!-- /.profile-frame -->
+
+            </div><!-- /.hero-3d-workspace -->
 
           </div><!-- /.hero__visual -->
 
@@ -368,7 +388,7 @@
           <div class="about__visual">
 
             <!-- Card 1: Currently learning -->
-            <div class="about-info-card about-info-card--primary fade-up">
+            <div class="about-info-card about-info-card--primary card-tilt-3d fade-up">
               <div class="about-info-card__header">
                 <span class="about-info-card__icon about-info-card__icon--primary"
                       aria-hidden="true">🎓</span>
@@ -386,7 +406,7 @@
             </div>
 
             <!-- Card 2: Currently learning (tech) -->
-            <div class="about-info-card about-info-card--accent fade-up">
+            <div class="about-info-card about-info-card--accent card-tilt-3d fade-up">
               <div class="about-info-card__header">
                 <span class="about-info-card__icon about-info-card__icon--accent"
                       aria-hidden="true">📚</span>
@@ -410,7 +430,7 @@
             </div>
 
             <!-- Card 3: Code-snippet / persona block -->
-            <div class="about-code-block fade-up" role="img" aria-label="Developer profile code block for HaseebSahil">
+            <div class="about-code-block card-tilt-3d fade-up" role="img" aria-label="Developer profile code block for HaseebSahil">
               <div class="about-code-block__bar" aria-hidden="true">
                 <span class="about-code-block__dot about-code-block__dot--red"></span>
                 <span class="about-code-block__dot about-code-block__dot--amber"></span>
@@ -463,7 +483,7 @@
         <div class="skills__grid" role="list" aria-label="Skill categories">
 
           <!-- ── Programming ─────────────────────────────── -->
-          <article class="skill-card skill-card--programming fade-up" role="listitem">
+          <article class="skill-card skill-card--programming card-tilt-3d fade-up" role="listitem">
             <div class="skill-card__header">
               <span class="skill-card__icon-wrap" aria-hidden="true">💻</span>
               <div class="skill-card__heading">
@@ -477,7 +497,7 @@
           </article>
 
           <!-- ── Data Science & Analysis ─────────────────── -->
-          <article class="skill-card skill-card--data fade-up" role="listitem">
+          <article class="skill-card skill-card--data card-tilt-3d fade-up" role="listitem">
             <div class="skill-card__header">
               <span class="skill-card__icon-wrap" aria-hidden="true">📊</span>
               <div class="skill-card__heading">
@@ -494,7 +514,7 @@
           </article>
 
           <!-- ── Machine Learning & AI ───────────────────── -->
-          <article class="skill-card skill-card--ml fade-up" role="listitem">
+          <article class="skill-card skill-card--ml card-tilt-3d fade-up" role="listitem">
             <div class="skill-card__header">
               <span class="skill-card__icon-wrap" aria-hidden="true">🤖</span>
               <div class="skill-card__heading">
@@ -509,7 +529,7 @@
           </article>
 
           <!-- ── Web & Scraping ─────────────────────────── -->
-          <article class="skill-card skill-card--web fade-up" role="listitem">
+          <article class="skill-card skill-card--web card-tilt-3d fade-up" role="listitem">
             <div class="skill-card__header">
               <span class="skill-card__icon-wrap" aria-hidden="true">🌐</span>
               <div class="skill-card__heading">
@@ -528,7 +548,7 @@
           </article>
 
           <!-- ── Tools ───────────────────────────────────── -->
-          <article class="skill-card skill-card--tools fade-up" role="listitem">
+          <article class="skill-card skill-card--tools card-tilt-3d fade-up" role="listitem">
             <div class="skill-card__header">
               <span class="skill-card__icon-wrap" aria-hidden="true">🛠️</span>
               <div class="skill-card__heading">
@@ -733,7 +753,7 @@
               </div>
 
               <!-- GitHub Profile Card -->
-              <div class="contact-item">
+              <div class="contact-item card-tilt-3d">
                 <div class="contact-item__left">
                   <span class="contact-item__icon" aria-hidden="true">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -753,7 +773,7 @@
               </div>
 
               <!-- LinkedIn Profile Card -->
-              <div class="contact-item">
+              <div class="contact-item card-tilt-3d">
                 <div class="contact-item__left">
                   <span class="contact-item__icon" aria-hidden="true">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -774,7 +794,7 @@
               </div>
 
               <!-- Location Card -->
-              <div class="contact-item">
+              <div class="contact-item card-tilt-3d">
                 <div class="contact-item__left">
                   <span class="contact-item__icon" aria-hidden="true">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -792,7 +812,7 @@
             </div><!-- /.contact__methods -->
 
             <!-- Resume Download Box -->
-            <div class="contact__resume-box">
+            <div class="contact__resume-box card-tilt-3d">
               <div class="contact__resume-info">
                 <h3 class="contact__resume-title">Curriculum Vitae / Resume</h3>
                 <p class="contact__resume-desc">PDF format • Updated with coursework and projects</p>
@@ -800,7 +820,7 @@
               <a
                 href="/public/assets/documents/resume-placeholder.pdf"
                 id="contact-cta-resume"
-                class="btn btn--primary btn--sm"
+                class="btn btn--primary btn--sm btn--magnetic"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -888,7 +908,7 @@
               </div>
 
               <div class="form-submit-wrap">
-                <button type="submit" class="btn btn--primary" id="btn-submit-contact">
+                <button type="submit" class="btn btn--primary btn--magnetic" id="btn-submit-contact">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                     <line x1="22" y1="2" x2="11" y2="13"></line>
                     <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
@@ -994,7 +1014,7 @@
   <button
     type="button"
     id="back-to-top"
-    class="back-to-top"
+    class="back-to-top btn--magnetic"
     aria-label="Back to top of page"
     tabindex="-1"
   >

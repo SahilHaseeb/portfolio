@@ -47,19 +47,22 @@
 ══════════════════════════════════════════════════════════ */
 
 .cert-card {
-  background: var(--clr-bg-surface);
-  border: 1px solid var(--clr-border);
-  border-radius: var(--radius-lg);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
   display: flex;
   flex-direction: column;
   overflow: hidden;
   position: relative;
   box-shadow: var(--shadow-card);
   will-change: transform, box-shadow;
+  transform-style: preserve-3d;
   transition:
-    border-color var(--transition-slow),
-    box-shadow   var(--transition-slow),
-    transform    var(--transition-slow);
+    border-color var(--transition-base),
+    box-shadow   var(--transition-base),
+    transform    var(--transition-base);
 }
 
 .cert-card::before {
@@ -68,16 +71,15 @@
   top: 0; left: 0; right: 0;
   height: 2px;
   background: linear-gradient(90deg, var(--clr-accent) 0%, var(--clr-primary) 100%);
-  opacity: 0;
-  transition: opacity var(--transition-slow);
+  opacity: 0.4;
+  transition: opacity var(--transition-base);
   z-index: 2;
 }
 
 @media (hover: hover) {
   .cert-card:hover {
-    border-color: var(--clr-border-medium);
+    border-color: var(--glass-border-hover);
     box-shadow: var(--shadow-card-hover);
-    transform: translateY(-5px);
   }
 
   .cert-card:hover::before {

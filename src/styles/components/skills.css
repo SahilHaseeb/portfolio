@@ -35,32 +35,34 @@
 /* Category cards grid */
 .skills__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
-  gap: var(--sp-5);
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+  gap: var(--sp-6);
   position: relative;
   z-index: 1;
 }
 
 /* ══════════════════════════════════════════════════════════
-   SKILL CATEGORY CARD
+   SKILL CATEGORY CARD (Cyber Bento)
 ══════════════════════════════════════════════════════════ */
 
 .skill-card {
-  background: var(--clr-bg-surface);
-  border: 1px solid var(--clr-border);
-  border-radius: var(--radius-lg);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
   padding: var(--sp-6);
   display: flex;
   flex-direction: column;
-  gap: var(--sp-4);
+  gap: var(--sp-5);
   position: relative;
   overflow: hidden;
-  /* GPU hint */
+  box-shadow: var(--shadow-card);
   will-change: transform, box-shadow;
   transition:
-    border-color  var(--transition-slow),
-    box-shadow    var(--transition-slow),
-    transform     var(--transition-slow);
+    border-color  var(--transition-base),
+    box-shadow    var(--transition-base),
+    transform     var(--transition-base);
 }
 
 /* Top gradient accent line */
@@ -69,8 +71,8 @@
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 2px;
-  opacity: 0;
-  transition: opacity var(--transition-slow);
+  opacity: 0.5;
+  transition: opacity var(--transition-base);
 }
 
 /* Subtle inner corner glow */
@@ -78,11 +80,11 @@
   content: '';
   position: absolute;
   top: 0; left: 0;
-  width: 120px;
-  height: 120px;
+  width: 140px;
+  height: 140px;
   border-radius: 0 0 var(--radius-full) 0;
-  opacity: 0;
-  transition: opacity var(--transition-slow);
+  opacity: 0.3;
+  transition: opacity var(--transition-base);
   pointer-events: none;
 }
 

@@ -90,11 +90,11 @@ export function createProjectCardHTML(project) {
     `
     : "";
 
-  const liveButton = project.liveUrl
+    const liveButton = project.liveUrl
     ? `
       <a
         href="${project.liveUrl}"
-        class="btn btn--primary btn--sm project-card__action"
+        class="btn btn--primary btn--sm btn--magnetic project-card__action"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="View live deployment for ${project.title}"
@@ -109,7 +109,7 @@ export function createProjectCardHTML(project) {
 
   return `
     <article
-      class="project-card ${project.featured ? "project-card--featured" : ""} fade-up"
+      class="project-card card-tilt-3d ${project.featured ? "project-card--featured" : ""} fade-up"
       data-category="${project.category}"
       id="${project.id}"
       tabindex="0"

@@ -1,33 +1,24 @@
-﻿/**
- * hero.js — Hero section enhancements
+/**
+ * hero.js — Hero Section & 3D Interactive Workspace
  *
  * Features:
  *  - Staggered entrance animation for hero elements
- *  - Typewriter effect for the profession subtitle (subtle, optional)
- *  - Respects prefers-reduced-motion
- *
- * NOTE: The entrance animation system uses data-entrance attributes
- * with staggered delays. initPageEntrance() in animations.js handles
- * the generic version; this module handles hero-specific ordering.
+ *  - Interactive 3D Perspective Parallax on the Hero Cyber-Workspace
+ *  - Smooth lerp physics and multi-layer depth response
+ *  - Respects prefers-reduced-motion & touch devices
  */
 
 import { $$, $ } from '../js/utils.js';
 
-/**
- * initHero()
- * Wires up hero-specific JS behaviour.
- * Called from main.js once on DOMContentLoaded.
- */
 export function initHero() {
   _initStaggeredEntrance();
-  _initTypewriter();
+  _init3DParallax();
 }
 
 /* ── Staggered entrance ─────────────────────────────────── */
 function _initStaggeredEntrance() {
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // All elements in the hero with data-entrance attribute, in DOM order
   const elements = $$('[data-entrance]', $('#hero'));
   if (!elements.length) return;
 
@@ -36,9 +27,8 @@ function _initStaggeredEntrance() {
     return;
   }
 
-  // Stagger each element with an incremental delay
   elements.forEach((el, index) => {
-    const baseDelay = 80; // ms between each element
+    const baseDelay = 70;
     const delay = index * baseDelay;
     setTimeout(() => {
       requestAnimationFrame(() => el.classList.add('is-visible'));
@@ -46,62 +36,79 @@ function _initStaggeredEntrance() {
   });
 }
 
-/* ── Typewriter effect ──────────────────────────────────── */
-/**
- * Cycles through profession titles on the .hero__profession--typewriter element.
- * If element or data-titles attribute is missing, silently skips.
- */
-function _initTypewriter() {
+/* ── 3D Perspective Parallax Workspace ───────────────────── */
+function _init3DParallax() {
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (prefersReduced) return;
+  const isFinePointer = window.matchMedia('(pointer: fine)').matches;
 
-  const el = $('.hero__profession--typewriter');
-  if (!el) return;
+  if (prefersReduced || !isFinePointer) return;
 
-  const titlesAttr = el.dataset.titles;
-  if (!titlesAttr) return;
+  const heroSection = $('#hero');
+  const workspace = $('.hero-3d-workspace');
+  const depthElements = $$('[data-depth]', heroSection);
 
-  let titles;
-  try {
-    titles = JSON.parse(titlesAttr);
-  } catch {
-    return;
-  }
+  if (!heroSection || !workspace) return;
 
-  if (!Array.isArray(titles) || titles.length === 0) return;
+  let mouseX = 0;
+  let mouseY = 0;
+  let currentRotX = 0;
+  let currentRotY = 0;
+  let isHovered = false;
+  let rafId = null;
 
-  let titleIndex = 0;
-  let charIndex = 0;
-  let isDeleting = false;
+  const MAX_ROT_X = 6;  // Max deg pitch
+  const MAX_ROT_Y = 8;  // Max deg yaw
 
-  const TYPING_SPEED   = 65;  // ms per char
-  const DELETE_SPEED   = 35;  // ms per char when deleting
-  const PAUSE_COMPLETE = 2200; // pause at end of word
-  const PAUSE_EMPTY    = 400;  // pause at empty
+  heroSection.addEventListener(
+    'pointermove',
+    (e) => {
+      const rect = heroSection.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
 
-  function tick() {
-    const current = titles[titleIndex];
-    const displayed = current.slice(0, charIndex);
-    el.textContent = displayed;
+      mouseX = (x / (rect.width / 2));
+      mouseY = (y / (rect.height / 2));
 
-    let delay = isDeleting ? DELETE_SPEED : TYPING_SPEED;
+      if (!isHovered) {
+        isHovered = true;
+        _loop();
+      }
+    },
+    { passive: true }
+  );
 
-    if (!isDeleting && charIndex === current.length) {
-      // Finished typing — pause then delete
-      isDeleting = true;
-      delay = PAUSE_COMPLETE;
-    } else if (isDeleting && charIndex === 0) {
-      // Finished deleting — move to next
-      isDeleting = false;
-      titleIndex = (titleIndex + 1) % titles.length;
-      delay = PAUSE_EMPTY;
+  heroSection.addEventListener('pointerleave', () => {
+    isHovered = false;
+    mouseX = 0;
+    mouseY = 0;
+  });
+
+  function _loop() {
+    const targetRotX = -mouseY * MAX_ROT_X;
+    const targetRotY = mouseX * MAX_ROT_Y;
+
+    // Smooth Lerp
+    currentRotX += (targetRotX - currentRotX) * 0.08;
+    currentRotY += (targetRotY - currentRotY) * 0.08;
+
+    workspace.style.transform = `perspective(1200px) rotateX(${currentRotX.toFixed(2)}deg) rotateY(${currentRotY.toFixed(2)}deg)`;
+
+    // Multi-layer depth parallax on child items
+    depthElements.forEach((el) => {
+      const depth = parseFloat(el.dataset.depth) || 0.04;
+      const transX = mouseX * depth * 80;
+      const transY = mouseY * depth * 80;
+      el.style.transform = `translate3d(${transX.toFixed(1)}px, ${transY.toFixed(1)}px, 0)`;
+    });
+
+    if (isHovered || Math.abs(currentRotX) > 0.05 || Math.abs(currentRotY) > 0.05) {
+      rafId = requestAnimationFrame(_loop);
     } else {
-      charIndex += isDeleting ? -1 : 1;
+      workspace.style.transform = 'perspective(1200px) rotateX(0deg) rotateY(0deg)';
+      depthElements.forEach((el) => {
+        el.style.transform = 'translate3d(0, 0, 0)';
+      });
+      cancelAnimationFrame(rafId);
     }
-
-    setTimeout(tick, delay);
   }
-
-  // Start after entrance animation completes
-  setTimeout(tick, titles[0].length * TYPING_SPEED + 1200);
 }

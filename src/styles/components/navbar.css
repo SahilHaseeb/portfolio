@@ -1,4 +1,4 @@
-﻿/* ============================================================
+/* ============================================================
    NAVBAR — navbar.css
    Fixed top navigation bar with mobile hamburger menu.
    Tokens from variables.css, utilities from utilities.css.
@@ -15,23 +15,22 @@
   right: 0;
   z-index: var(--z-sticky);
   height: var(--navbar-height);
-  /* Glassmorphism surface — legible over hero content */
-  background: rgba(13, 13, 20, 0.80);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--clr-border-subtle);
-  /* Smooth scroll-shadow transition */
+  background: rgba(10, 11, 20, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   transition:
     background var(--transition-base),
     border-color var(--transition-base),
-    box-shadow var(--transition-base);
+    box-shadow var(--transition-base),
+    transform var(--transition-base);
 }
 
-/* Scrolled state — added by JS when page scrolls */
+/* Scrolled state — elevated glass dock */
 .navbar.is-scrolled {
-  background: rgba(13, 13, 20, 0.95);
-  border-bottom-color: var(--clr-border);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.40);
+  background: rgba(13, 14, 26, 0.88);
+  border-bottom-color: rgba(108, 99, 255, 0.22);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.55), 0 0 20px rgba(108, 99, 255, 0.08);
 }
 
 /* Inner flex row */
