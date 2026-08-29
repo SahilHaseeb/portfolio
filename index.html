@@ -46,14 +46,8 @@
   <!-- ── Global Scroll Progress Indicator ──────────────────── -->
   <div id="scroll-progress" role="progressbar" aria-label="Page scroll progress" aria-valuemin="0" aria-valuemax="100"></div>
 
-  <!-- ── Custom Cursor Elements (Desktop pointer devices) ─── -->
-  <div id="custom-cursor" aria-hidden="true"></div>
-  <div id="cursor-ring" aria-hidden="true"></div>
-
-  <!-- ── Interactive Ambient Cyber Background ──────────────── -->
+  <!-- ── Command Center Cyber Background ───────────────────── -->
   <div class="cyber-bg-grid" aria-hidden="true"></div>
-  <div class="cyber-ambient-orb cyber-ambient-orb--1" aria-hidden="true"></div>
-  <div class="cyber-ambient-orb cyber-ambient-orb--2" aria-hidden="true"></div>
 
   <!-- ══════════════════════════════════════════════════════
        SKIP TO CONTENT (keyboard/screen-reader accessibility)
@@ -154,16 +148,15 @@
 
             <!-- Eyebrow status badge -->
             <div class="hero__eyebrow" data-entrance>
-              <span class="badge badge--accent">
-                <span class="badge__dot badge__dot--pulse" aria-hidden="true"></span>
-                <!-- PLACEHOLDER: Update status when ready -->
-                Open to opportunities
-              </span>
+              <div class="status-indicator">
+                <span class="status-indicator__dot"></span>
+                <span class="status-indicator__text">SYSTEM READY // OPEN FOR PROJECTS</span>
+              </div>
             </div>
 
             <!-- Main headline -->
             <h1 id="hero-heading" class="hero__headline" data-entrance>
-              <span class="line-muted">Hello, I am</span>
+              <span class="line-muted">Hello, I'm</span>
               <span class="text-gradient">HaseebSahil</span>
             </h1>
 
@@ -174,10 +167,8 @@
 
             <!-- Short description -->
             <p class="hero__description" data-entrance>
-              I'm a Computer Science student passionate about building practical solutions with
-              <strong>Python</strong>, <strong>Data Science</strong>, <strong>Machine Learning</strong>,
-              and <strong>AI</strong>. I enjoy learning new technologies and turning what I learn
-              into real-world projects.
+              Building intelligent systems, scalable algorithms, and data-driven web applications.
+              Studying <strong>BS Computer Science</strong> at <strong>COMSATS University Islamabad</strong> (2024 — 2028).
             </p>
 
             <!-- CTA buttons -->
@@ -185,43 +176,27 @@
               <a href="#projects"
                  class="btn btn--primary btn--magnetic"
                  id="hero-cta-projects">
-                <!-- Icon: arrow right -->
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                   <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8"
                         stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
-                View My Projects
+                View Projects
               </a>
-              <!-- Resume CTA: Prepared for /public/assets/documents/resume.pdf -->
-              <a href="/public/assets/documents/resume-placeholder.pdf"
-                 class="btn btn--outline"
-                 id="hero-cta-resume"
+              <a href="https://github.com/SahilHaseeb"
+                 class="btn btn--outline btn--magnetic"
+                 id="hero-cta-github"
                  target="_blank"
                  rel="noopener noreferrer">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                  <path d="M8 2v8M5 7l3 3 3-3M3 13h10" stroke="currentColor" stroke-width="1.8"
-                        stroke-linecap="round" stroke-linejoin="round"/>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
                 </svg>
-                Download Resume
+                GitHub
               </a>
             </div>
 
             <!-- Social links strip -->
             <div class="hero__social" data-entrance>
-              <span class="hero__social-label" aria-hidden="true">Find me on</span>
-
-              <a href="https://github.com/SahilHaseeb"
-                 class="hero__social-link"
-                 id="hero-social-github"
-                 aria-label="GitHub Profile"
-                 target="_blank"
-                 rel="noopener noreferrer">
-                <!-- GitHub icon -->
-                <svg class="hero__social-icon" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
-                </svg>
-                GitHub
-              </a>
+              <span class="hero__social-label" aria-hidden="true">Connect</span>
 
               <a href="https://www.linkedin.com/in/muhammad-haseeb-7457b942b"
                  class="hero__social-link"
@@ -248,9 +223,21 @@
                 Email
               </a>
 
-            </div><!-- /.hero__social -->
+              <a href="/public/assets/documents/resume-placeholder.pdf"
+                 class="hero__social-link"
+                 id="hero-social-resume"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 aria-label="Resume PDF">
+                <svg class="hero__social-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" stroke="currentColor" stroke-width="1.8"/>
+                  <polyline points="14 2 14 8 20 8" stroke="currentColor" stroke-width="1.8"/>
+                </svg>
+                Resume
+              </a>
+            </div>
 
-            <!-- Scroll indicator (desktop only) -->
+            <!-- Scroll indicator -->
             <div class="hero__scroll-hint" aria-hidden="true">
               <span class="hero__scroll-arrow"></span>
               <span>Scroll to explore</span>
@@ -258,67 +245,69 @@
 
           </div><!-- /.hero__content -->
 
-          <!-- ── RIGHT: 3D Holographic Perspective Workspace ── -->
+          <!-- ── RIGHT: 3D Interactive AI / Data Core Visualization ── -->
           <div class="hero__visual" data-entrance>
 
-            <div class="hero-3d-workspace">
+            <div class="hero-core-viewport">
+              <div class="data-core" id="hero-data-core" aria-label="Interactive 3D AI and Data Core">
 
-              <div class="profile-frame" role="img" aria-label="Profile photo of HaseebSahil">
+                <!-- 3D Gyroscope Axis Rings -->
+                <div class="data-core__ring data-core__ring--x" aria-hidden="true"></div>
+                <div class="data-core__ring data-core__ring--y" aria-hidden="true"></div>
+                <div class="data-core__ring data-core__ring--z" aria-hidden="true"></div>
+                <div class="data-core__radar" aria-hidden="true"></div>
 
-                <!-- Ambient glow backplane -->
-                <div class="profile-frame__glow" aria-hidden="true"></div>
+                <!-- Central Glowing Quantum Nucleus -->
+                <div class="data-core__nucleus">
+                  <span class="data-core__nucleus-glow" aria-hidden="true"></span>
+                  <span class="data-core__nucleus-icon" aria-hidden="true">⚡</span>
+                  <span class="data-core__nucleus-title">DATA CORE</span>
+                  <span class="data-core__nucleus-sub">AI // ML // PYTHON</span>
+                </div>
 
-                <!-- Spinning cyber ring orbits -->
-                <div class="profile-frame__ring" aria-hidden="true"></div>
-                <div class="profile-frame__ring-outer" aria-hidden="true"></div>
-
-                <!-- Avatar inner circle with depth -->
-                <div class="profile-frame__inner">
-                  <img
-                    src="/public/assets/images/profile.jpg"
-                    alt="HaseebSahil — Profile Photo"
-                    class="profile-frame__img"
-                    width="420"
-                    height="420"
-                    loading="eager"
-                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-                  />
-                  <div class="profile-avatar-placeholder" style="display: none;" aria-hidden="true">
-                    <span class="profile-avatar-placeholder__initial">HS</span>
-                    <span class="profile-avatar-placeholder__label">HaseebSahil</span>
+                <!-- Floating 3D Data Satellite Nodes (Layered depths) -->
+                <div class="data-satellite data-satellite--1 card-tilt-3d" data-depth="0.08" aria-label="Python Core Engine">
+                  <span class="data-satellite__icon">🐍</span>
+                  <div class="data-satellite__meta">
+                    <span class="data-satellite__title">Python</span>
+                    <span class="data-satellite__sub">Core Engine</span>
                   </div>
                 </div>
 
-                <!-- Floating stat card — top left (Python & ML) -->
-                <div class="hero-stat hero-stat--tl card-tilt-3d" data-depth="0.06" aria-label="Core Focus: Python and AI/ML">
-                  <span class="hero-stat__icon" aria-hidden="true">🐍</span>
-                  <div class="hero-stat__text">
-                    <span class="hero-stat__value">Python &amp; AI/ML</span>
-                    <span class="hero-stat__label">Core Focus</span>
+                <div class="data-satellite data-satellite--2 card-tilt-3d" data-depth="0.12" aria-label="AI and Machine Learning">
+                  <span class="data-satellite__icon">🤖</span>
+                  <div class="data-satellite__meta">
+                    <span class="data-satellite__title">AI &amp; ML</span>
+                    <span class="data-satellite__sub">Neural Systems</span>
                   </div>
                 </div>
 
-                <!-- Floating stat card — top right (Data Science) -->
-                <div class="hero-stat hero-stat--tr card-tilt-3d" data-depth="0.09" aria-label="Data Science and Analysis">
-                  <span class="hero-stat__icon" aria-hidden="true">📊</span>
-                  <div class="hero-stat__text">
-                    <span class="hero-stat__value">Data Science</span>
-                    <span class="hero-stat__label">Analysis &amp; Viz</span>
+                <div class="data-satellite data-satellite--3 card-tilt-3d" data-depth="0.07" aria-label="Data Science and Analysis">
+                  <span class="data-satellite__icon">📊</span>
+                  <div class="data-satellite__meta">
+                    <span class="data-satellite__title">Data Science</span>
+                    <span class="data-satellite__sub">NumPy • Pandas</span>
                   </div>
                 </div>
 
-                <!-- Floating stat card — bottom right (Live Projects) -->
-                <div class="hero-stat hero-stat--br card-tilt-3d" data-depth="0.05" aria-label="Live Projects">
-                  <span class="hero-stat__icon" aria-hidden="true">🚀</span>
-                  <div class="hero-stat__text">
-                    <span class="hero-stat__value">Live Projects</span>
-                    <span class="hero-stat__label">Expense Tracker &amp; More</span>
+                <div class="data-satellite data-satellite--4 card-tilt-3d" data-depth="0.10" aria-label="Expense Tracker Live Project">
+                  <span class="data-satellite__icon">🚀</span>
+                  <div class="data-satellite__meta">
+                    <span class="data-satellite__title">Expense Tracker</span>
+                    <span class="data-satellite__sub">Live Demo</span>
                   </div>
                 </div>
 
-              </div><!-- /.profile-frame -->
+                <div class="data-satellite data-satellite--5 card-tilt-3d" data-depth="0.06" aria-label="Web Scraping Automation">
+                  <span class="data-satellite__icon">🕷️</span>
+                  <div class="data-satellite__meta">
+                    <span class="data-satellite__title">Web Scraping</span>
+                    <span class="data-satellite__sub">Automation</span>
+                  </div>
+                </div>
 
-            </div><!-- /.hero-3d-workspace -->
+              </div><!-- /.data-core -->
+            </div><!-- /.hero-core-viewport -->
 
           </div><!-- /.hero__visual -->
 
@@ -345,117 +334,107 @@
           </p>
         </div>
 
-        <div class="about__grid">
+        <!-- Cyber Bento Grid -->
+        <div class="about-bento">
 
-          <!-- ── LEFT: Prose ─────────────────────────────── -->
-          <div class="about__content">
-
-            <div class="about__prose fade-up">
-              <p>
-                Hi! I'm <strong>HaseebSahil</strong>, a BS Computer Science student at <strong>COMSATS University Islamabad</strong>,
-                currently building my foundation across <strong>Python</strong>, <strong>Data Science</strong>,
-                <strong>Machine Learning</strong>, <strong>Deep Learning</strong>, and <strong>Web Development</strong>.
-              </p>
-              <p>
-                I enjoy exploring how software and artificial intelligence can be used to solve practical problems,
-                and I learn best by building projects and experimenting with real datasets and modern technologies.
-              </p>
-              <p>
-                Alongside my data and AI work, I also enjoy <strong>web development and scraping</strong>
-                — building clean, functional interfaces and data collection tools. I believe that being able to
-                develop, present, and communicate technical solutions is key to continuous growth.
-              </p>
+          <!-- Bento Card 1: Primary Developer Bio & Philosophy -->
+          <div class="bento-card bento-card--bio card-tilt-3d fade-up">
+            <div class="bento-card__badge">
+              <span class="bento-badge__icon">💻</span>
+              <span>DEVELOPER PROFILE</span>
             </div>
-
-            <!-- Areas of interest — badge list -->
-            <div class="fade-up">
-              <p class="type-label" style="margin-bottom: var(--sp-3);">Areas of interest</p>
-              <ul class="about__interests" aria-label="Areas of interest">
-                <li><span class="badge badge--primary">Python</span></li>
-                <li><span class="badge badge--accent">Data Science</span></li>
-                <li><span class="badge badge--primary">Machine Learning</span></li>
-                <li><span class="badge badge--accent">Deep Learning</span></li>
-                <li><span class="badge">Data Analysis</span></li>
-                <li><span class="badge">Visualization</span></li>
-                <li><span class="badge">Web Scraping</span></li>
-                <li><span class="badge">Web Development</span></li>
-              </ul>
-            </div>
-
-          </div><!-- /.about__content -->
-
-          <!-- ── RIGHT: Visual Info Cards ───────────────── -->
-          <div class="about__visual">
-
-            <!-- Card 1: Currently learning -->
-            <div class="about-info-card about-info-card--primary card-tilt-3d fade-up">
-              <div class="about-info-card__header">
-                <span class="about-info-card__icon about-info-card__icon--primary"
-                      aria-hidden="true">🎓</span>
-                <div>
-                  <p class="about-info-card__title">Currently Studying</p>
-                  <p class="about-info-card__subtitle">BS Computer Science — COMSATS University Islamabad</p>
-                </div>
+            <h3 class="bento-card__title">Building Practical Software &amp; Intelligent AI Systems</h3>
+            <p class="bento-card__text">
+              Hi! I'm <strong>HaseebSahil</strong>, a Computer Science student at <strong>COMSATS University Islamabad</strong> (2024 — 2028).
+              I focus on creating real-world projects with <strong>Python</strong>, <strong>Data Science &amp; Analysis</strong>,
+              <strong>Machine Learning</strong>, and <strong>Web Scraping</strong>.
+            </p>
+            <div class="bento-metrics">
+              <div class="bento-metric">
+                <span class="bento-metric__val">2024–28</span>
+                <span class="bento-metric__lbl">BS Computer Science</span>
               </div>
-              <div class="about-info-card__body">
-                <p>
-                  Pursuing BS Computer Science (2024 — 2028) at COMSATS University Islamabad with a focus on core algorithms,
-                  data structures, Full Stack Python with AI, and machine learning techniques.
-                </p>
+              <div class="bento-metric">
+                <span class="bento-metric__val">Full Stack AI</span>
+                <span class="bento-metric__lbl">Python Focus</span>
+              </div>
+              <div class="bento-metric">
+                <span class="bento-metric__val">Live App</span>
+                <span class="bento-metric__lbl">Expense Tracker</span>
               </div>
             </div>
+          </div>
 
-            <!-- Card 2: Currently learning (tech) -->
-            <div class="about-info-card about-info-card--accent card-tilt-3d fade-up">
-              <div class="about-info-card__header">
-                <span class="about-info-card__icon about-info-card__icon--accent"
-                      aria-hidden="true">📚</span>
-                <div>
-                  <p class="about-info-card__title">Currently Exploring</p>
-                  <p class="about-info-card__subtitle">Active areas of study</p>
-                </div>
+          <!-- Bento Card 2: Interactive Terminal Code Block -->
+          <div class="bento-card bento-card--terminal card-tilt-3d fade-up">
+            <div class="terminal-bar" aria-hidden="true">
+              <div class="terminal-dots">
+                <span class="terminal-dot terminal-dot--red"></span>
+                <span class="terminal-dot terminal-dot--yellow"></span>
+                <span class="terminal-dot terminal-dot--green"></span>
               </div>
-              <div class="about-info-card__body">
-                <ul class="about-info-card__tags" aria-label="Currently exploring">
-                  <li><span class="badge">Python</span></li>
-                  <li><span class="badge">NumPy</span></li>
-                  <li><span class="badge">Pandas</span></li>
-                  <li><span class="badge">Data Analysis</span></li>
-                  <li><span class="badge">Machine Learning</span></li>
-                  <li><span class="badge">Deep Learning</span></li>
-                  <li><span class="badge">Web Scraping</span></li>
-                  <li><span class="badge">BeautifulSoup</span></li>
-                </ul>
-              </div>
+              <span class="terminal-filename">developer.py</span>
+              <span class="terminal-tag">PYTHON 3.12</span>
             </div>
-
-            <!-- Card 3: Code-snippet / persona block -->
-            <div class="about-code-block card-tilt-3d fade-up" role="img" aria-label="Developer profile code block for HaseebSahil">
-              <div class="about-code-block__bar" aria-hidden="true">
-                <span class="about-code-block__dot about-code-block__dot--red"></span>
-                <span class="about-code-block__dot about-code-block__dot--amber"></span>
-                <span class="about-code-block__dot about-code-block__dot--green"></span>
-                <span class="about-code-block__filename">about_me.py</span>
-              </div>
-              <pre aria-hidden="true"><code><span class="code-keyword">class</span> <span class="code-var">Developer</span><span class="code-punct">:</span>
-    <span class="code-fn">name</span>        <span class="code-punct">=</span> <span class="code-string">"HaseebSahil"</span>
-    <span class="code-fn">degree</span>      <span class="code-punct">=</span> <span class="code-string">"BS Computer Science"</span>
-    <span class="code-fn">institution</span> <span class="code-punct">=</span> <span class="code-string">"COMSATS University Islamabad"</span>
+            <pre class="terminal-code"><code><span class="code-keyword">class</span> <span class="code-var">HaseebSahil</span><span class="code-punct">:</span>
+    <span class="code-fn">education</span>   <span class="code-punct">=</span> <span class="code-string">"BS Computer Science"</span>
+    <span class="code-fn">university</span>  <span class="code-punct">=</span> <span class="code-string">"COMSATS University"</span>
     <span class="code-fn">duration</span>    <span class="code-punct">=</span> <span class="code-string">"2024 — 2028"</span>
-    <span class="code-fn">focus</span>       <span class="code-punct">=</span> <span class="code-punct">[</span>
-        <span class="code-string">"Python"</span><span class="code-punct">,</span>
-        <span class="code-string">"Data Science"</span><span class="code-punct">,</span>
-        <span class="code-string">"Machine Learning"</span><span class="code-punct">,</span>
-        <span class="code-string">"Deep Learning"</span><span class="code-punct">,</span>
-        <span class="code-string">"Web Scraping"</span><span class="code-punct">,</span>
-    <span class="code-punct">]</span>
-    <span class="code-fn">status</span>      <span class="code-punct">=</span> <span class="code-string">"Always learning &amp; building 🚀"</span>
-</code></pre>
+    <span class="code-fn">core_stack</span>  <span class="code-punct">=</span> <span class="code-punct">[</span><span class="code-string">"Python"</span><span class="code-punct">,</span> <span class="code-string">"Data"</span><span class="code-punct">,</span> <span class="code-string">"AI/ML"</span><span class="code-punct">]</span>
+    <span class="code-fn">philosophy</span>  <span class="code-punct">=</span> <span class="code-string">"Always learning &amp; building 🚀"</span></code></pre>
+          </div>
+
+          <!-- Bento Card 3: Core Technical Pillars -->
+          <div class="bento-card bento-card--pillars card-tilt-3d fade-up">
+            <div class="bento-card__badge">
+              <span class="bento-badge__icon">⚡</span>
+              <span>CORE CAPABILITIES</span>
             </div>
+            <div class="pillar-grid">
+              <div class="pillar-item">
+                <span class="pillar-item__icon">🐍</span>
+                <div>
+                  <span class="pillar-item__title">Python &amp; AI/ML</span>
+                  <p class="pillar-item__desc">Core programming, algorithms, model architectures</p>
+                </div>
+              </div>
+              <div class="pillar-item">
+                <span class="pillar-item__icon">📊</span>
+                <div>
+                  <span class="pillar-item__title">Data Science &amp; Analysis</span>
+                  <p class="pillar-item__desc">Data wrangling, NumPy, Pandas, exploratory analysis</p>
+                </div>
+              </div>
+              <div class="pillar-item">
+                <span class="pillar-item__icon">🌐</span>
+                <div>
+                  <span class="pillar-item__title">Web Apps &amp; Scraping</span>
+                  <p class="pillar-item__desc">Interactive web interfaces, automated data extraction</p>
+                </div>
+              </div>
+            </div>
+          </div>
 
-          </div><!-- /.about__visual -->
+          <!-- Bento Card 4: Currently Exploring / Active Stack -->
+          <div class="bento-card bento-card--exploring card-tilt-3d fade-up">
+            <div class="bento-card__badge">
+              <span class="bento-badge__icon">🔬</span>
+              <span>ACTIVE STUDY TOPICS</span>
+            </div>
+            <ul class="bento-tags" aria-label="Currently exploring topics">
+              <li><span class="bento-tag">Python</span></li>
+              <li><span class="bento-tag">NumPy</span></li>
+              <li><span class="bento-tag">Pandas</span></li>
+              <li><span class="bento-tag">Data Analysis</span></li>
+              <li><span class="bento-tag">Machine Learning</span></li>
+              <li><span class="bento-tag">Deep Learning</span></li>
+              <li><span class="bento-tag">Web Scraping</span></li>
+              <li><span class="bento-tag">BeautifulSoup</span></li>
+              <li><span class="bento-tag">Selenium</span></li>
+            </ul>
+          </div>
 
-        </div><!-- /.about__grid -->
+        </div><!-- /.about-bento -->
       </div><!-- /.container -->
     </section><!-- /#about -->
 
@@ -479,98 +458,100 @@
           </p>
         </div>
 
-        <!-- Category cards grid -->
-        <div class="skills__grid" role="list" aria-label="Skill categories">
+        <!-- Interactive Constellation Hub -->
+        <div class="skills-constellation-wrap fade-up">
 
-          <!-- ── Programming ─────────────────────────────── -->
-          <article class="skill-card skill-card--programming card-tilt-3d fade-up" role="listitem">
-            <div class="skill-card__header">
-              <span class="skill-card__icon-wrap" aria-hidden="true">💻</span>
-              <div class="skill-card__heading">
-                <h3 class="skill-card__title">Programming</h3>
-                <p class="skill-card__desc">Core language</p>
+          <!-- Center Solar Core: PYTHON -->
+          <div class="constellation-core card-tilt-3d" aria-label="Core Skill: Python">
+            <div class="constellation-core__glow" aria-hidden="true"></div>
+            <div class="constellation-core__ring" aria-hidden="true"></div>
+            <span class="constellation-core__icon" aria-hidden="true">🐍</span>
+            <span class="constellation-core__title">PYTHON</span>
+            <span class="constellation-core__tag">CENTRAL ENGINE</span>
+          </div>
+
+          <!-- Constellation Sectors Grid -->
+          <div class="constellation-sectors">
+
+            <!-- Sector 1: Data Science & Analytics -->
+            <div class="constellation-sector constellation-sector--data card-tilt-3d fade-up">
+              <div class="sector-header">
+                <span class="sector-icon" aria-hidden="true">📊</span>
+                <div>
+                  <h3 class="sector-title">Data Science &amp; Analysis</h3>
+                  <span class="sector-sub">Exploratory &amp; Statistical</span>
+                </div>
+              </div>
+              <div class="sector-nodes">
+                <span class="node-pill">NumPy</span>
+                <span class="node-pill">Pandas</span>
+                <span class="node-pill">Data Analysis</span>
+                <span class="node-pill">Data Visualization</span>
+                <span class="node-pill">Matplotlib</span>
               </div>
             </div>
-            <ul class="skill-card__tags" aria-label="Programming skills">
-              <li><span class="skill-tag">Python</span></li>
-            </ul>
-          </article>
 
-          <!-- ── Data Science & Analysis ─────────────────── -->
-          <article class="skill-card skill-card--data card-tilt-3d fade-up" role="listitem">
-            <div class="skill-card__header">
-              <span class="skill-card__icon-wrap" aria-hidden="true">📊</span>
-              <div class="skill-card__heading">
-                <h3 class="skill-card__title">Data Science &amp; Analysis</h3>
-                <p class="skill-card__desc">Analysis &amp; visualisation</p>
+            <!-- Sector 2: Machine Learning & AI -->
+            <div class="constellation-sector constellation-sector--ai card-tilt-3d fade-up">
+              <div class="sector-header">
+                <span class="sector-icon" aria-hidden="true">🤖</span>
+                <div>
+                  <h3 class="sector-title">Machine Learning &amp; AI</h3>
+                  <span class="sector-sub">Models &amp; Algorithms</span>
+                </div>
+              </div>
+              <div class="sector-nodes">
+                <span class="node-pill">Machine Learning</span>
+                <span class="node-pill">Deep Learning</span>
+                <span class="node-pill">Scikit-Learn</span>
+                <span class="node-pill">Neural Networks</span>
               </div>
             </div>
-            <ul class="skill-card__tags" aria-label="Data Science and Analysis skills">
-              <li><span class="skill-tag">NumPy</span></li>
-              <li><span class="skill-tag">Pandas</span></li>
-              <li><span class="skill-tag">Data Analysis</span></li>
-              <li><span class="skill-tag">Data Visualization</span></li>
-            </ul>
-          </article>
 
-          <!-- ── Machine Learning & AI ───────────────────── -->
-          <article class="skill-card skill-card--ml card-tilt-3d fade-up" role="listitem">
-            <div class="skill-card__header">
-              <span class="skill-card__icon-wrap" aria-hidden="true">🤖</span>
-              <div class="skill-card__heading">
-                <h3 class="skill-card__title">Machine Learning &amp; AI</h3>
-                <p class="skill-card__desc">Models &amp; algorithms</p>
+            <!-- Sector 3: Web Development & Scraping -->
+            <div class="constellation-sector constellation-sector--web card-tilt-3d fade-up">
+              <div class="sector-header">
+                <span class="sector-icon" aria-hidden="true">🌐</span>
+                <div>
+                  <h3 class="sector-title">Web &amp; Automation</h3>
+                  <span class="sector-sub">Frontend &amp; Data Ingestion</span>
+                </div>
+              </div>
+              <div class="sector-nodes">
+                <span class="node-pill">Web Scraping</span>
+                <span class="node-pill">BeautifulSoup</span>
+                <span class="node-pill">Selenium</span>
+                <span class="node-pill">HTML5</span>
+                <span class="node-pill">CSS3</span>
+                <span class="node-pill">JavaScript</span>
               </div>
             </div>
-            <ul class="skill-card__tags" aria-label="Machine Learning and AI skills">
-              <li><span class="skill-tag">Machine Learning</span></li>
-              <li><span class="skill-tag">Deep Learning</span></li>
-            </ul>
-          </article>
 
-          <!-- ── Web & Scraping ─────────────────────────── -->
-          <article class="skill-card skill-card--web card-tilt-3d fade-up" role="listitem">
-            <div class="skill-card__header">
-              <span class="skill-card__icon-wrap" aria-hidden="true">🌐</span>
-              <div class="skill-card__heading">
-                <h3 class="skill-card__title">Web &amp; Scraping</h3>
-                <p class="skill-card__desc">Frontend &amp; automation</p>
+            <!-- Sector 4: Tools & Dev Workflow -->
+            <div class="constellation-sector constellation-sector--tools card-tilt-3d fade-up">
+              <div class="sector-header">
+                <span class="sector-icon" aria-hidden="true">🛠️</span>
+                <div>
+                  <h3 class="sector-title">Tools &amp; Environment</h3>
+                  <span class="sector-sub">Development &amp; Version Control</span>
+                </div>
+              </div>
+              <div class="sector-nodes">
+                <span class="node-pill">Git</span>
+                <span class="node-pill">GitHub</span>
+                <span class="node-pill">VS Code</span>
+                <span class="node-pill">Render</span>
               </div>
             </div>
-            <ul class="skill-card__tags" aria-label="Web and scraping skills">
-              <li><span class="skill-tag">HTML</span></li>
-              <li><span class="skill-tag">CSS</span></li>
-              <li><span class="skill-tag">JavaScript</span></li>
-              <li><span class="skill-tag">Web Scraping</span></li>
-              <li><span class="skill-tag">BeautifulSoup</span></li>
-              <li><span class="skill-tag">Selenium</span></li>
-            </ul>
-          </article>
 
-          <!-- ── Tools ───────────────────────────────────── -->
-          <article class="skill-card skill-card--tools card-tilt-3d fade-up" role="listitem">
-            <div class="skill-card__header">
-              <span class="skill-card__icon-wrap" aria-hidden="true">🛠️</span>
-              <div class="skill-card__heading">
-                <h3 class="skill-card__title">Tools</h3>
-                <p class="skill-card__desc">Dev environment</p>
-              </div>
-            </div>
-            <ul class="skill-card__tags" aria-label="Tools and workflow skills">
-              <li><span class="skill-tag">Git</span></li>
-              <li><span class="skill-tag">GitHub</span></li>
-              <li><span class="skill-tag">VS Code</span></li>
-            </ul>
-          </article>
-
-        </div><!-- /.skills__grid -->
+          </div><!-- /.constellation-sectors -->
+        </div><!-- /.skills-constellation-wrap -->
 
         <!-- Footer note -->
         <div class="skills__footer-note fade-up" aria-label="Note about skill list">
-          <span aria-hidden="true">🌱</span>
+          <span aria-hidden="true">⚡</span>
           <p>
-            <!-- PLACEHOLDER: Update this note as your skills grow -->
-            This list is always growing — I am actively learning and exploring new technologies.
+            Constantly evolving skill graph — actively building full stack Python and AI projects.
           </p>
         </div>
 
@@ -714,108 +695,61 @@
 
         <div class="contact__grid">
 
-          <!-- Left column: Contact info cards & resume -->
-          <div class="contact__info fade-up">
-            <p class="contact__lead">
-              I am actively seeking internship opportunities, collaborative coding projects, and open-source contributions.
-            </p>
+          <!-- Left column: Developer Terminal & Fast Connect -->
+          <div class="contact__terminal-wrap fade-up">
 
-            <div class="contact__methods">
-
-              <!-- Email Card with Copy button -->
-              <div class="contact-item">
-                <div class="contact-item__left">
-                  <span class="contact-item__icon" aria-hidden="true">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                      <polyline points="22,6 12,13 2,6"/>
-                    </svg>
-                  </span>
-                  <div class="contact-item__details">
-                    <span class="contact-item__label">Email</span>
-                    <a href="mailto:haseebsahil0081@gmail.com" id="contact-email-val" class="contact-item__val">
-                      haseebsahil0081@gmail.com
+            <div class="contact-terminal card-tilt-3d">
+              <div class="terminal-bar" aria-hidden="true">
+                <div class="terminal-dots">
+                  <span class="terminal-dot terminal-dot--red"></span>
+                  <span class="terminal-dot terminal-dot--yellow"></span>
+                  <span class="terminal-dot terminal-dot--green"></span>
+                </div>
+                <span class="terminal-filename">bash — connect.sh</span>
+                <span class="terminal-tag">LIVE SESSION</span>
+              </div>
+              <div class="terminal-body">
+                <div class="terminal-prompt-line">
+                  <span class="terminal-prompt">$</span>
+                  <span class="terminal-cmd">connect --target HaseebSahil</span>
+                </div>
+                <div class="terminal-output">
+                  <div class="terminal-row">
+                    <span class="term-key">STATUS:</span>
+                    <span class="term-val term-val--online">● AVAILABLE // OPEN TO COLLABORATE</span>
+                  </div>
+                  <div class="terminal-row">
+                    <span class="term-key">EMAIL:</span>
+                    <a href="mailto:haseebsahil0081@gmail.com" id="contact-email-val" class="term-val term-val--link">haseebsahil0081@gmail.com</a>
+                    <button type="button" id="btn-copy-email" class="term-copy-btn" aria-label="Copy email address">
+                      COPY
+                    </button>
+                  </div>
+                  <div class="terminal-row">
+                    <span class="term-key">GITHUB:</span>
+                    <a href="https://github.com/SahilHaseeb" target="_blank" rel="noopener noreferrer" class="term-val term-val--link">
+                      github.com/SahilHaseeb ↗
                     </a>
                   </div>
-                </div>
-                <button
-                  type="button"
-                  id="btn-copy-email"
-                  class="btn btn--outline btn--sm"
-                  aria-label="Copy email address to clipboard"
-                >
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
-                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
-                  </svg>
-                  Copy
-                </button>
-              </div>
-
-              <!-- GitHub Profile Card -->
-              <div class="contact-item card-tilt-3d">
-                <div class="contact-item__left">
-                  <span class="contact-item__icon" aria-hidden="true">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
-                    </svg>
-                  </span>
-                  <div class="contact-item__details">
-                    <span class="contact-item__label">GitHub</span>
-                    <a href="https://github.com/SahilHaseeb" target="_blank" rel="noopener noreferrer" class="contact-item__val">
-                      github.com/SahilHaseeb
+                  <div class="terminal-row">
+                    <span class="term-key">LINKEDIN:</span>
+                    <a href="https://www.linkedin.com/in/muhammad-haseeb-7457b942b" target="_blank" rel="noopener noreferrer" class="term-val term-val--link">
+                      linkedin.com/in/muhammad-haseeb ↗
                     </a>
                   </div>
-                </div>
-                <a href="https://github.com/SahilHaseeb" target="_blank" rel="noopener noreferrer" class="btn btn--outline btn--sm" aria-label="Visit GitHub Profile">
-                  Visit ↗
-                </a>
-              </div>
-
-              <!-- LinkedIn Profile Card -->
-              <div class="contact-item card-tilt-3d">
-                <div class="contact-item__left">
-                  <span class="contact-item__icon" aria-hidden="true">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/>
-                      <circle cx="4" cy="4" r="2"/>
-                    </svg>
-                  </span>
-                  <div class="contact-item__details">
-                    <span class="contact-item__label">LinkedIn</span>
-                    <a href="https://www.linkedin.com/in/muhammad-haseeb-7457b942b" target="_blank" rel="noopener noreferrer" class="contact-item__val">
-                      linkedin.com/in/muhammad-haseeb
-                    </a>
-                  </div>
-                </div>
-                <a href="https://www.linkedin.com/in/muhammad-haseeb-7457b942b" target="_blank" rel="noopener noreferrer" class="btn btn--outline btn--sm" aria-label="Visit LinkedIn Profile">
-                  Visit ↗
-                </a>
-              </div>
-
-              <!-- Location Card -->
-              <div class="contact-item card-tilt-3d">
-                <div class="contact-item__left">
-                  <span class="contact-item__icon" aria-hidden="true">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                      <circle cx="12" cy="10" r="3"/>
-                    </svg>
-                  </span>
-                  <div class="contact-item__details">
-                    <span class="contact-item__label">Location</span>
-                    <span class="contact-item__val">Garden Town, Lahore</span>
+                  <div class="terminal-row">
+                    <span class="term-key">LOCATION:</span>
+                    <span class="term-val">Garden Town, Lahore</span>
                   </div>
                 </div>
               </div>
-
-            </div><!-- /.contact__methods -->
+            </div><!-- /.contact-terminal -->
 
             <!-- Resume Download Box -->
             <div class="contact__resume-box card-tilt-3d">
               <div class="contact__resume-info">
                 <h3 class="contact__resume-title">Curriculum Vitae / Resume</h3>
-                <p class="contact__resume-desc">PDF format • Updated with coursework and projects</p>
+                <p class="contact__resume-desc">PDF format • Coursework &amp; Projects</p>
               </div>
               <a
                 href="/public/assets/documents/resume-placeholder.pdf"
@@ -831,7 +765,7 @@
               </a>
             </div>
 
-          </div><!-- /.contact__info -->
+          </div><!-- /.contact__terminal-wrap -->
 
           <!-- Right column: Accessible Contact Form -->
           <div class="contact__form-wrap fade-up">

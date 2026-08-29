@@ -753,90 +753,24 @@
 .inset-0  { inset: 0; }
 
 /* ══════════════════════════════════════════════════════════
-   SCROLL PROGRESS BAR
+   SCROLL PROGRESS BAR (GPU Hardware Accelerated)
 ══════════════════════════════════════════════════════════ */
 
 #scroll-progress {
   position: fixed;
   top: 0;
   left: 0;
-  height: 3px;
+  height: 2.5px;
   width: 0%;
   background: var(--gradient-primary);
-  box-shadow: 0 0 10px var(--glow-cyan), 0 0 20px var(--glow-violet);
+  box-shadow: 0 0 10px rgba(0, 229, 209, 0.7);
   z-index: calc(var(--z-top) + 10);
   pointer-events: none;
-  transition: width 0.08s linear;
+  transform: translateZ(0);
 }
 
 /* ══════════════════════════════════════════════════════════
-   CUSTOM CURSOR (Desktop pointer devices only)
-══════════════════════════════════════════════════════════ */
-
-#custom-cursor {
-  position: fixed;
-  top: -4px;
-  left: -4px;
-  width: 8px;
-  height: 8px;
-  background-color: var(--palette-teal-400);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: var(--z-top);
-  opacity: 0;
-  transition: opacity 0.3s ease, transform 0.05s linear;
-  box-shadow: 0 0 12px var(--palette-teal-400);
-}
-
-#cursor-ring {
-  position: fixed;
-  top: -20px;
-  left: -20px;
-  width: 40px;
-  height: 40px;
-  border: 1.5px solid rgba(0, 229, 209, 0.45);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: calc(var(--z-top) - 1);
-  opacity: 0;
-  transition:
-    opacity 0.3s ease,
-    width 0.25s var(--ease-spring),
-    height 0.25s var(--ease-spring),
-    top 0.25s var(--ease-spring),
-    left 0.25s var(--ease-spring),
-    border-color 0.25s ease,
-    background-color 0.25s ease;
-}
-
-#cursor-ring.cursor--hover {
-  width: 56px;
-  height: 56px;
-  top: -28px;
-  left: -28px;
-  border-color: rgba(108, 99, 255, 0.8);
-  background-color: rgba(108, 99, 255, 0.08);
-  box-shadow: 0 0 20px rgba(108, 99, 255, 0.25);
-}
-
-#cursor-ring.cursor--clicking {
-  width: 32px;
-  height: 32px;
-  top: -16px;
-  left: -16px;
-  border-color: var(--palette-teal-400);
-  background-color: rgba(0, 229, 209, 0.15);
-}
-
-@media (pointer: coarse), (prefers-reduced-motion: reduce) {
-  #custom-cursor,
-  #cursor-ring {
-    display: none !important;
-  }
-}
-
-/* ══════════════════════════════════════════════════════════
-   3D TILT CARDS & DYNAMIC GLARE
+   3D TILT CARDS & LOCAL BORDER LIGHT FOLLOWER
 ══════════════════════════════════════════════════════════ */
 
 .card-tilt-3d {
@@ -845,100 +779,51 @@
   will-change: transform;
 }
 
-.card-glare {
+/* Localized border light follower — purely localized to hovered card */
+.card-tilt-3d::after {
+  content: '';
   position: absolute;
-  inset: 0;
+  inset: -1px;
   border-radius: inherit;
-  pointer-events: none;
   background: radial-gradient(
-    circle at var(--glare-x, 50%) var(--glare-y, 50%),
-    rgba(255, 255, 255, 0.18) 0%,
-    rgba(255, 255, 255, 0.05) 30%,
+    320px circle at var(--card-x, 50%) var(--card-y, 50%),
+    rgba(0, 229, 209, 0.35),
+    rgba(108, 99, 255, 0.20) 40%,
     transparent 70%
   );
-  opacity: var(--glare-opacity, 0);
-  transition: opacity 0.3s ease;
-  mix-blend-mode: overlay;
-  z-index: 5;
+  opacity: 0;
+  pointer-events: none;
+  z-index: -1;
+  transition: opacity 0.2s ease;
+}
+
+.card-tilt-3d:hover::after {
+  opacity: 1;
 }
 
 /* ══════════════════════════════════════════════════════════
-   CYBER BENTO CARDS & AMBIENT MESH
+   COMMAND CENTER CYBER BACKGROUND (0 CPU Overhead)
 ══════════════════════════════════════════════════════════ */
 
-.card-cyber {
-  background: var(--glass-bg);
-  backdrop-filter: blur(var(--glass-blur));
-  -webkit-backdrop-filter: blur(var(--glass-blur));
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-card);
-  transition:
-    border-color var(--transition-base),
-    box-shadow var(--transition-base),
-    transform var(--transition-base);
-}
-
-.card-cyber:hover {
-  border-color: var(--glass-border-hover);
-  box-shadow: var(--shadow-card-hover);
-}
-
-/* Background Cyber Grid */
 .cyber-bg-grid {
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: var(--z-below);
   background-image:
-    linear-gradient(rgba(108, 99, 255, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(108, 99, 255, 0.035) 1px, transparent 1px);
-  background-size: 48px 48px;
-  mask-image: radial-gradient(circle at var(--mouse-x, 50vw) var(--mouse-y, 40vh), black 0%, rgba(0,0,0,0.3) 40%, transparent 80%);
-  -webkit-mask-image: radial-gradient(circle at var(--mouse-x, 50vw) var(--mouse-y, 40vh), black 0%, rgba(0,0,0,0.3) 40%, transparent 80%);
+    linear-gradient(rgba(108, 99, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(108, 99, 255, 0.04) 1px, transparent 1px);
+  background-size: 56px 56px;
+  background-position: center top;
 }
 
-.cyber-ambient-orb {
-  position: fixed;
-  border-radius: 50%;
-  filter: blur(90px);
+.cyber-bg-grid::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle 800px at 50% 15%, rgba(108, 99, 255, 0.12), transparent 75%),
+              radial-gradient(circle 600px at 80% 65%, rgba(0, 229, 209, 0.07), transparent 70%);
   pointer-events: none;
-  z-index: var(--z-below);
-  opacity: 0.45;
-  will-change: transform;
 }
 
-.cyber-ambient-orb--1 {
-  top: -10vw;
-  right: -5vw;
-  width: 45vw;
-  height: 45vw;
-  background: radial-gradient(circle, rgba(108, 99, 255, 0.22) 0%, transparent 70%);
-  animation: orb-float-1 18s ease-in-out infinite alternate;
-}
-
-.cyber-ambient-orb--2 {
-  bottom: 10vh;
-  left: -10vw;
-  width: 40vw;
-  height: 40vw;
-  background: radial-gradient(circle, rgba(0, 229, 209, 0.16) 0%, transparent 70%);
-  animation: orb-float-2 22s ease-in-out infinite alternate;
-}
-
-@keyframes orb-float-1 {
-  0%   { transform: translate(0, 0) scale(1); }
-  100% { transform: translate(-8vw, 12vh) scale(1.15); }
-}
-
-@keyframes orb-float-2 {
-  0%   { transform: translate(0, 0) scale(1); }
-  100% { transform: translate(10vw, -10vh) scale(1.12); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .cyber-ambient-orb {
-    animation: none;
-  }
-}
 

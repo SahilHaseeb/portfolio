@@ -1,283 +1,279 @@
 /* ============================================================
-   ABOUT SECTION — about.css
-   Two-column: text prose left, visual card stack right.
-   Mobile: stacked (visual below text).
+   ABOUT SECTION — Cyber Bento Grid (Command Center Style)
    ============================================================ */
 
-/* ── Scroll-margin: clears fixed navbar on anchor jump ───── */
 #about {
   scroll-margin-top: var(--navbar-height);
+  position: relative;
 }
 
 /* ══════════════════════════════════════════════════════════
-   SECTION LAYOUT
+   BENTO GRID LAYOUT
 ══════════════════════════════════════════════════════════ */
 
-.about {
-  position: relative;
-  overflow: hidden;
-}
-
-/* Faint background wash distinct from hero */
-.about::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    ellipse 70% 50% at 90% 30%,
-    rgba(0, 229, 209, 0.06) 0%,
-    transparent 65%
-  );
-  pointer-events: none;
-  z-index: 0;
-}
-
-.about__grid {
+.about-bento {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: start;
-  gap: clamp(var(--sp-10), 6vw, var(--sp-20));
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--sp-6);
   position: relative;
   z-index: 1;
 }
 
-/* ══════════════════════════════════════════════════════════
-   LEFT — PROSE CONTENT
-══════════════════════════════════════════════════════════ */
-
-.about__content {
+/* Shared Bento Card Base */
+.bento-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  padding: clamp(var(--sp-6), 3vw, var(--sp-8));
   display: flex;
   flex-direction: column;
-  gap: var(--sp-6);
-  min-width: 0;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+  transform-style: preserve-3d;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 
-/* Multi-paragraph prose block */
-.about__prose {
-  display: flex;
-  flex-direction: column;
-  gap: var(--sp-5);
+.bento-card:hover {
+  border-color: rgba(108, 99, 255, 0.4);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5), 0 0 20px rgba(108, 99, 255, 0.15);
 }
 
-.about__prose p {
+/* Top Badge */
+.bento-card__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  color: var(--palette-teal-400);
+  letter-spacing: var(--ls-widest);
+  text-transform: uppercase;
+  margin-bottom: var(--sp-4);
+}
+
+.bento-badge__icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* ── Card 1: Main Bio (Span 7 cols) ──────────────────────── */
+.bento-card--bio {
+  grid-column: span 7;
+  justify-content: space-between;
+}
+
+.bento-card__title {
+  font-size: clamp(var(--fs-lg), 2.2vw, var(--fs-2xl));
+  font-weight: var(--fw-bold);
+  color: var(--clr-text-primary);
+  line-height: var(--lh-snug);
+  margin-bottom: var(--sp-3);
+}
+
+.bento-card__text {
   font-size: var(--fs-base);
   color: var(--clr-text-secondary);
   line-height: var(--lh-relaxed);
-  max-width: var(--measure-md);
+  margin-bottom: var(--sp-6);
 }
 
-.about__prose strong {
+.bento-card__text strong {
   color: var(--clr-text-primary);
-  font-weight: var(--fw-semi);
 }
 
-/* Interest list — clean inline pills */
-.about__interests {
+/* Metrics Row */
+.bento-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-3);
+  padding-top: var(--sp-4);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.bento-metric {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.bento-metric__val {
+  font-family: var(--font-mono);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-bold);
+  color: var(--palette-teal-400);
+  line-height: 1.2;
+}
+
+.bento-metric__lbl {
+  font-size: 0.7rem;
+  color: var(--clr-text-muted);
+  font-family: var(--font-sans);
+}
+
+/* ── Card 2: Interactive Terminal (Span 5 cols) ──────────── */
+.bento-card--terminal {
+  grid-column: span 5;
+  background: #090a12;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.terminal-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--sp-3) var(--sp-4);
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.terminal-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.terminal-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+.terminal-dot--red    { background: #ef4444; }
+.terminal-dot--yellow { background: #f59e0b; }
+.terminal-dot--green  { background: #10b981; }
+
+.terminal-filename {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--clr-text-secondary);
+}
+
+.terminal-tag {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--palette-teal-400);
+  background: rgba(0, 229, 209, 0.08);
+  padding: 2px 6px;
+  border-radius: var(--radius-xs);
+}
+
+.terminal-code {
+  padding: var(--sp-5) var(--sp-6);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  line-height: 1.65;
+  color: var(--clr-text-secondary);
+  overflow-x: auto;
+  margin: 0;
+  flex: 1;
+}
+
+/* ── Card 3: Core Pillars (Span 6 cols) ──────────────────── */
+.bento-card--pillars {
+  grid-column: span 6;
+}
+
+.pillar-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+.pillar-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-3-5);
+  padding: var(--sp-3);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-md);
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.pillar-item:hover {
+  background: rgba(108, 99, 255, 0.06);
+  border-color: rgba(108, 99, 255, 0.25);
+}
+
+.pillar-item__icon {
+  font-size: 1.3rem;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.pillar-item__title {
+  display: block;
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-bold);
+  color: var(--clr-text-primary);
+  margin-bottom: 2px;
+}
+
+.pillar-item__desc {
+  font-size: var(--fs-xs);
+  color: var(--clr-text-secondary);
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* ── Card 4: Active Study Topics (Span 6 cols) ───────────── */
+.bento-card--exploring {
+  grid-column: span 6;
+}
+
+.bento-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--sp-2);
+  gap: var(--sp-2-5);
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-/* ══════════════════════════════════════════════════════════
-   RIGHT — VISUAL CARDS
-══════════════════════════════════════════════════════════ */
-
-.about__visual {
-  display: flex;
-  flex-direction: column;
-  gap: var(--sp-4);
-  position: relative;
-}
-
-/* ── Currently Learning card ─────────────────────────────── */
-.about-info-card {
-  background: var(--glass-bg);
-  backdrop-filter: blur(var(--glass-blur));
-  -webkit-backdrop-filter: blur(var(--glass-blur));
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-xl);
-  padding: var(--sp-5) var(--sp-6);
-  position: relative;
-  overflow: hidden;
-  box-shadow: var(--shadow-card);
-  transition:
-    border-color var(--transition-base),
-    box-shadow   var(--transition-base),
-    transform    var(--transition-base);
-}
-
-/* Gradient top-edge line */
-.about-info-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 2px;
-  opacity: 0.4;
-  transition: opacity var(--transition-base);
-}
-
-.about-info-card--primary::before {
-  background: var(--gradient-primary);
-}
-.about-info-card--accent::before {
-  background: linear-gradient(90deg, var(--clr-accent), var(--clr-primary));
-}
-
-@media (hover: hover) {
-  .about-info-card:hover {
-    border-color: var(--glass-border-hover);
-    box-shadow: var(--shadow-card-hover);
-  }
-  .about-info-card:hover::before {
-    opacity: 1;
-  }
-}
-
-/* Card header row */
-.about-info-card__header {
-  display: flex;
-  align-items: center;
-  gap: var(--sp-3);
-  margin-bottom: var(--sp-4);
-}
-
-.about-info-card__icon {
+.bento-tag {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  width: 38px;
-  height: 38px;
-  border-radius: var(--radius-md);
-  flex-shrink: 0;
-  font-size: var(--fs-lg);
-}
-
-.about-info-card__icon--primary {
-  background: var(--clr-primary-subtle);
-}
-.about-info-card__icon--accent {
-  background: var(--clr-accent-subtle);
-}
-
-.about-info-card__title {
-  font-size: var(--fs-base);
-  font-weight: var(--fw-semi);
-  color: var(--clr-text-primary);
-  line-height: var(--lh-snug);
-}
-
-.about-info-card__subtitle {
-  font-size: var(--fs-xs);
-  color: var(--clr-text-muted);
-  font-family: var(--font-mono);
-  letter-spacing: var(--ls-wide);
-  margin-top: 2px;
-}
-
-/* Card body */
-.about-info-card__body {
-  color: var(--clr-text-secondary);
-  font-size: var(--fs-sm);
-  line-height: var(--lh-relaxed);
-}
-
-/* Tag cloud inside card */
-.about-info-card__tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--sp-2);
-  margin-top: var(--sp-3);
-  list-style: none;
-  padding: 0;
-}
-
-/* ── Currently-focus card — code-snippet style ─────────────── */
-.about-code-block {
-  background: var(--clr-bg-sunken);
-  border: 1px solid var(--clr-border);
-  border-radius: var(--radius-lg);
-  padding: var(--sp-5) var(--sp-6);
-  font-family: var(--font-mono);
-  font-size: var(--fs-sm);
-  line-height: var(--lh-relaxed);
-  overflow-x: auto;
-  position: relative;
-}
-
-/* Top bar mimicking code editor */
-.about-code-block__bar {
-  display: flex;
-  align-items: center;
-  gap: var(--sp-2);
-  margin-bottom: var(--sp-4);
-  padding-bottom: var(--sp-3);
-  border-bottom: 1px solid var(--clr-border-subtle);
-}
-
-.about-code-block__dot {
-  width: 10px;
-  height: 10px;
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-full);
-  flex-shrink: 0;
-}
-.about-code-block__dot--red   { background: #FF5F57; }
-.about-code-block__dot--amber { background: #FEBC2E; }
-.about-code-block__dot--green { background: #28C840; }
-
-.about-code-block__filename {
+  font-family: var(--font-mono);
   font-size: var(--fs-xs);
-  color: var(--clr-text-muted);
-  letter-spacing: var(--ls-wide);
-  margin-left: var(--sp-2);
+  color: var(--clr-text-secondary);
+  transition: border-color 0.15s ease, color 0.15s ease, background-color 0.15s ease;
 }
 
-/* Syntax colours (simplified — no library needed) */
-.code-comment  { color: var(--clr-text-muted); font-style: italic; }
-.code-keyword  { color: var(--clr-primary-light); }
-.code-string   { color: var(--clr-accent); }
-.code-fn       { color: #FFB86C; } /* warm amber for function names */
-.code-var      { color: var(--clr-text-primary); }
-.code-punct    { color: var(--clr-text-muted); }
+.bento-tag:hover {
+  border-color: var(--palette-teal-400);
+  color: var(--palette-teal-400);
+  background: rgba(0, 229, 209, 0.08);
+}
 
 /* ══════════════════════════════════════════════════════════
-   RESPONSIVE — TABLET (768–1023px)
+   RESPONSIVE — BENTO GRID
 ══════════════════════════════════════════════════════════ */
 
-@media (min-width: 768px) and (max-width: 1023px) {
-  .about__grid {
-    grid-template-columns: 1.15fr 0.85fr;
-    gap: var(--sp-10);
+@media (max-width: 900px) {
+  .bento-card--bio,
+  .bento-card--terminal,
+  .bento-card--pillars,
+  .bento-card--exploring {
+    grid-column: span 12;
+  }
+
+  .bento-metrics {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-4);
   }
 }
 
-/* ══════════════════════════════════════════════════════════
-   RESPONSIVE — MOBILE (< 768px)
-══════════════════════════════════════════════════════════ */
-
-@media (max-width: 767px) {
-  .about__grid {
+@media (max-width: 540px) {
+  .bento-metrics {
     grid-template-columns: 1fr;
-    gap: var(--sp-8);
-  }
-
-  .about__prose p {
-    max-width: 100%;
-  }
-
-  /* On mobile: visual above content feels natural here,
-     but we keep text first (content area then visual) for
-     read-through flow */
-}
-
-/* ══════════════════════════════════════════════════════════
-   REDUCED MOTION
-══════════════════════════════════════════════════════════ */
-
-@media (prefers-reduced-motion: reduce) {
-  .about-info-card {
-    transition: none;
   }
 }

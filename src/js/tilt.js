@@ -1,19 +1,14 @@
 /**
- * tilt.js — Vanilla 3D Tilt & Dynamic Glare Engine
+ * tilt.js — High-Performance 3D Tilt & Local Border-Light Engine
  *
- * Provides subtle, high-performance 3D perspective rotation and cursor glare
- * on cards and interactive panels using pure CSS transforms and rAF.
- *
- * Rules:
- *  - Max rotation: 5-7 degrees (never impairs readability)
- *  - Disabled on touch devices and prefers-reduced-motion
- *  - 0 external dependencies
+ * Fast 60 FPS transform-only 3D interaction.
+ * Updates local --card-x and --card-y strictly on the active hovered card.
+ * Bounded rotation (4-6 deg), 0 global event listeners, instant response.
  */
 
 import { $$ } from './utils.js';
 
 export function initTilt() {
-  // Guard: reduced motion & non-pointer devices
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const isFinePointer = window.matchMedia('(pointer: fine)').matches;
 
@@ -23,52 +18,41 @@ export function initTilt() {
   if (!tiltCards.length) return;
 
   tiltCards.forEach((card) => {
-    _attachTiltEffect(card);
+    if (card._tiltAttached) return;
+    card._tiltAttached = true;
+    _attachTilt(card);
   });
 }
 
-function _attachTiltEffect(card) {
+function _attachTilt(card) {
   let isHovered = false;
   let rafId = null;
-  let targetX = 0;
-  let targetY = 0;
-  let currentX = 0;
-  let currentY = 0;
-  let glareX = 50;
-  let glareY = 50;
+  let targetRotX = 0;
+  let targetRotY = 0;
+  let currentRotX = 0;
+  let currentRotY = 0;
+  let localX = 50;
+  let localY = 50;
 
-  const MAX_TILT = parseFloat(card.dataset.tiltMax) || 6; // Max 6 degrees
-  const SCALE = parseFloat(card.dataset.tiltScale) || 1.02; // Subtle scale
-
-  // Ensure card has depth container style
-  card.style.transformStyle = 'preserve-3d';
-
-  // Inject glare layer if not present
-  let glare = card.querySelector('.card-glare');
-  if (!glare) {
-    glare = document.createElement('div');
-    glare.className = 'card-glare';
-    glare.setAttribute('aria-hidden', 'true');
-    card.appendChild(glare);
-  }
+  const MAX_TILT = parseFloat(card.dataset.tiltMax) || 5;
 
   function onPointerMove(e) {
     const rect = card.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
 
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
+    const normX = (x / rect.width) * 2 - 1;  // -1 to 1
+    const normY = (y / rect.height) * 2 - 1; // -1 to 1
 
-    // Normalize between -1 and 1
-    const normX = (x - centerX) / centerX;
-    const normY = (y - centerY) / centerY;
+    targetRotX = -normY * MAX_TILT;
+    targetRotY = normX * MAX_TILT;
 
-    targetX = -normY * MAX_TILT;
-    targetY = normX * MAX_TILT;
+    localX = x;
+    localY = y;
 
-    glareX = (x / rect.width) * 100;
-    glareY = (y / rect.height) * 100;
+    // Set local mouse coordinates directly on this card only (for border glow)
+    card.style.setProperty('--card-x', `${localX.toFixed(0)}px`);
+    card.style.setProperty('--card-y', `${localY.toFixed(0)}px`);
 
     if (!isHovered) {
       isHovered = true;
@@ -78,26 +62,21 @@ function _attachTiltEffect(card) {
 
   function onPointerLeave() {
     isHovered = false;
-    targetX = 0;
-    targetY = 0;
-    card.style.setProperty('--glare-opacity', '0');
+    targetRotX = 0;
+    targetRotY = 0;
   }
 
   function _loop() {
-    // Lerp towards target
-    currentX += (targetX - currentX) * 0.14;
-    currentY += (targetY - currentY) * 0.14;
+    // Fast snappy lerp
+    currentRotX += (targetRotX - currentRotX) * 0.22;
+    currentRotY += (targetRotY - currentRotY) * 0.22;
 
-    card.style.transform = `perspective(1000px) rotateX(${currentX.toFixed(2)}deg) rotateY(${currentY.toFixed(2)}deg) scale3d(${isHovered ? SCALE : 1}, ${isHovered ? SCALE : 1}, 1)`;
-    card.style.setProperty('--glare-x', `${glareX.toFixed(1)}%`);
-    card.style.setProperty('--glare-y', `${glareY.toFixed(1)}%`);
-    card.style.setProperty('--glare-opacity', isHovered ? '0.45' : '0');
+    card.style.transform = `perspective(900px) rotateX(${currentRotX.toFixed(2)}deg) rotateY(${currentRotY.toFixed(2)}deg) translate3d(0, 0, ${isHovered ? '6px' : '0'})`;
 
-    // Continue animation loop if moving or not at rest
-    if (isHovered || Math.abs(currentX) > 0.05 || Math.abs(currentY) > 0.05) {
+    if (isHovered || Math.abs(currentRotX) > 0.05 || Math.abs(currentRotY) > 0.05) {
       rafId = requestAnimationFrame(_loop);
     } else {
-      card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+      card.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg) translate3d(0,0,0)';
       cancelAnimationFrame(rafId);
     }
   }

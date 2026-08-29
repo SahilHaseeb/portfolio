@@ -1,13 +1,8 @@
 /**
- * magnetic.js — Subtle Magnetic Attraction for Primary CTAs
+ * magnetic.js — Fast Magnetic Interaction for Primary CTA Buttons
  *
- * Pulls buttons gently toward the cursor within their hover bounding box
- * and springs back smoothly on exit.
- *
- * Rules:
- *  - Micro-displacement: 4-6px max
- *  - Disabled on touch and prefers-reduced-motion
- *  - 0 external dependencies
+ * Micro-displacement (3-4px max) with fast return animation.
+ * 0 lag, disabled on touch/reduced motion.
  */
 
 import { $$ } from './utils.js';
@@ -18,7 +13,7 @@ export function initMagnetic() {
 
   if (!isFinePointer || prefersReduced) return;
 
-  const magneticElements = $$('.btn--primary, .btn--magnetic, #hero-cta-projects, #nav-cta');
+  const magneticElements = $$('#hero-cta-projects, #nav-cta, #btn-submit-contact');
   if (!magneticElements.length) return;
 
   magneticElements.forEach((btn) => {
@@ -27,10 +22,8 @@ export function initMagnetic() {
 }
 
 function _attachMagnetic(el) {
-  const STRENGTH = 0.28; // Pull multiplier
-  const MAX_MOVE = 6;    // Max px displacement
-
-  let isHovering = false;
+  const STRENGTH = 0.2;
+  const MAX_MOVE = 4;
 
   el.addEventListener(
     'pointermove',
@@ -42,9 +35,8 @@ function _attachMagnetic(el) {
       const moveX = Math.max(-MAX_MOVE, Math.min(MAX_MOVE, x * STRENGTH));
       const moveY = Math.max(-MAX_MOVE, Math.min(MAX_MOVE, y * STRENGTH));
 
-      isHovering = true;
       el.style.transform = `translate3d(${moveX.toFixed(1)}px, ${moveY.toFixed(1)}px, 0)`;
-      el.style.transition = 'transform 0.1s ease-out';
+      el.style.transition = 'transform 0.08s ease-out';
     },
     { passive: true }
   );
@@ -52,9 +44,8 @@ function _attachMagnetic(el) {
   el.addEventListener(
     'pointerleave',
     () => {
-      isHovering = false;
       el.style.transform = 'translate3d(0, 0, 0)';
-      el.style.transition = 'transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+      el.style.transition = 'transform 0.2s cubic-bezier(0.16, 1, 0.3, 1)';
     },
     { passive: true }
   );
