@@ -17,7 +17,6 @@ import { initScrollAnimations } from "../js/animations.js";
 export function initContact() {
   initContactForm();
   initCopyEmail();
-  initResumeModal();
   initScrollAnimations();
 }
 
@@ -66,27 +65,4 @@ function initCopyEmail() {
   });
 }
 
-/**
- * Wires helpful feedback when clicking resume placeholders
- * informing how to connect real resume.pdf at /public/assets/documents/resume.pdf
- */
-function initResumeModal() {
-  const resumeTriggers = [
-    $("#hero-cta-resume"),
-    $("#mobile-cta-resume"),
-    $("#contact-cta-resume"),
-  ];
 
-  resumeTriggers.forEach((btn) => {
-    if (!btn) return;
-    on(btn, "click", (e) => {
-      // If href still points to placeholder path, provide clear developer info
-      if (btn.getAttribute("href")?.includes("placeholder")) {
-        e.preventDefault();
-        alert(
-          "Resume PDF Placeholder:\n\nTo add your real resume, place your PDF at:\n/public/assets/documents/resume.pdf\nand update the href attribute in index.html."
-        );
-      }
-    });
-  });
-}

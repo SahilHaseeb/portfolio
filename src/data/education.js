@@ -2,31 +2,34 @@
  * education.js — Academic background & Learning Journey data
  *
  * Single source of truth for formal education and self-directed learning roadmap.
+ * Aligned with Muhammad Haseeb's professional resume.
  */
 
 export const EDUCATION_DATA = [
   {
     id: "degree-1",
-    degree: "BS Computer Science",
+    degree: "Bachelor of Science in Computer Science (BSCS)",
     institution: "COMSATS University Islamabad",
-    period: "2024 — 2028",
+    period: "Expected 2028",
+    cgpa: "3.45",
     status: "In Progress",
     description:
-      "Pursuing a Bachelor of Science in Computer Science at COMSATS University Islamabad with an academic focus on core computing fundamentals, data structures, algorithmic problem solving, and modern AI technologies.",
+      "Pursuing a Bachelor of Science in Computer Science at COMSATS University Islamabad with a strong academic record (CGPA: 3.45). Specializing in Python programming, Artificial Intelligence, Machine Learning, and Data Science.",
     coursework: [
+      "Python Programming",
+      "Artificial Intelligence",
       "Data Structures & Algorithms",
       "Database Systems",
-      "Artificial Intelligence",
-      "Computer Networks",
+      "Machine Learning",
       "Object-Oriented Programming",
       "Software Engineering",
-      "Discrete Mathematics",
       "Operating Systems",
     ],
     highlights: [
-      "Relevant Learning: Full Stack Python with AI",
+      "Current Academic Standing: CGPA 3.45 / 4.00",
+      "Relevant Core Coursework: Python Programming, Artificial Intelligence",
+      "Hands-on expertise in exploratory data analysis, predictive modeling, and machine learning pipelines",
       "Building practical solutions across Data Science, Machine Learning, Deep Learning, and Web Scraping",
-      "Applying coursework concepts directly through hands-on project implementations",
     ],
   },
 ];
@@ -34,47 +37,47 @@ export const EDUCATION_DATA = [
 export const LEARNING_ROADMAP = [
   {
     phase: "01",
-    title: "Core Computing Foundations",
+    title: "Core Computing & Python Programming",
     status: "Completed",
     statusLabel: "Solid Foundation",
     description:
-      "Object-oriented programming, data structures, algorithmic thinking, and discrete mathematics.",
+      "Python programming fundamentals, object-oriented design, algorithms, and computational problem solving.",
     topics: ["Python", "Data Structures", "Algorithms", "OOP Principles", "Problem Solving"],
   },
   {
     phase: "02",
-    title: "Full Stack Python & Workflow",
+    title: "Data Science & Exploratory Analysis (EDA)",
     status: "Completed",
-    statusLabel: "Working Knowledge",
+    statusLabel: "Active Practice",
     description:
-      "Modular Python development, web fundamentals, version control with Git/GitHub, and development workflows.",
-    topics: ["Python", "HTML", "CSS", "JavaScript", "Git", "GitHub", "VS Code"],
+      "Data wrangling, matrix manipulation, data cleaning, feature engineering, and statistical visualization.",
+    topics: ["NumPy", "Pandas", "Matplotlib", "Seaborn", "Data Cleaning", "Feature Engineering"],
   },
   {
     phase: "03",
-    title: "Data Science & Analysis",
+    title: "Machine Learning & Predictive Modeling",
     status: "In Progress",
     statusLabel: "Active Focus",
     description:
-      "Data wrangling, matrix computation, exploratory data analysis, and visual storytelling.",
-    topics: ["NumPy", "Pandas", "Data Analysis", "Data Visualization", "Matplotlib", "Seaborn"],
+      "Supervised & unsupervised learning, regression, classification, model evaluation, and Scikit-learn workflows.",
+    topics: ["Scikit-learn", "TensorFlow & Keras", "Regression", "Classification", "Predictive Modeling"],
   },
   {
     phase: "04",
-    title: "Machine Learning & AI",
+    title: "Web Scraping & Automated Data Extraction",
     status: "In Progress",
-    statusLabel: "Currently Exploring",
+    statusLabel: "Working Knowledge",
     description:
-      "Supervised & unsupervised learning algorithms, model training, evaluation metrics, and feature engineering.",
-    topics: ["Machine Learning", "Deep Learning", "Scikit-learn", "Classification", "Regression"],
+      "Automated DOM scraping, dynamic browser interaction, SQL data pipelines, and dataset collection.",
+    topics: ["BeautifulSoup", "Selenium", "SQL", "Requests", "Automated Extraction"],
   },
   {
     phase: "05",
-    title: "Web Scraping & Automation",
+    title: "RAG & Modern AI Systems",
     status: "In Progress",
-    statusLabel: "Active Practice",
+    statusLabel: "Currently Exploring",
     description:
-      "Automated web scraping, DOM parsing, browser automation, and structured dataset curation.",
-    topics: ["Web Scraping", "BeautifulSoup", "Selenium", "Requests", "Data Extraction"],
+      "Retrieval-Augmented Generation, vector embeddings, semantic vector search, and neural systems.",
+    topics: ["RAG", "Embeddings & Vector Search", "Deep Learning", "Generative AI"],
   },
 ];

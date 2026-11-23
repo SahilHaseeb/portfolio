@@ -1,0 +1,425 @@
+/* ============================================================
+   RESUME VIEWER MODAL — resumeModal.css
+   Modern, responsive, cyber-glassmorphic document viewer.
+   ============================================================ */
+
+.resume-modal {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-modal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(var(--sp-2), 3vw, var(--sp-6));
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.25s var(--ease-out), visibility 0.25s var(--ease-out);
+}
+
+.resume-modal.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* ── Backdrop ────────────────────────────────────────────── */
+.resume-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(6, 7, 14, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  cursor: pointer;
+}
+
+/* ── Modal Dialog ────────────────────────────────────────── */
+.resume-modal__dialog {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1000px;
+  height: 92vh;
+  max-height: 900px;
+  background: var(--glass-bg-elevated);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(108, 99, 255, 0.35);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.75), 0 0 35px rgba(108, 99, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transform: scale(0.96) translateY(12px);
+  transition: transform 0.28s var(--ease-out);
+}
+
+.resume-modal.is-open .resume-modal__dialog {
+  transform: scale(1) translateY(0);
+}
+
+/* Top accent line */
+.resume-modal__dialog::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2.5px;
+  background: var(--gradient-primary);
+  z-index: 10;
+}
+
+/* ── Header ──────────────────────────────────────────────── */
+.resume-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--sp-4) var(--sp-6);
+  background: rgba(10, 11, 20, 0.8);
+  border-bottom: 1px solid var(--clr-border);
+  gap: var(--sp-4);
+  flex-wrap: wrap;
+}
+
+.resume-modal__title-wrap {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+.resume-modal__icon {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.resume-modal__title {
+  font-size: var(--fs-md);
+  font-weight: var(--fw-bold);
+  color: var(--clr-text-primary);
+  margin: 0;
+}
+
+.resume-modal__subtitle {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--palette-teal-400);
+}
+
+/* ── Tabs (PDF vs Digital CV) ────────────────────────────── */
+.resume-modal__tabs {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 3px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.resume-modal__tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  color: var(--clr-text-secondary);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.resume-modal__tab:hover {
+  color: var(--clr-text-primary);
+}
+
+.resume-modal__tab.is-active {
+  background: var(--gradient-primary);
+  color: #fff;
+  font-weight: var(--fw-bold);
+  box-shadow: 0 0 12px rgba(108, 99, 255, 0.4);
+}
+
+/* ── Actions (Download, Open New Tab, Close) ─────────────── */
+.resume-modal__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2-5);
+}
+
+.resume-modal__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.resume-modal__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--clr-text-secondary);
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+
+.resume-modal__close:hover {
+  background: rgba(239, 68, 68, 0.18);
+  border-color: rgba(239, 68, 68, 0.4);
+  color: #ef4444;
+  transform: rotate(90deg);
+}
+
+/* ── Body Views ──────────────────────────────────────────── */
+.resume-modal__body {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  background: #080911;
+  display: flex;
+  flex-direction: column;
+}
+
+/* PDF View Container */
+.resume-view--pdf {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.resume-modal__iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: #10121d;
+  flex: 1;
+}
+
+.resume-modal__pdf-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+  background: rgba(14, 16, 28, 0.95);
+  border-top: 1px solid var(--clr-border-subtle);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--clr-text-muted);
+}
+
+/* Digital CV View Container */
+.resume-view--cv {
+  flex: 1;
+  overflow-y: auto;
+  padding: clamp(var(--sp-5), 4vw, var(--sp-8));
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-6);
+  background: radial-gradient(circle at top right, rgba(108, 99, 255, 0.08) 0%, transparent 60%);
+}
+
+/* Digital CV Profile Header */
+.cv-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-6);
+  padding-bottom: var(--sp-6);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  flex-wrap: wrap;
+}
+
+.cv-header__info {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-5);
+  flex-wrap: wrap;
+}
+
+.cv-header__avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  border: 2px solid var(--palette-teal-400);
+  box-shadow: 0 0 16px rgba(0, 229, 209, 0.4);
+  object-fit: cover;
+  background: var(--palette-dark-800);
+}
+
+.cv-header__name {
+  font-size: clamp(var(--fs-xl), 3vw, var(--fs-3xl));
+  font-weight: var(--fw-black);
+  letter-spacing: var(--ls-tight);
+  color: var(--clr-text-primary);
+  margin: 0;
+}
+
+.cv-header__role {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-bold);
+  color: var(--palette-teal-400);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+.cv-header__contacts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2) var(--sp-4);
+  margin-top: var(--sp-2);
+}
+
+.cv-contact-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--clr-text-secondary);
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 3px 10px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.cv-contact-pill:hover {
+  color: var(--palette-teal-400);
+  border-color: rgba(0, 229, 209, 0.3);
+}
+
+/* Digital CV Sections */
+.cv-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3-5);
+}
+
+.cv-section__title {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  color: var(--palette-teal-400);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cv-section__title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.cv-text {
+  font-size: var(--fs-sm);
+  line-height: var(--lh-relaxed);
+  color: var(--clr-text-secondary);
+  margin: 0;
+}
+
+/* Skills Cluster in CV */
+.cv-skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--sp-3-5);
+}
+
+.cv-skill-group {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-md);
+  padding: var(--sp-3-5);
+}
+
+.cv-skill-group__label {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  color: var(--clr-text-primary);
+  margin-bottom: var(--sp-2);
+}
+
+.cv-skill-group__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* Projects in CV */
+.cv-projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+.cv-project-item {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-md);
+  padding: var(--sp-4);
+}
+
+.cv-project-item__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+  margin-bottom: var(--sp-2);
+}
+
+.cv-project-item__title {
+  font-size: var(--fs-base);
+  font-weight: var(--fw-bold);
+  color: var(--clr-text-primary);
+  margin: 0;
+}
+
+.cv-project-item__bullets {
+  margin: var(--sp-2) 0 0 0;
+  padding-left: var(--sp-5);
+  font-size: var(--fs-xs);
+  color: var(--clr-text-secondary);
+  line-height: var(--lh-relaxed);
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+  .resume-modal__header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .resume-modal__actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .resume-modal__tabs {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .cv-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

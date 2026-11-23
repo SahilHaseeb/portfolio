@@ -2,6 +2,7 @@
  * projects.js — Project data repository
  *
  * Single source of truth for all projects showcased on the portfolio.
+ * Aligned with Muhammad Haseeb's professional resume.
  */
 
 export const CATEGORIES = [
@@ -16,13 +17,13 @@ export const CATEGORIES = [
 export const PROJECTS = [
   {
     id: "project-expense-tracker",
-    title: "Expense Tracker",
+    title: "Expense Tracker Web Application",
     category: "Web Development",
     shortDescription:
-      "A web-based expense tracking project for managing and monitoring personal expenses with an intuitive, responsive interface.",
+      "A web-based expense tracker that integrates an API to fetch and manage financial data with machine learning visualizations.",
     description:
-      "A clean, responsive web application designed for logging, categorizing, and monitoring personal expenses in real time. Features structured financial tracking and a clear user interface.",
-    technologies: ["HTML", "CSS", "JavaScript", "Render"],
+      "Built a web-based expense tracker that integrates an API to fetch and manage financial data. Applied Python machine learning and generated interactive graphs to visualize spending patterns, category breakdowns, and predictive financial trends.",
+    technologies: ["Python", "Machine Learning", "API Integration", "Data Visualization", "JavaScript", "Render"],
     image: null,
     githubUrl: null,
     liveUrl: "https://expensive-tracker-sfev.onrender.com",
@@ -30,29 +31,29 @@ export const PROJECTS = [
     status: "Completed",
   },
   {
-    id: "project-portfolio",
-    title: "Developer Portfolio Website",
-    category: "Web Development",
+    id: "project-diamond-analysis",
+    title: "Diamond Dataset Analysis & Price Modeling",
+    category: "Data Science",
     shortDescription:
-      "Fast, responsive, dependency-free developer portfolio built with semantic HTML5, modern CSS design tokens, and ES Modules.",
+      "Data cleaning, exploratory data analysis, and predictive machine learning models to forecast diamond market prices.",
     description:
-      "Crafted from the ground up prioritizing web performance, accessibility (WCAG 2.1 AA standards), fluid typography, and clean dark-mode aesthetics. Fully responsive across all devices and deployed on Render.",
-    technologies: ["HTML5", "CSS3", "JavaScript", "Render"],
+      "Performed comprehensive data cleaning, feature engineering, and exploratory data analysis on a real-world diamond dataset. Built predictive machine learning regression models and rich Seaborn visualizations to identify key price determinants.",
+    technologies: ["Python", "Pandas", "Scikit-learn", "Seaborn", "NumPy"],
     image: null,
-    githubUrl: "https://github.com/SahilHaseeb/portfolio",
-    liveUrl: "https://haseebsahil-portfolio.onrender.com",
+    githubUrl: "https://github.com/SahilHaseeb",
+    liveUrl: null,
     featured: true,
     status: "Completed",
   },
   {
-    id: "project-housing-price",
-    title: "Predictive Housing Price Model",
+    id: "project-real-estate-analysis",
+    title: "Real Estate Market Dataset Analysis",
     category: "Data Science",
     shortDescription:
-      "Exploratory data analysis and regression modeling on housing market datasets to analyze property price dynamics.",
+      "Exploratory data analysis and regression modeling on real estate market data to identify pricing trends.",
     description:
-      "A data science project utilizing NumPy, Pandas, and Matplotlib to clean, preprocess, and visualize market trends. Implemented linear regression algorithms to evaluate prediction accuracy with RMSE and R2 metrics.",
-    technologies: ["Python", "Pandas", "NumPy", "Matplotlib", "Scikit-learn"],
+      "Analyzed multidimensional real estate market metrics with exploratory data analysis, correlation matrices, and Scikit-learn regression models to discover key drivers of property valuations.",
+    technologies: ["Python", "Pandas", "Scikit-learn", "Matplotlib", "NumPy"],
     image: null,
     githubUrl: "https://github.com/SahilHaseeb",
     liveUrl: null,
@@ -60,17 +61,32 @@ export const PROJECTS = [
     status: "Completed",
   },
   {
-    id: "project-customer-churn",
-    title: "Customer Churn Classifier",
-    category: "AI / ML",
+    id: "project-entrepreneur-analysis",
+    title: "Entrepreneur Dataset Analysis",
+    category: "Data Science",
     shortDescription:
-      "Machine learning classification model exploring customer retention patterns and behavioral predictive indicators.",
+      "Explored and visualized a real-world entrepreneur dataset to uncover key behavioral patterns and business insights.",
     description:
-      "Trained and evaluated classification models including Logistic Regression and Decision Trees using Scikit-learn. Explored feature importance and classification metrics.",
-    technologies: ["Python", "Scikit-learn", "Pandas", "Seaborn"],
+      "Conducted extensive exploratory data analysis (EDA) on an entrepreneurship dataset utilizing Pandas and Seaborn to uncover demographic patterns, business growth indicators, and strategic success metrics.",
+    technologies: ["Python", "Pandas", "Seaborn", "EDA", "Matplotlib"],
     image: null,
     githubUrl: "https://github.com/SahilHaseeb",
     liveUrl: null,
+    featured: false,
+    status: "Completed",
+  },
+  {
+    id: "project-portfolio",
+    title: "Developer Portfolio & CV System",
+    category: "Web Development",
+    shortDescription:
+      "Fast, responsive, dependency-free developer portfolio featuring an interactive in-browser resume viewer and 3D UI.",
+    description:
+      "Crafted from scratch with high performance, accessibility (WCAG 2.1 AA), fluid clamp typography, interactive resume modal & viewer, and dark-mode cyber aesthetics. Statically deployed on Render.",
+    technologies: ["HTML5", "CSS3", "JavaScript", "Render"],
+    image: null,
+    githubUrl: "https://github.com/SahilHaseeb/portfolio",
+    liveUrl: "https://haseebsahil-portfolio.onrender.com",
     featured: false,
     status: "Completed",
   },
@@ -81,27 +97,12 @@ export const PROJECTS = [
     shortDescription:
       "Automated Python web scraper collecting periodic product pricing data with structured CSV data exports.",
     description:
-      "Engineered automated scraping scripts utilizing BeautifulSoup and Requests to extract structured pricing details with rate limiting and structured persistence.",
-    technologies: ["Python", "BeautifulSoup", "Requests", "Pandas"],
+      "Engineered automated scraping scripts utilizing BeautifulSoup, Selenium, and Requests to extract structured pricing details with rate limiting, anti-blocking routines, and structured data persistence.",
+    technologies: ["Python", "BeautifulSoup", "Selenium", "Requests", "Pandas"],
     image: null,
     githubUrl: "https://github.com/SahilHaseeb",
     liveUrl: null,
     featured: false,
     status: "Completed",
-  },
-  {
-    id: "project-sentiment-analysis",
-    title: "Sentiment Analysis on Text Reviews",
-    category: "AI / ML",
-    shortDescription:
-      "Text processing and sentiment classification exploring Natural Language Processing basics on user review datasets.",
-    description:
-      "Preprocessed textual datasets with tokenization and feature vectorization to classify polarity with evaluation metrics.",
-    technologies: ["Python", "Scikit-learn", "Pandas", "Matplotlib"],
-    image: null,
-    githubUrl: "https://github.com/SahilHaseeb",
-    liveUrl: null,
-    featured: false,
-    status: "In Progress",
   },
 ];

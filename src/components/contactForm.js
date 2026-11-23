@@ -150,7 +150,7 @@ function handleStaticSubmission(form, fields, statusContainer) {
   );
 
   // Mailto fallback (uses real email recipient)
-  const mailtoUrl = `mailto:haseebsahil0081@gmail.com?subject=${subjectVal}&body=${messageVal}`;
+  const mailtoUrl = `mailto:mhaseeb00221@gmail.com?subject=${subjectVal}&body=${messageVal}`;
 
   statusContainer.innerHTML = `
     <div class="form-status form-status--info fade-up" role="region" aria-label="Submission feedback">

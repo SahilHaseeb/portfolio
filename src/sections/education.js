@@ -54,6 +54,7 @@ function renderEducation(container) {
             <span class="edu-card__icon" aria-hidden="true">🎓</span>
             <div>
               <span class="badge badge--accent">${item.status}</span>
+              ${item.cgpa ? `<span class="badge badge--success" style="margin-left:4px;">CGPA: ${item.cgpa}</span>` : ""}
               <span class="edu-card__period">${item.period}</span>
             </div>
           </div>

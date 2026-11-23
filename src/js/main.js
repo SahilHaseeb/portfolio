@@ -14,6 +14,7 @@ import { initEducation } from '../sections/education.js';
 import { initCertificates } from '../sections/certificates.js';
 import { initContact } from '../sections/contact.js';
 import { initFooter } from '../sections/footer.js';
+import { initResumeModal } from '../components/resumeModal.js';
 
 // Interactive engines (Performance-first)
 import { initTilt } from './tilt.js';
@@ -39,6 +40,7 @@ function init() {
   initCertificates();
   initContact();
   initFooter();
+  initResumeModal();
 
   // 4. Scroll & Viewport Observers
   initScrollAnimations();

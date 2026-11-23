@@ -80,6 +80,13 @@
       <!-- Desktop CTA + Hamburger -->
       <div class="navbar__actions">
         <a href="#projects" class="btn btn--primary btn--sm" id="nav-cta">View Projects</a>
+        <button type="button" class="btn btn--outline btn--sm js-open-resume" id="nav-cta-resume" aria-label="View Resume">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+          </svg>
+          Resume
+        </button>
       </div>
 
       <!-- Mobile hamburger button -->
@@ -116,9 +123,9 @@
       <a href="#contact"      class="navbar__mobile-link" id="mobile-nav-contact">Contact</a>
     </nav>
     <div class="navbar__mobile-cta">
-      <a href="#projects"                    class="btn btn--primary"  id="mobile-cta-projects">View My Projects</a>
-      <a href="/public/assets/documents/resume-placeholder.pdf"
-                                             class="btn btn--outline"  id="mobile-cta-resume">Download Resume</a>
+      <a href="#projects" class="btn btn--primary" id="mobile-cta-projects">View My Projects</a>
+      <button type="button" class="btn btn--outline js-open-resume" id="mobile-cta-resume">View Resume</button>
+      <a href="/public/assets/documents/resume.pdf" download="Muhammad_Haseeb_Resume.pdf" class="btn btn--ghost js-download-resume" id="mobile-cta-download">Download Resume (PDF)</a>
     </div>
   </div>
 
@@ -182,8 +189,29 @@
                 </svg>
                 View Projects
               </a>
+              <button type="button"
+                      class="btn btn--outline btn--magnetic js-open-resume"
+                      id="hero-cta-view-resume">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+                View Resume
+              </button>
+              <a href="/public/assets/documents/resume.pdf"
+                 download="Muhammad_Haseeb_Resume.pdf"
+                 class="btn btn--ghost btn--magnetic js-download-resume"
+                 id="hero-cta-download-resume"
+                 aria-label="Download Muhammad Haseeb Resume PDF">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                Download CV
+              </a>
               <a href="https://github.com/SahilHaseeb"
-                 class="btn btn--outline btn--magnetic"
+                 class="btn btn--ghost btn--magnetic"
                  id="hero-cta-github"
                  target="_blank"
                  rel="noopener noreferrer">
@@ -211,7 +239,7 @@
                 LinkedIn
               </a>
 
-              <a href="mailto:haseebsahil0081@gmail.com"
+              <a href="mailto:mhaseeb00221@gmail.com"
                  class="hero__social-link"
                  id="hero-social-email"
                  aria-label="Send Email">
@@ -223,18 +251,17 @@
                 Email
               </a>
 
-              <a href="/public/assets/documents/resume-placeholder.pdf"
-                 class="hero__social-link"
+              <button type="button"
+                 class="hero__social-link js-open-resume"
                  id="hero-social-resume"
-                 target="_blank"
-                 rel="noopener noreferrer"
-                 aria-label="Resume PDF">
+                 style="background:none;border:none;cursor:pointer;"
+                 aria-label="View Resume Modal">
                 <svg class="hero__social-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" stroke="currentColor" stroke-width="1.8"/>
                   <polyline points="14 2 14 8 20 8" stroke="currentColor" stroke-width="1.8"/>
                 </svg>
                 Resume
-              </a>
+              </button>
             </div>
 
             <!-- Scroll indicator -->
@@ -720,10 +747,14 @@
                   </div>
                   <div class="terminal-row">
                     <span class="term-key">EMAIL:</span>
-                    <a href="mailto:haseebsahil0081@gmail.com" id="contact-email-val" class="term-val term-val--link">haseebsahil0081@gmail.com</a>
+                    <a href="mailto:mhaseeb00221@gmail.com" id="contact-email-val" class="term-val term-val--link">mhaseeb00221@gmail.com</a>
                     <button type="button" id="btn-copy-email" class="term-copy-btn" aria-label="Copy email address">
                       COPY
                     </button>
+                  </div>
+                  <div class="terminal-row">
+                    <span class="term-key">PHONE:</span>
+                    <a href="tel:+923284538632" class="term-val term-val--link">+92-3284538632</a>
                   </div>
                   <div class="terminal-row">
                     <span class="term-key">GITHUB:</span>
@@ -739,7 +770,7 @@
                   </div>
                   <div class="terminal-row">
                     <span class="term-key">LOCATION:</span>
-                    <span class="term-val">Garden Town, Lahore</span>
+                    <span class="term-val">Lahore, Pakistan</span>
                   </div>
                 </div>
               </div>
@@ -749,20 +780,34 @@
             <div class="contact__resume-box card-tilt-3d">
               <div class="contact__resume-info">
                 <h3 class="contact__resume-title">Curriculum Vitae / Resume</h3>
-                <p class="contact__resume-desc">PDF format • Coursework &amp; Projects</p>
+                <p class="contact__resume-desc">Muhammad Haseeb &bull; Data Scientist &amp; ML Engineer</p>
               </div>
-              <a
-                href="/public/assets/documents/resume-placeholder.pdf"
-                id="contact-cta-resume"
-                class="btn btn--primary btn--sm btn--magnetic"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                  <path d="M8 2v8M5 7l3 3 3-3M3 13h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                Download Resume
-              </a>
+              <div class="flex items-center gap-2 flex-wrap">
+                <button
+                  type="button"
+                  id="contact-btn-view-resume"
+                  class="btn btn--outline btn--sm js-open-resume"
+                  aria-label="View Resume Online"
+                >
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                  </svg>
+                  View Online
+                </button>
+                <a
+                  href="/public/assets/documents/resume.pdf"
+                  download="Muhammad_Haseeb_Resume.pdf"
+                  id="contact-cta-resume"
+                  class="btn btn--primary btn--sm btn--magnetic js-download-resume"
+                  aria-label="Download Resume PDF"
+                >
+                  <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M8 2v8M5 7l3 3 3-3M3 13h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  Download PDF
+                </a>
+              </div>
             </div>
 
           </div><!-- /.contact__terminal-wrap -->
@@ -918,7 +963,7 @@
               </a>
             </li>
             <li>
-              <a href="mailto:haseebsahil0081@gmail.com" class="footer__social-btn" aria-label="Send Email">
+              <a href="mailto:mhaseeb00221@gmail.com" class="footer__social-btn" aria-label="Send Email">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                   <polyline points="22,6 12,13 2,6"/>
@@ -956,6 +1001,279 @@
       <polyline points="18 15 12 9 6 15"></polyline>
     </svg>
   </button>
+
+  <!-- ══════════════════════════════════════════════════════
+       INTERACTIVE RESUME VIEWER MODAL
+  ══════════════════════════════════════════════════════════ -->
+  <div id="resume-modal" class="resume-modal" role="dialog" aria-modal="true" aria-labelledby="resume-modal-title" hidden aria-hidden="true">
+    <div id="resume-modal-backdrop" class="resume-modal__backdrop" aria-hidden="true"></div>
+
+    <div class="resume-modal__dialog">
+      <!-- Modal Header Bar -->
+      <header class="resume-modal__header">
+        <div class="resume-modal__title-wrap">
+          <span class="resume-modal__icon" aria-hidden="true">📄</span>
+          <div>
+            <h2 id="resume-modal-title" class="resume-modal__title">Muhammad Haseeb</h2>
+            <span class="resume-modal__subtitle">Data Scientist / Machine Learning Engineer</span>
+          </div>
+        </div>
+
+        <!-- View Switcher Tabs -->
+        <div class="resume-modal__tabs" role="tablist" aria-label="Resume View Modes">
+          <button
+            type="button"
+            id="resume-tab-pdf"
+            class="resume-modal__tab is-active"
+            role="tab"
+            aria-selected="true"
+            aria-controls="resume-view-pdf"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+            </svg>
+            PDF Document
+          </button>
+          <button
+            type="button"
+            id="resume-tab-cv"
+            class="resume-modal__tab"
+            role="tab"
+            aria-selected="false"
+            aria-controls="resume-view-cv"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+            Digital CV
+          </button>
+        </div>
+
+        <!-- Actions -->
+        <div class="resume-modal__actions">
+          <a
+            href="/public/assets/documents/resume.pdf"
+            download="Muhammad_Haseeb_Resume.pdf"
+            class="btn btn--primary btn--sm resume-modal__btn js-download-resume"
+            id="modal-btn-download"
+            aria-label="Download Resume PDF"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            Download PDF
+          </a>
+          <a
+            href="/public/assets/documents/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn--outline btn--sm resume-modal__btn"
+            title="Open in new window"
+            aria-label="Open PDF in new tab"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </a>
+          <button
+            type="button"
+            id="resume-modal-close"
+            class="resume-modal__close"
+            aria-label="Close resume viewer"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <!-- Modal Body -->
+      <div class="resume-modal__body">
+
+        <!-- 1. Embedded PDF Document View -->
+        <div id="resume-view-pdf" class="resume-view--pdf" role="tabpanel" aria-labelledby="resume-tab-pdf">
+          <iframe
+            id="resume-pdf-iframe"
+            class="resume-modal__iframe"
+            title="Muhammad Haseeb Curriculum Vitae PDF"
+            src=""
+          ></iframe>
+          <div class="resume-modal__pdf-bar">
+            <span>📄 Document: Muhammad_Haseeb_Resume.pdf</span>
+            <a href="/public/assets/documents/resume.pdf" download="Muhammad_Haseeb_Resume.pdf" class="text-gradient">Click here if PDF does not render automatically</a>
+          </div>
+        </div>
+
+        <!-- 2. Responsive Interactive Digital CV View -->
+        <div id="resume-view-cv" class="resume-view--cv hidden" role="tabpanel" aria-labelledby="resume-tab-cv">
+          
+          <!-- CV Header -->
+          <div class="cv-header">
+            <div class="cv-header__info">
+              <img src="/public/assets/images/profile.png" alt="Muhammad Haseeb" class="cv-header__avatar" width="72" height="72" />
+              <div>
+                <h3 class="cv-header__name">MUHAMMAD HASEEB</h3>
+                <div class="cv-header__role">DATA SCIENTIST / MACHINE LEARNING ENGINEER</div>
+                <div class="cv-header__contacts">
+                  <a href="mailto:mhaseeb00221@gmail.com" class="cv-contact-pill">✉ mhaseeb00221@gmail.com</a>
+                  <a href="tel:+923284538632" class="cv-contact-pill">☎ +92-3284538632</a>
+                  <a href="https://www.linkedin.com/in/muhammad-haseeb-7457b942b" target="_blank" rel="noopener noreferrer" class="cv-contact-pill">LinkedIn Profile ↗</a>
+                  <span class="cv-contact-pill">📍 Lahore, Pakistan</span>
+                </div>
+              </div>
+            </div>
+            <div>
+              <span class="badge badge--success">CGPA: 3.45</span>
+            </div>
+          </div>
+
+          <!-- Professional Profile -->
+          <section class="cv-section">
+            <h4 class="cv-section__title">Professional Profile</h4>
+            <p class="cv-text">
+              Passionate and detail-oriented Computer Science student aspiring to be a Data Scientist / Machine Learning Engineer, with hands-on experience in exploratory data analysis, predictive modeling, and machine learning on real-world datasets. Skilled in using Python libraries to process complex data and extract actionable insights. Seeking internship and job opportunities to apply and grow my data science skills.
+            </p>
+          </section>
+
+          <!-- Technical Skills & Stack -->
+          <section class="cv-section">
+            <h4 class="cv-section__title">Technical Skills &amp; Stack</h4>
+            <div class="cv-skills-grid">
+              <div class="cv-skill-group">
+                <div class="cv-skill-group__label">🤖 Machine Learning</div>
+                <div class="cv-skill-group__tags">
+                  <span class="badge badge--accent">Scikit-learn</span>
+                  <span class="badge">TensorFlow &amp; Keras</span>
+                  <span class="badge">Predictive Modeling</span>
+                  <span class="badge">Regression &amp; Classification</span>
+                </div>
+              </div>
+              <div class="cv-skill-group">
+                <div class="cv-skill-group__label">📊 Data Science &amp; EDA</div>
+                <div class="cv-skill-group__tags">
+                  <span class="badge badge--accent">NumPy</span>
+                  <span class="badge badge--accent">Pandas</span>
+                  <span class="badge">Seaborn</span>
+                  <span class="badge">Matplotlib</span>
+                  <span class="badge">Data Cleaning &amp; Feature Engineering</span>
+                </div>
+              </div>
+              <div class="cv-skill-group">
+                <div class="cv-skill-group__label">🕷️ Web Scraping &amp; Data</div>
+                <div class="cv-skill-group__tags">
+                  <span class="badge">BeautifulSoup</span>
+                  <span class="badge">Selenium</span>
+                  <span class="badge">SQL</span>
+                  <span class="badge">Automated Extraction</span>
+                </div>
+              </div>
+              <div class="cv-skill-group">
+                <div class="cv-skill-group__label">⚡ RAG &amp; Soft Skills</div>
+                <div class="cv-skill-group__tags">
+                  <span class="badge">Retrieval-Augmented Generation</span>
+                  <span class="badge">Embeddings &amp; Vector Search</span>
+                  <span class="badge">Problem Solving</span>
+                  <span class="badge">Analytical Thinking</span>
+                  <span class="badge">Team Collaboration</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Selected Projects & Practical Experience -->
+          <section class="cv-section">
+            <h4 class="cv-section__title">Selected Projects &amp; Practical Experience</h4>
+            <div class="cv-projects-list">
+              <div class="cv-project-item">
+                <div class="cv-project-item__header">
+                  <h5 class="cv-project-item__title">Expense Tracker Web Application</h5>
+                  <div class="flex gap-1 flex-wrap">
+                    <span class="badge badge--accent">Python</span>
+                    <span class="badge">Machine Learning</span>
+                    <span class="badge">API Integration</span>
+                    <span class="badge">Data Visualization</span>
+                  </div>
+                </div>
+                <ul class="cv-project-item__bullets">
+                  <li>Built a web-based expense tracker that integrates an API to fetch and manage financial data.</li>
+                  <li>Applied Python machine learning and generated graphs to visualize spending patterns and trends.</li>
+                </ul>
+              </div>
+
+              <div class="cv-project-item">
+                <div class="cv-project-item__header">
+                  <h5 class="cv-project-item__title">Diamond Dataset Analysis &amp; Price Modeling</h5>
+                  <div class="flex gap-1 flex-wrap">
+                    <span class="badge badge--accent">Python</span>
+                    <span class="badge">Pandas</span>
+                    <span class="badge">Scikit-learn</span>
+                    <span class="badge">Seaborn</span>
+                  </div>
+                </div>
+                <ul class="cv-project-item__bullets">
+                  <li>Performed data cleaning and exploratory data analysis on a real-world diamond dataset.</li>
+                  <li>Built predictive machine learning models and visualizations to understand factors affecting diamond prices.</li>
+                </ul>
+              </div>
+
+              <div class="cv-project-item">
+                <div class="cv-project-item__header">
+                  <h5 class="cv-project-item__title">Real Estate Market Dataset Analysis</h5>
+                  <div class="flex gap-1 flex-wrap">
+                    <span class="badge badge--accent">Pandas</span>
+                    <span class="badge">Scikit-learn</span>
+                    <span class="badge">Matplotlib</span>
+                  </div>
+                </div>
+                <ul class="cv-project-item__bullets">
+                  <li>Performed exploratory data analysis and regression modeling on real estate market data to identify pricing trends.</li>
+                </ul>
+              </div>
+
+              <div class="cv-project-item">
+                <div class="cv-project-item__header">
+                  <h5 class="cv-project-item__title">Entrepreneur Dataset Analysis</h5>
+                  <div class="flex gap-1 flex-wrap">
+                    <span class="badge badge--accent">Python</span>
+                    <span class="badge">Pandas</span>
+                    <span class="badge">Seaborn</span>
+                    <span class="badge">EDA</span>
+                  </div>
+                </div>
+                <ul class="cv-project-item__bullets">
+                  <li>Explored and visualized a real-world entrepreneur dataset to uncover key patterns and actionable insights.</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- Education -->
+          <section class="cv-section">
+            <h4 class="cv-section__title">Education</h4>
+            <div class="cv-project-item">
+              <div class="cv-project-item__header">
+                <h5 class="cv-project-item__title">Bachelor of Science in Computer Science (BSCS)</h5>
+                <span class="badge badge--success">CGPA: 3.45</span>
+              </div>
+              <p class="cv-text" style="color:var(--clr-primary-light);font-weight:600;">COMSATS University Islamabad &bull; Expected 2028</p>
+              <p class="cv-text" style="margin-top:6px;"><strong>Relevant Coursework:</strong> Python Programming, Artificial Intelligence</p>
+            </div>
+          </section>
+
+        </div><!-- /.resume-view--cv -->
+
+      </div><!-- /.resume-modal__body -->
+    </div><!-- /.resume-modal__dialog -->
+  </div><!-- /#resume-modal -->
 
   <!-- ── Scripts ──────────────────────────────────────────── -->
   <script>
