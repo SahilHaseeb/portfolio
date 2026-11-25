@@ -348,18 +348,15 @@
 .data-satellite {
   position: absolute;
   z-index: 10;
-  background: rgba(14, 17, 28, 0.88);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(14, 17, 28, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.10);
   border-radius: var(--radius-md);
   padding: 8px 14px;
   display: flex;
   align-items: center;
   gap: 10px;
   white-space: nowrap;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 15px rgba(99, 102, 241, 0.08);
-  transform-style: preserve-3d;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 15px rgba(99, 102, 241, 0.08), inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
   transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
   pointer-events: auto;
 }
@@ -495,4 +492,14 @@
     transform: none !important;
     transition: none !important;
   }
+}
+
+/* Pause heavy 3D gyroscope & float animations when Hero is scrolled offscreen */
+#hero.is-paused .data-core__ring,
+#hero.is-paused .data-core__radar,
+#hero.is-paused .data-core__nucleus-glow,
+#hero.is-paused .data-satellite,
+#hero.is-paused .status-indicator__dot,
+#hero.is-paused .hero__scroll-arrow {
+  animation-play-state: paused !important;
 }

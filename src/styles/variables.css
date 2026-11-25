@@ -30,30 +30,30 @@
   --palette-teal-500: #0EA5E9;
   --palette-teal-600: #0284C7;
 
-  /* Neutral dark scale (deep obsidian space theme) */
-  --palette-dark-950: #06070B;
-  --palette-dark-900: #0B0D14;
-  --palette-dark-800: #0F121C;
-  --palette-dark-750: #121524;
-  --palette-dark-700: #171B2D;
-  --palette-dark-650: #1C2237;
-  --palette-dark-600: #232A44;
-  --palette-dark-500: #2C3555;
-  --palette-dark-400: #3B466E;
-  --palette-dark-300: #4D5B8C;
+  /* Neutral dark scale (balanced studio obsidian) */
+  --palette-dark-950: #05070B;
+  --palette-dark-900: #090B10;
+  --palette-dark-800: #0D1017;
+  --palette-dark-750: #11141E;
+  --palette-dark-700: #151926;
+  --palette-dark-650: #191E2D;
+  --palette-dark-600: #1F2638;
+  --palette-dark-500: #283147;
+  --palette-dark-400: #36415E;
+  --palette-dark-300: #48567A;
 
-  /* Neutral light (text on dark) */
+  /* Neutral light (high-contrast legible typography) */
   --palette-light-50:  #FFFFFF;
-  --palette-light-100: #F8FAFC;
+  --palette-light-100: #F4F6FB;
   --palette-light-200: #E2E8F0;
-  --palette-light-300: #CBD5E1;
+  --palette-light-300: #BAC4D6;
   --palette-light-400: #94A3B8;
-  --palette-light-500: #64748B;
-  --palette-light-600: #475569;
+  --palette-light-500: #7B89A1;
+  --palette-light-600: #5B677D;
 
   /* State colours */
-  --palette-green-400: #22C55E;
-  --palette-green-500: #16A34A;
+  --palette-green-400: #10B981;
+  --palette-green-500: #059669;
   --palette-amber-400: #F59E0B;
   --palette-amber-500: #D97706;
   --palette-red-400:   #F87171;
@@ -104,7 +104,7 @@
 
   /* State colours */
   --clr-success:        var(--palette-green-400);
-  --clr-success-subtle: rgba(34, 197, 94, 0.12);
+  --clr-success-subtle: rgba(16, 185, 129, 0.12);
   --clr-warning:        var(--palette-amber-400);
   --clr-warning-subtle: rgba(245, 158, 11, 0.12);
   --clr-error:          var(--palette-red-400);
@@ -279,14 +279,14 @@
   --perspective-card:     1000px;
   --perspective-subtle:   800px;
 
-  /* Glassmorphism & Subtle Ambient Glow */
-  --glass-bg:             rgba(14, 17, 28, 0.72);
-  --glass-bg-elevated:    rgba(20, 24, 40, 0.85);
-  --glass-border:         rgba(255, 255, 255, 0.08);
+  /* Surface & Subtle Ambient Glow (Performance-optimized: crisp translucent surfaces) */
+  --glass-bg:             rgba(17, 20, 30, 0.92);
+  --glass-bg-elevated:    rgba(21, 25, 38, 0.96);
+  --glass-border:         rgba(255, 255, 255, 0.07);
   --glass-border-hover:   rgba(99, 102, 241, 0.35);
   --glass-border-accent:  rgba(56, 189, 248, 0.30);
-  --glass-blur:           16px;
-  --glass-blur-sm:        10px;
+  --glass-blur:           10px;
+  --glass-blur-sm:        8px;
 
   --glow-cyan:            rgba(56, 189, 248, 0.28);
   --glow-violet:          rgba(99, 102, 241, 0.30);

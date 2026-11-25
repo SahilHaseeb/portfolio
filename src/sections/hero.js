@@ -2,31 +2,13 @@
  * hero.js — Hero Section & 3D Interactive AI Data Core
  *
  * Fast 60 FPS transform-only parallax on the 3D Data Core.
- * Disabled on touch & reduced-motion.
+ * Caches section bounds on pointerenter and stops rAF cleanly when settled.
  */
 
-import { $$, $ } from '../js/utils.js';
+import { $ } from '../js/utils.js';
 
 export function initHero() {
-  _initEntrance();
   _init3DCoreParallax();
-}
-
-function _initEntrance() {
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const elements = $$('[data-entrance]', $('#hero'));
-  if (!elements.length) return;
-
-  if (prefersReduced) {
-    elements.forEach((el) => el.classList.add('is-visible'));
-    return;
-  }
-
-  elements.forEach((el, index) => {
-    setTimeout(() => {
-      requestAnimationFrame(() => el.classList.add('is-visible'));
-    }, index * 60);
-  });
 }
 
 function _init3DCoreParallax() {
@@ -45,22 +27,34 @@ function _init3DCoreParallax() {
   let currentRotY = 0;
   let isHovered = false;
   let rafId = null;
+  let cachedRect = null;
 
   const MAX_ROT = 6; // Bounded 6 degrees max
 
   heroSection.addEventListener(
+    'pointerenter',
+    () => {
+      cachedRect = heroSection.getBoundingClientRect();
+    },
+    { passive: true }
+  );
+
+  heroSection.addEventListener(
     'pointermove',
     (e) => {
-      const rect = heroSection.getBoundingClientRect();
-      const x = e.clientX - rect.left - rect.width / 2;
-      const y = e.clientY - rect.top - rect.height / 2;
+      if (!cachedRect || cachedRect.width === 0) {
+        cachedRect = heroSection.getBoundingClientRect();
+      }
 
-      mouseX = x / (rect.width / 2);
-      mouseY = y / (rect.height / 2);
+      const x = e.clientX - cachedRect.left - cachedRect.width / 2;
+      const y = e.clientY - cachedRect.top - cachedRect.height / 2;
+
+      mouseX = x / (cachedRect.width / 2);
+      mouseY = y / (cachedRect.height / 2);
 
       if (!isHovered) {
         isHovered = true;
-        _loop();
+        if (!rafId) _loop();
       }
     },
     { passive: true }
@@ -70,13 +64,13 @@ function _init3DCoreParallax() {
     isHovered = false;
     mouseX = 0;
     mouseY = 0;
+    cachedRect = null;
   });
 
   function _loop() {
     const targetX = -mouseY * MAX_ROT;
     const targetY = mouseX * MAX_ROT;
 
-    // Fast responsive lerp (0.18 factor)
     currentRotX += (targetX - currentRotX) * 0.18;
     currentRotY += (targetY - currentRotY) * 0.18;
 
@@ -86,7 +80,7 @@ function _init3DCoreParallax() {
       rafId = requestAnimationFrame(_loop);
     } else {
       core.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
-      cancelAnimationFrame(rafId);
+      rafId = null;
     }
   }
 }

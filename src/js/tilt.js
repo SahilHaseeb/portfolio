@@ -1,9 +1,10 @@
 /**
  * tilt.js — High-Performance 3D Tilt & Local Border-Light Engine
  *
- * Fast 60 FPS transform-only 3D interaction.
- * Updates local --card-x and --card-y strictly on the active hovered card.
- * Bounded rotation (4-6 deg), 0 global event listeners, instant response.
+ * Optimizations:
+ *  - Caches bounding rect on pointerenter (zero layout thrashing on pointermove)
+ *  - Dynamically promotes will-change only during active interaction
+ *  - Updates --card-x / --card-y inside rAF loop only when dirty
  */
 
 import { $$ } from './utils.js';
@@ -31,32 +32,39 @@ function _attachTilt(card) {
   let targetRotY = 0;
   let currentRotX = 0;
   let currentRotY = 0;
-  let localX = 50;
-  let localY = 50;
+  let localX = 0;
+  let localY = 0;
+  let coordsDirty = false;
+  let cachedRect = null;
 
-  const MAX_TILT = parseFloat(card.dataset.tiltMax) || 5;
+  const MAX_TILT = parseFloat(card.dataset.tiltMax) || 4.5;
+
+  function onPointerEnter() {
+    cachedRect = card.getBoundingClientRect();
+    card.style.willChange = 'transform';
+  }
 
   function onPointerMove(e) {
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+    if (!cachedRect || cachedRect.width === 0) {
+      cachedRect = card.getBoundingClientRect();
+    }
 
-    const normX = (x / rect.width) * 2 - 1;  // -1 to 1
-    const normY = (y / rect.height) * 2 - 1; // -1 to 1
+    const x = e.clientX - cachedRect.left;
+    const y = e.clientY - cachedRect.top;
+
+    const normX = (x / cachedRect.width) * 2 - 1;
+    const normY = (y / cachedRect.height) * 2 - 1;
 
     targetRotX = -normY * MAX_TILT;
     targetRotY = normX * MAX_TILT;
 
     localX = x;
     localY = y;
-
-    // Set local mouse coordinates directly on this card only (for border glow)
-    card.style.setProperty('--card-x', `${localX.toFixed(0)}px`);
-    card.style.setProperty('--card-y', `${localY.toFixed(0)}px`);
+    coordsDirty = true;
 
     if (!isHovered) {
       isHovered = true;
-      _loop();
+      if (!rafId) _loop();
     }
   }
 
@@ -64,23 +72,31 @@ function _attachTilt(card) {
     isHovered = false;
     targetRotX = 0;
     targetRotY = 0;
+    cachedRect = null;
   }
 
   function _loop() {
-    // Fast snappy lerp
     currentRotX += (targetRotX - currentRotX) * 0.22;
     currentRotY += (targetRotY - currentRotY) * 0.22;
 
-    card.style.transform = `perspective(900px) rotateX(${currentRotX.toFixed(2)}deg) rotateY(${currentRotY.toFixed(2)}deg) translate3d(0, 0, ${isHovered ? '6px' : '0'})`;
+    if (coordsDirty) {
+      card.style.setProperty('--card-x', `${localX.toFixed(0)}px`);
+      card.style.setProperty('--card-y', `${localY.toFixed(0)}px`);
+      coordsDirty = false;
+    }
+
+    card.style.transform = `perspective(900px) rotateX(${currentRotX.toFixed(2)}deg) rotateY(${currentRotY.toFixed(2)}deg) translate3d(0, 0, ${isHovered ? '5px' : '0'})`;
 
     if (isHovered || Math.abs(currentRotX) > 0.05 || Math.abs(currentRotY) > 0.05) {
       rafId = requestAnimationFrame(_loop);
     } else {
-      card.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg) translate3d(0,0,0)';
-      cancelAnimationFrame(rafId);
+      card.style.transform = '';
+      card.style.willChange = '';
+      rafId = null;
     }
   }
 
+  card.addEventListener('pointerenter', onPointerEnter, { passive: true });
   card.addEventListener('pointermove', onPointerMove, { passive: true });
   card.addEventListener('pointerleave', onPointerLeave, { passive: true });
 }

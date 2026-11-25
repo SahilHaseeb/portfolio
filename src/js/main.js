@@ -4,7 +4,7 @@
  * 100% dependency-free Vanilla ES Modules architecture.
  */
 
-import { initScrollAnimations, initPageEntrance } from './animations.js';
+import { initScrollAnimations, initPageEntrance, initOffscreenAnimationPause } from './animations.js';
 import { initNavbar } from '../components/navbar.js';
 import { initHero   } from '../sections/hero.js';
 import { initAbout  } from '../sections/about.js';
@@ -45,6 +45,7 @@ function init() {
   // 4. Scroll & Viewport Observers
   initScrollAnimations();
   initPageEntrance();
+  initOffscreenAnimationPause();
 
   // 5. Fast 3D Tilt & Magnetic Physics
   initTilt();

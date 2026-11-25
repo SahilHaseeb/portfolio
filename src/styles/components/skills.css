@@ -34,7 +34,6 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  transform-style: preserve-3d;
   cursor: default;
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
@@ -105,8 +104,6 @@
 
 .constellation-sector {
   background: var(--glass-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-xl);
   padding: clamp(var(--sp-5), 3vw, var(--sp-6));
@@ -115,8 +112,7 @@
   gap: var(--sp-4);
   position: relative;
   overflow: hidden;
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
-  transform-style: preserve-3d;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35), inset 0 1px 0 0 rgba(255, 255, 255, 0.07);
   transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 
@@ -211,4 +207,10 @@
   .constellation-core__ring {
     animation: none !important;
   }
+}
+
+/* Pause infinite core animations when section is scrolled offscreen */
+#skills.is-paused .constellation-core__glow,
+#skills.is-paused .constellation-core__ring {
+  animation-play-state: paused !important;
 }

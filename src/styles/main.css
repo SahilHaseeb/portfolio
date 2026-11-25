@@ -1,31 +1,9 @@
 /* ============================================================
    MAIN STYLESHEET — main.css
-   Import order is critical — do not reorder.
+   Global surface styles & keyframes.
+   (Core & component stylesheets are linked directly in index.html
+   in exact cascade order to enable parallel downloading.)
    ============================================================ */
-
-/* 1. Design tokens (must come first — everything depends on these) */
-@import './variables.css';
-
-/* 2. Modern CSS reset + base element styles */
-@import './reset.css';
-
-/* 3. Typography system */
-@import './typography.css';
-
-/* 4. Layout, component, and animation utilities */
-@import './utilities.css';
-
-/* 5. Section/component stylesheets (uncommented as sections are built) */
-@import './components/navbar.css';
-@import './components/hero.css';
-@import './components/about.css';
-@import './components/skills.css';
-@import './components/projects.css';
-@import './components/education.css';
-@import './components/certificates.css';
-@import './components/contact.css';
-@import './components/footer.css';
-@import './components/resumeModal.css';
 
 /* ══════════════════════════════════════════════════════════
    GLOBAL SURFACE STYLES

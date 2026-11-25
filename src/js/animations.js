@@ -1,20 +1,13 @@
-﻿/**
+/**
  * animations.js
  *
- * Scroll-triggered reveal animations using IntersectionObserver.
- * Supports all animation utility classes:
- *   .fade-up, .fade-in, .slide-in-left, .slide-in-right
- *
- * Performance:
- *   - Uses IntersectionObserver (no scroll event polling)
- *   - Unobserves elements after reveal (one-shot)
- *   - Full prefers-reduced-motion support
- *   - GPU-promoted via will-change in CSS
+ * Scroll-triggered reveal animations using a single shared IntersectionObserver.
+ * Supports: .fade-up, .fade-in, .slide-in-left, .slide-in-right
+ * Also pauses offscreen infinite CSS animations (Hero 3D core & Skills constellation).
  */
 
-import { $$ } from './utils.js';
+import { $, $$ } from './utils.js';
 
-/** Selects all animated elements across all animation classes */
 const ANIMATED_SELECTORS = [
   '.fade-up',
   '.fade-in',
@@ -22,72 +15,92 @@ const ANIMATED_SELECTORS = [
   '.slide-in-right',
 ].join(', ');
 
-/**
- * Returns true if the user prefers reduced motion.
- * When true, we skip animation setup entirely — CSS also
- * handles this via @media (prefers-reduced-motion: reduce).
- */
+let sharedObserver = null;
+
 function prefersReducedMotion() {
   return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 }
 
+function getSharedObserver() {
+  if (sharedObserver) return sharedObserver;
+
+  sharedObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          sharedObserver.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.08,
+      rootMargin: '0px 0px -36px 0px',
+    }
+  );
+
+  return sharedObserver;
+}
+
 /**
- * initScrollAnimations()
- *
- * Finds all animated elements and wires up IntersectionObserver.
- * If reduced motion is preferred, marks all elements visible immediately.
+ * Finds unobserved animated elements and attaches them to the single shared observer.
+ * Safe to call repeatedly after dynamic DOM renders (e.g. project filters).
  */
 export function initScrollAnimations() {
   const targets = $$(ANIMATED_SELECTORS);
   if (!targets.length) return;
 
-  // Immediately reveal everything if motion is reduced
   if (prefersReducedMotion()) {
     targets.forEach((el) => el.classList.add('is-visible'));
     return;
   }
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          // One-shot: stop observing after the element has appeared
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    {
-      // Start reveal when element is 10% visible from bottom
-      threshold: 0.10,
-      // Add a small bottom margin — reveals slightly before element enters viewport
-      rootMargin: '0px 0px -48px 0px',
-    }
-  );
-
-  targets.forEach((el) => observer.observe(el));
+  const observer = getSharedObserver();
+  targets.forEach((el) => {
+    if (el.dataset.animObserved === '1' || el.classList.contains('is-visible')) return;
+    el.dataset.animObserved = '1';
+    observer.observe(el);
+  });
 }
 
 /**
- * initPageEntrance()
- *
- * Adds a single CSS class to <body> after a short delay
- * to trigger above-the-fold elements that don't need scroll.
- * Respects reduced motion.
+ * Triggers above-the-fold entrance animations smoothly.
  */
 export function initPageEntrance() {
+  const entranceEls = $$('[data-entrance]');
+  if (!entranceEls.length) return;
+
   if (prefersReducedMotion()) {
-    // Immediately reveal all above-fold animated elements
-    $$('[data-entrance]').forEach((el) => el.classList.add('is-visible'));
+    entranceEls.forEach((el) => el.classList.add('is-visible'));
     return;
   }
 
-  // Small rAF delay ensures CSS has applied initial opacity:0 state
   requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      $$('[data-entrance]').forEach((el, i) => {
-        setTimeout(() => el.classList.add('is-visible'), i * 80);
-      });
+    entranceEls.forEach((el, i) => {
+      if (el.classList.contains('is-visible')) return;
+      setTimeout(() => el.classList.add('is-visible'), i * 65);
     });
   });
+}
+
+/**
+ * Pauses infinite CSS animations on #hero and #skills whenever scrolled offscreen
+ * to eliminate unnecessary background GPU/CPU work.
+ */
+export function initOffscreenAnimationPause() {
+  if (prefersReducedMotion()) return;
+
+  const sections = ['#hero', '#skills'].map((sel) => $(sel)).filter(Boolean);
+  if (!sections.length) return;
+
+  const pauseObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        entry.target.classList.toggle('is-paused', !entry.isIntersecting);
+      });
+    },
+    { threshold: 0.01 }
+  );
+
+  sections.forEach((sec) => pauseObserver.observe(sec));
 }

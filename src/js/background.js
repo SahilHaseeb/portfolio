@@ -1,14 +1,14 @@
 /**
  * background.js — High-Performance Scroll Progress Indicator
  *
- * Lightweight, 0-cost scroll indicator at the top of the viewport.
- * 0 CPU overhead during mouse movement.
+ * Uses compositor-only transform: scaleX() with cached document height
+ * so scrolling triggers zero layout recalculations or reflows.
  */
 
-import { $ } from './utils.js';
+import { $, on } from './utils.js';
 
 export function initBackground() {
-  // Static GPU ambient background — 0 CPU listeners required.
+  // Static ambient background — 0 CPU listeners required.
 }
 
 export function initScrollProgress() {
@@ -16,14 +16,32 @@ export function initScrollProgress() {
   if (!progressBar) return;
 
   let ticking = false;
+  let maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+
+  function updateMetrics() {
+    maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+  }
 
   function updateProgress() {
     const scrollTop = window.scrollY || document.documentElement.scrollTop;
-    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    const ratio = maxScroll > 0 ? Math.min(1, Math.max(0, scrollTop / maxScroll)) : 0;
 
-    progressBar.style.width = `${progress.toFixed(1)}%`;
+    progressBar.style.transform = `scaleX(${ratio.toFixed(4)}) translateZ(0)`;
     ticking = false;
+  }
+
+  // Keep cached maxScroll accurate without querying scrollHeight during scroll
+  if (typeof ResizeObserver !== 'undefined') {
+    const ro = new ResizeObserver(() => {
+      updateMetrics();
+      if (!ticking) {
+        requestAnimationFrame(updateProgress);
+        ticking = true;
+      }
+    });
+    ro.observe(document.documentElement);
+  } else {
+    on(window, 'resize', updateMetrics, { passive: true });
   }
 
   window.addEventListener(
@@ -37,5 +55,6 @@ export function initScrollProgress() {
     { passive: true }
   );
 
+  updateMetrics();
   updateProgress();
 }

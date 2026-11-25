@@ -27,9 +27,9 @@
 .resume-modal__backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(6, 7, 14, 0.82);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  background: rgba(5, 7, 11, 0.86);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   cursor: pointer;
 }
 
@@ -42,8 +42,6 @@
   height: 92vh;
   max-height: 900px;
   background: var(--glass-bg-elevated);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
   border: 1px solid rgba(99, 102, 241, 0.28);
   border-radius: var(--radius-xl);
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.75), 0 0 35px rgba(99, 102, 241, 0.15), inset 0 1px 0 0 rgba(255, 255, 255, 0.10);

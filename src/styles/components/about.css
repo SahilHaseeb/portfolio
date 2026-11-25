@@ -22,8 +22,6 @@
 /* Shared Bento Card Base */
 .bento-card {
   background: var(--glass-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-xl);
   padding: clamp(var(--sp-6), 3vw, var(--sp-8));
@@ -32,7 +30,6 @@
   position: relative;
   overflow: hidden;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.40), inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
-  transform-style: preserve-3d;
   transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 

@@ -28,8 +28,7 @@
   <meta name="twitter:image"       content="/public/assets/images/og-preview.png" />
 
   <!-- ── Favicon ──────────────────────────────────────────── -->
-  <link rel="icon"             type="image/svg+xml" href="/public/assets/icons/favicon.svg" />
-  <link rel="apple-touch-icon"                      href="/public/assets/icons/apple-touch-icon.png" />
+  <link rel="icon" type="image/svg+xml" href="/public/assets/icons/favicon.svg" />
 
   <!-- ── Google Fonts ─────────────────────────────────────── -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -38,7 +37,21 @@
     href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,900;1,14..32,400&family=JetBrains+Mono:wght@400;500&display=swap"
   />
 
-  <!-- ── Main Stylesheet ──────────────────────────────────── -->
+  <!-- ── Stylesheets (Loaded in parallel, cascade order preserved) ── -->
+  <link rel="stylesheet" href="/src/styles/variables.css" />
+  <link rel="stylesheet" href="/src/styles/reset.css" />
+  <link rel="stylesheet" href="/src/styles/typography.css" />
+  <link rel="stylesheet" href="/src/styles/utilities.css" />
+  <link rel="stylesheet" href="/src/styles/components/navbar.css" />
+  <link rel="stylesheet" href="/src/styles/components/hero.css" />
+  <link rel="stylesheet" href="/src/styles/components/about.css" />
+  <link rel="stylesheet" href="/src/styles/components/skills.css" />
+  <link rel="stylesheet" href="/src/styles/components/projects.css" />
+  <link rel="stylesheet" href="/src/styles/components/education.css" />
+  <link rel="stylesheet" href="/src/styles/components/certificates.css" />
+  <link rel="stylesheet" href="/src/styles/components/contact.css" />
+  <link rel="stylesheet" href="/src/styles/components/footer.css" />
+  <link rel="stylesheet" href="/src/styles/components/resumeModal.css" />
   <link rel="stylesheet" href="/src/styles/main.css" />
 </head>
 <body>

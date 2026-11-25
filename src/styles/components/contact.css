@@ -32,7 +32,6 @@
   border-radius: var(--radius-xl);
   overflow: hidden;
   box-shadow: 0 10px 35px rgba(0, 0, 0, 0.5), 0 0 24px rgba(99, 102, 241, 0.08), inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
-  transform-style: preserve-3d;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -134,8 +133,6 @@
 /* Resume Box */
 .contact__resume-box {
   background: var(--glass-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-xl);
   padding: var(--sp-5) var(--sp-6);
@@ -144,7 +141,6 @@
   justify-content: space-between;
   gap: var(--sp-4);
   box-shadow: var(--shadow-card);
-  transform-style: preserve-3d;
 }
 
 .contact__resume-title {
@@ -166,8 +162,6 @@
 
 .contact__form-wrap {
   background: var(--glass-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-xl);
   padding: clamp(var(--sp-6), 4vw, var(--sp-8));
