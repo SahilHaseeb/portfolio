@@ -208,12 +208,12 @@
   background: var(--gradient-primary);
   color: var(--clr-text-on-primary);
   border-color: transparent;
-  box-shadow: var(--shadow-btn-primary);
+  box-shadow: var(--shadow-btn-primary), inset 0 1px 0 0 rgba(255, 255, 255, 0.20);
 }
 .btn--primary:hover {
-  box-shadow: var(--shadow-btn-primary-hover);
+  box-shadow: var(--shadow-btn-primary-hover), inset 0 1px 0 0 rgba(255, 255, 255, 0.25);
   transform: translateY(-2px);
-  filter: brightness(1.08);
+  filter: brightness(1.06);
 }
 .btn--primary:active {
   transform: scale(0.97) translateY(0);
@@ -244,7 +244,7 @@
   border-color: transparent;
 }
 .btn--ghost:hover {
-  background: rgba(108, 99, 255, 0.18);
+  background: rgba(99, 102, 241, 0.16);
   transform: translateY(-2px);
 }
 .btn--ghost:active {
@@ -258,7 +258,7 @@
   border-color: transparent;
 }
 .btn--accent:hover {
-  background: rgba(0, 229, 209, 0.18);
+  background: rgba(56, 189, 248, 0.16);
   transform: translateY(-2px);
 }
 
@@ -299,7 +299,7 @@
   text-decoration: underline;
   text-underline-offset: 0.22em;
   text-decoration-thickness: 1px;
-  text-decoration-color: rgba(108, 99, 255, 0.4);
+  text-decoration-color: rgba(99, 102, 241, 0.40);
   font-weight: var(--fw-medium);
   transition: color var(--transition-colors),
               text-decoration-color var(--transition-colors);
@@ -405,10 +405,11 @@
 
 /* ── Glassmorphism card (for hero / modal contexts) ──────── */
 .card--glass {
-  background: rgba(19, 19, 30, 0.65);
+  background: var(--glass-bg);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-color: rgba(108, 99, 255, 0.20);
+  border-color: var(--glass-border);
+  box-shadow: var(--shadow-card);
 }
 
 /* ── Card inner structure helpers ────────────────────────── */
@@ -475,12 +476,12 @@
 /* ── Badge colour variants ───────────────────────────────── */
 .badge--primary {
   background: var(--clr-primary-subtle);
-  border-color: rgba(108, 99, 255, 0.25);
+  border-color: rgba(99, 102, 241, 0.25);
   color: var(--clr-primary-light);
 }
 .badge--accent {
   background: var(--clr-accent-subtle);
-  border-color: rgba(0, 229, 209, 0.25);
+  border-color: rgba(56, 189, 248, 0.25);
   color: var(--clr-accent);
 }
 .badge--success {
@@ -534,8 +535,8 @@
   z-index: var(--z-below);
   will-change: opacity;
 }
-.glow-orb--primary { background: rgba(108, 99, 255, 0.16); }
-.glow-orb--accent  { background: rgba(0, 229, 209, 0.10); }
+.glow-orb--primary { background: rgba(99, 102, 241, 0.12); }
+.glow-orb--accent  { background: rgba(56, 189, 248, 0.08); }
 .glow-orb--sm      { filter: blur(50px); }
 .glow-orb--lg      { filter: blur(120px); }
 
@@ -763,7 +764,7 @@
   height: 2.5px;
   width: 0%;
   background: var(--gradient-primary);
-  box-shadow: 0 0 10px rgba(0, 229, 209, 0.7);
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.45);
   z-index: calc(var(--z-top) + 10);
   pointer-events: none;
   transform: translateZ(0);
@@ -787,8 +788,8 @@
   border-radius: inherit;
   background: radial-gradient(
     320px circle at var(--card-x, 50%) var(--card-y, 50%),
-    rgba(0, 229, 209, 0.35),
-    rgba(108, 99, 255, 0.20) 40%,
+    rgba(56, 189, 248, 0.24),
+    rgba(99, 102, 241, 0.14) 45%,
     transparent 70%
   );
   opacity: 0;
@@ -811,8 +812,8 @@
   pointer-events: none;
   z-index: var(--z-below);
   background-image:
-    linear-gradient(rgba(108, 99, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(108, 99, 255, 0.04) 1px, transparent 1px);
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
   background-size: 56px 56px;
   background-position: center top;
 }
@@ -821,8 +822,8 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle 800px at 50% 15%, rgba(108, 99, 255, 0.12), transparent 75%),
-              radial-gradient(circle 600px at 80% 65%, rgba(0, 229, 209, 0.07), transparent 70%);
+  background: radial-gradient(circle 800px at 50% 12%, rgba(99, 102, 241, 0.09), transparent 75%),
+              radial-gradient(circle 600px at 80% 65%, rgba(56, 189, 248, 0.05), transparent 70%);
   pointer-events: none;
 }
 

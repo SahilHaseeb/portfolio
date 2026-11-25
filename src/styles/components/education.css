@@ -24,7 +24,7 @@
   inset: 0;
   background: radial-gradient(
     ellipse 70% 50% at 85% 30%,
-    rgba(0, 229, 209, 0.06) 0%,
+    rgba(56, 189, 248, 0.06) 0%,
     transparent 65%
   );
   pointer-events: none;
@@ -264,7 +264,7 @@
 /* Active node marker glow */
 .roadmap-node--in-progress .roadmap-node__marker {
   border-color: var(--clr-accent);
-  box-shadow: 0 0 12px rgba(0, 229, 209, 0.4);
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.30);
 }
 
 .roadmap-node--completed .roadmap-node__marker {

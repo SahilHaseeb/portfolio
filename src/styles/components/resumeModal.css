@@ -44,9 +44,9 @@
   background: var(--glass-bg-elevated);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(108, 99, 255, 0.35);
+  border: 1px solid rgba(99, 102, 241, 0.28);
   border-radius: var(--radius-xl);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.75), 0 0 35px rgba(108, 99, 255, 0.2);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.75), 0 0 35px rgba(99, 102, 241, 0.15), inset 0 1px 0 0 rgba(255, 255, 255, 0.10);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -140,7 +140,7 @@
   background: var(--gradient-primary);
   color: #fff;
   font-weight: var(--fw-bold);
-  box-shadow: 0 0 12px rgba(108, 99, 255, 0.4);
+  box-shadow: 0 0 14px rgba(99, 102, 241, 0.35);
 }
 
 /* ── Actions (Download, Open New Tab, Close) ─────────────── */
@@ -225,7 +225,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--sp-6);
-  background: radial-gradient(circle at top right, rgba(108, 99, 255, 0.08) 0%, transparent 60%);
+  background: radial-gradient(circle at top right, rgba(99, 102, 241, 0.06) 0%, transparent 60%);
 }
 
 /* Digital CV Profile Header */
@@ -251,7 +251,7 @@
   height: 72px;
   border-radius: 50%;
   border: 2px solid var(--palette-teal-400);
-  box-shadow: 0 0 16px rgba(0, 229, 209, 0.4);
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.35);
   object-fit: cover;
   background: var(--palette-dark-800);
 }
@@ -298,7 +298,7 @@
 
 .cv-contact-pill:hover {
   color: var(--palette-teal-400);
-  border-color: rgba(0, 229, 209, 0.3);
+  border-color: rgba(56, 189, 248, 0.30);
 }
 
 /* Digital CV Sections */

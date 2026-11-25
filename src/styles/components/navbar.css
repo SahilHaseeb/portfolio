@@ -28,9 +28,9 @@
 
 /* Scrolled state — elevated glass dock */
 .navbar.is-scrolled {
-  background: rgba(13, 14, 26, 0.88);
-  border-bottom-color: rgba(108, 99, 255, 0.22);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.55), 0 0 20px rgba(108, 99, 255, 0.08);
+  background: rgba(11, 13, 20, 0.88);
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.55), 0 0 20px rgba(99, 102, 241, 0.06);
 }
 
 /* Inner flex row */

@@ -12,44 +12,44 @@
      Raw palette values — use semantic aliases in components.
   ══════════════════════════════════════════════════════════ */
 
-  /* Primary — electric violet */
-  --palette-violet-50:  #EEEEFF;
-  --palette-violet-100: #D5D4FF;
-  --palette-violet-200: #ABA9FF;
-  --palette-violet-300: #8280FF;
-  --palette-violet-400: #6C63FF;   /* ← brand primary */
-  --palette-violet-500: #5248E8;
-  --palette-violet-600: #4A42D4;
-  --palette-violet-700: #3730B0;
-  --palette-violet-800: #26218C;
+  /* Primary — electric indigo & royal violet */
+  --palette-violet-50:  #EEF2FF;
+  --palette-violet-100: #E0E7FF;
+  --palette-violet-200: #C7D2FE;
+  --palette-violet-300: #A5B4FC;
+  --palette-violet-400: #6366F1;   /* ← brand primary (electric indigo) */
+  --palette-violet-500: #4F46E5;
+  --palette-violet-600: #4338CA;
+  --palette-violet-700: #3730A3;
+  --palette-violet-800: #312E81;
 
-  /* Accent — developer teal */
-  --palette-teal-50:  #E0FFFE;
-  --palette-teal-300: #5EF5E8;
-  --palette-teal-400: #00E5D1;     /* ← brand accent */
-  --palette-teal-500: #00C9B8;
-  --palette-teal-600: #00B8A8;
+  /* Accent — icy sky blue */
+  --palette-teal-50:  #F0F9FF;
+  --palette-teal-300: #7DD3FC;
+  --palette-teal-400: #38BDF8;     /* ← brand accent (icy sky blue) */
+  --palette-teal-500: #0EA5E9;
+  --palette-teal-600: #0284C7;
 
-  /* Neutral dark scale (deep space theme) */
-  --palette-dark-950: #08080F;
-  --palette-dark-900: #0D0D14;
-  --palette-dark-800: #111119;
-  --palette-dark-750: #13131E;
-  --palette-dark-700: #181828;
-  --palette-dark-650: #1C1C2E;
-  --palette-dark-600: #222235;
-  --palette-dark-500: #2A2A42;
-  --palette-dark-400: #35354F;
-  --palette-dark-300: #44446A;
+  /* Neutral dark scale (deep obsidian space theme) */
+  --palette-dark-950: #06070B;
+  --palette-dark-900: #0B0D14;
+  --palette-dark-800: #0F121C;
+  --palette-dark-750: #121524;
+  --palette-dark-700: #171B2D;
+  --palette-dark-650: #1C2237;
+  --palette-dark-600: #232A44;
+  --palette-dark-500: #2C3555;
+  --palette-dark-400: #3B466E;
+  --palette-dark-300: #4D5B8C;
 
   /* Neutral light (text on dark) */
   --palette-light-50:  #FFFFFF;
-  --palette-light-100: #F0F0FF;
-  --palette-light-200: #D4D4F0;
-  --palette-light-300: #A8A8C8;
-  --palette-light-400: #7C7CA0;
-  --palette-light-500: #6B6B8D;
-  --palette-light-600: #555570;
+  --palette-light-100: #F8FAFC;
+  --palette-light-200: #E2E8F0;
+  --palette-light-300: #CBD5E1;
+  --palette-light-400: #94A3B8;
+  --palette-light-500: #64748B;
+  --palette-light-600: #475569;
 
   /* State colours */
   --palette-green-400: #22C55E;
@@ -71,13 +71,13 @@
   --clr-primary-hover:  var(--palette-violet-300);
   --clr-primary-dark:   var(--palette-violet-600);
   --clr-primary-light:  var(--palette-violet-200);
-  --clr-primary-subtle: rgba(108, 99, 255, 0.10);
-  --clr-primary-glow:   rgba(108, 99, 255, 0.25);
+  --clr-primary-subtle: rgba(99, 102, 241, 0.12);
+  --clr-primary-glow:   rgba(99, 102, 241, 0.22);
 
   --clr-accent:         var(--palette-teal-400);
   --clr-accent-hover:   var(--palette-teal-300);
   --clr-accent-dark:    var(--palette-teal-600);
-  --clr-accent-subtle:  rgba(0, 229, 209, 0.10);
+  --clr-accent-subtle:  rgba(56, 189, 248, 0.10);
 
   /* Backgrounds — layered depth system */
   --clr-bg-base:        var(--palette-dark-900);   /* page base */
@@ -95,11 +95,11 @@
   --clr-text-inverse:   var(--palette-dark-900);   /* text on light bg */
   --clr-text-on-primary:#FFFFFF;                   /* text on primary bg */
 
-  /* Borders */
+  /* Borders — hairline glassmorphic design */
   --clr-border-subtle:  rgba(255, 255, 255, 0.05);
-  --clr-border:         rgba(108, 99, 255, 0.16);
-  --clr-border-medium:  rgba(108, 99, 255, 0.28);
-  --clr-border-strong:  rgba(108, 99, 255, 0.50);
+  --clr-border:         rgba(255, 255, 255, 0.08);
+  --clr-border-medium:  rgba(99, 102, 241, 0.24);
+  --clr-border-strong:  rgba(99, 102, 241, 0.45);
   --clr-border-focus:   var(--palette-violet-400);
 
   /* State colours */
@@ -113,19 +113,19 @@
   --clr-info-subtle:    rgba(96, 165, 250, 0.12);
 
   /* ══════════════════════════════════════════════════════════
-     GRADIENTS
+     GRADIENTS (Refined 3-Stop Analog & Metallic Text)
   ══════════════════════════════════════════════════════════ */
 
-  --gradient-primary:       linear-gradient(135deg, #6C63FF 0%, #00E5D1 100%);
-  --gradient-primary-soft:  linear-gradient(135deg, rgba(108,99,255,0.8) 0%, rgba(0,229,209,0.8) 100%);
-  --gradient-primary-text:  linear-gradient(135deg, #9D97FF 0%, #5EF5E8 100%);
+  --gradient-primary:       linear-gradient(135deg, #6366F1 0%, #8B5CF6 50%, #38BDF8 100%);
+  --gradient-primary-soft:  linear-gradient(135deg, rgba(99,102,241,0.85) 0%, rgba(139,92,246,0.80) 50%, rgba(56,189,248,0.85) 100%);
+  --gradient-primary-text:  linear-gradient(135deg, #FFFFFF 15%, #E0E7FF 60%, #38BDF8 100%);
   --gradient-surface:       linear-gradient(160deg, var(--clr-bg-surface) 0%, var(--clr-bg-elevated) 100%);
-  --gradient-radial-primary: radial-gradient(ellipse at 50% 0%, rgba(108,99,255,0.18) 0%, transparent 65%);
-  --gradient-radial-accent:  radial-gradient(ellipse at 50% 100%, rgba(0,229,209,0.12) 0%, transparent 60%);
+  --gradient-radial-primary: radial-gradient(ellipse at 50% 0%, rgba(99,102,241,0.14) 0%, transparent 65%);
+  --gradient-radial-accent:  radial-gradient(ellipse at 50% 100%, rgba(56,189,248,0.08) 0%, transparent 60%);
   --gradient-overlay:       linear-gradient(180deg, transparent 0%, var(--clr-bg-base) 100%);
 
   /* ══════════════════════════════════════════════════════════
-     SHADOWS
+     SHADOWS (Cinematic Ambient Lighting)
   ══════════════════════════════════════════════════════════ */
 
   --shadow-xs:     0 1px 3px rgba(0, 0, 0, 0.30);
@@ -133,15 +133,17 @@
   --shadow-md:     0 4px 16px rgba(0, 0, 0, 0.45);
   --shadow-lg:     0 8px 32px rgba(0, 0, 0, 0.50);
   --shadow-xl:     0 16px 48px rgba(0, 0, 0, 0.55);
-  --shadow-glow-primary: 0 0 24px rgba(108, 99, 255, 0.30);
-  --shadow-glow-accent:  0 0 24px rgba(0, 229, 209, 0.20);
-  --shadow-card:   0 2px 12px rgba(0, 0, 0, 0.35),
-                   0 0 0 1px var(--clr-border);
-  --shadow-card-hover: 0 8px 32px rgba(0, 0, 0, 0.50),
+  --shadow-glow-primary: 0 0 28px rgba(99, 102, 241, 0.20);
+  --shadow-glow-accent:  0 0 28px rgba(56, 189, 248, 0.16);
+  --shadow-card:   0 4px 20px rgba(0, 0, 0, 0.40),
+                   0 0 0 1px var(--clr-border),
+                   inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
+  --shadow-card-hover: 0 12px 36px rgba(0, 0, 0, 0.55),
                        0 0 0 1px var(--clr-border-medium),
-                       0 0 20px rgba(108, 99, 255, 0.15);
-  --shadow-btn-primary: 0 4px 16px rgba(108, 99, 255, 0.35);
-  --shadow-btn-primary-hover: 0 6px 24px rgba(108, 99, 255, 0.50);
+                       0 0 24px rgba(99, 102, 241, 0.12),
+                       inset 0 1px 0 0 rgba(255, 255, 255, 0.12);
+  --shadow-btn-primary: 0 4px 18px rgba(99, 102, 241, 0.32);
+  --shadow-btn-primary-hover: 0 6px 24px rgba(99, 102, 241, 0.45), 0 0 14px rgba(56, 189, 248, 0.22);
 
   /* ══════════════════════════════════════════════════════════
      TYPOGRAPHY
@@ -277,18 +279,18 @@
   --perspective-card:     1000px;
   --perspective-subtle:   800px;
 
-  /* Glassmorphism & Cyber Glow */
-  --glass-bg:             rgba(13, 14, 25, 0.72);
-  --glass-bg-elevated:    rgba(20, 22, 38, 0.85);
+  /* Glassmorphism & Subtle Ambient Glow */
+  --glass-bg:             rgba(14, 17, 28, 0.72);
+  --glass-bg-elevated:    rgba(20, 24, 40, 0.85);
   --glass-border:         rgba(255, 255, 255, 0.08);
-  --glass-border-hover:   rgba(108, 99, 255, 0.38);
-  --glass-border-accent:  rgba(0, 229, 209, 0.35);
+  --glass-border-hover:   rgba(99, 102, 241, 0.35);
+  --glass-border-accent:  rgba(56, 189, 248, 0.30);
   --glass-blur:           16px;
   --glass-blur-sm:        10px;
 
-  --glow-cyan:            rgba(0, 229, 209, 0.40);
-  --glow-violet:          rgba(108, 99, 255, 0.45);
-  --glow-subtle:          rgba(108, 99, 255, 0.15);
+  --glow-cyan:            rgba(56, 189, 248, 0.28);
+  --glow-violet:          rgba(99, 102, 241, 0.30);
+  --glow-subtle:          rgba(99, 102, 241, 0.12);
 
   /* ══════════════════════════════════════════════════════════
      LAYOUT

@@ -54,7 +54,7 @@ function init() {
     console.log(
       '%c  HaseebSahil — AI Command Center  ',
       [
-        'background: linear-gradient(135deg, #6C63FF, #00E5D1)',
+        'background: linear-gradient(135deg, #6366F1, #8B5CF6, #38BDF8)',
         'color: #fff',
         'padding: 6px 16px',
         'border-radius: 20px',

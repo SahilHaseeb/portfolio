@@ -26,9 +26,9 @@
   width: 170px;
   height: 170px;
   border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, #1c1836 0%, #0d0c17 100%);
-  border: 2px solid rgba(0, 229, 209, 0.6);
-  box-shadow: 0 0 35px rgba(0, 229, 209, 0.35), inset 0 0 30px rgba(108, 99, 255, 0.4);
+  background: radial-gradient(circle at 35% 35%, #181c33 0%, #090b14 100%);
+  border: 1.5px solid rgba(56, 189, 248, 0.45);
+  box-shadow: 0 0 24px rgba(56, 189, 248, 0.20), inset 0 0 25px rgba(99, 102, 241, 0.25);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -41,14 +41,14 @@
 
 .constellation-core:hover {
   border-color: var(--palette-teal-400);
-  box-shadow: 0 0 50px rgba(0, 229, 209, 0.55), inset 0 0 40px rgba(108, 99, 255, 0.6);
+  box-shadow: 0 0 35px rgba(56, 189, 248, 0.35), inset 0 0 30px rgba(99, 102, 241, 0.35);
 }
 
 .constellation-core__glow {
   position: absolute;
   inset: -14px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(0, 229, 209, 0.25) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.18) 0%, transparent 70%);
   pointer-events: none;
   animation: core-glow-pulse 3s infinite ease-in-out alternate;
 }
@@ -57,7 +57,7 @@
   position: absolute;
   inset: -22px;
   border-radius: 50%;
-  border: 1.5px dashed rgba(108, 99, 255, 0.4);
+  border: 1.5px dashed rgba(99, 102, 241, 0.35);
   pointer-events: none;
   animation: core-ring-spin 16s linear infinite;
 }
@@ -83,7 +83,7 @@
   font-weight: var(--fw-black);
   letter-spacing: 2px;
   color: #fff;
-  text-shadow: 0 0 10px rgba(0, 229, 209, 0.7);
+  text-shadow: 0 0 8px rgba(56, 189, 248, 0.5);
 }
 
 .constellation-core__tag {
@@ -121,8 +121,8 @@
 }
 
 .constellation-sector:hover {
-  border-color: rgba(0, 229, 209, 0.4);
-  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 229, 209, 0.12);
+  border-color: rgba(99, 102, 241, 0.35);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.5), 0 0 20px rgba(99, 102, 241, 0.10);
 }
 
 .sector-header {
@@ -175,8 +175,8 @@
 .node-pill:hover {
   color: #fff;
   border-color: var(--palette-teal-400);
-  background: rgba(0, 229, 209, 0.1);
-  box-shadow: 0 0 10px rgba(0, 229, 209, 0.25);
+  background: rgba(56, 189, 248, 0.08);
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.18);
 }
 
 /* Footer Note */
