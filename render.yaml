@@ -1,4 +1,4 @@
-﻿# render.yaml — Render deployment configuration
+# render.yaml — Render deployment configuration
 # Static site — no build step needed (pure HTML/CSS/JS)
 
 services:
@@ -13,13 +13,13 @@ services:
     headers:
       - path: /*
         name: Cache-Control
-        value: public, max-age=3600
+        value: public, max-age=0, must-revalidate
       - path: /src/styles/*
         name: Cache-Control
-        value: public, max-age=86400
+        value: public, max-age=0, must-revalidate
       - path: /src/js/*
         name: Cache-Control
-        value: public, max-age=86400
+        value: public, max-age=0, must-revalidate
       - path: /public/assets/*
         name: Cache-Control
-        value: public, max-age=604800, immutable
+        value: public, max-age=3600, must-revalidate
