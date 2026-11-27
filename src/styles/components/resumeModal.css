@@ -27,7 +27,7 @@
 .resume-modal__backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(5, 7, 11, 0.86);
+  background: rgba(6, 10, 19, 0.86);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   cursor: pointer;
@@ -42,9 +42,9 @@
   height: 92vh;
   max-height: 900px;
   background: var(--glass-bg-elevated);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(59, 130, 246, 0.28);
   border-radius: var(--radius-xl);
-  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.80), inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.80), 0 0 32px rgba(37, 99, 235, 0.14), inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -63,8 +63,8 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 1.5px;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.40), rgba(255, 255, 255, 0.08));
+  height: 2px;
+  background: var(--gradient-primary);
   z-index: 10;
 }
 
@@ -74,7 +74,7 @@
   align-items: center;
   justify-content: space-between;
   padding: var(--sp-4) var(--sp-6);
-  background: rgba(9, 9, 11, 0.85);
+  background: rgba(11, 17, 30, 0.88);
   border-bottom: 1px solid var(--clr-border);
   gap: var(--sp-4);
   flex-wrap: wrap;
@@ -101,7 +101,7 @@
 .resume-modal__subtitle {
   font-family: var(--font-mono);
   font-size: var(--fs-xs);
-  color: var(--clr-text-muted);
+  color: var(--palette-teal-400);
 }
 
 /* ── Tabs (PDF vs Digital CV) ────────────────────────────── */
@@ -135,10 +135,10 @@
 }
 
 .resume-modal__tab.is-active {
-  background: #FAFAFA;
-  color: #09090B;
+  background: var(--gradient-primary);
+  color: #FFFFFF;
   font-weight: var(--fw-bold);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 2px 12px rgba(37, 99, 235, 0.35);
 }
 
 /* ── Actions (Download, Open New Tab, Close) ─────────────── */
@@ -180,7 +180,7 @@
   flex: 1;
   position: relative;
   overflow: hidden;
-  background: #09090B;
+  background: #070B14;
   display: flex;
   flex-direction: column;
 }
@@ -199,7 +199,7 @@
   width: 100%;
   height: 100%;
   border: none;
-  background: #111114;
+  background: #0F172A;
   flex: 1;
 }
 
@@ -208,7 +208,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 8px 16px;
-  background: rgba(15, 15, 19, 0.96);
+  background: rgba(11, 17, 30, 0.96);
   border-top: 1px solid var(--clr-border-subtle);
   font-family: var(--font-mono);
   font-size: var(--fs-xs);
@@ -223,7 +223,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--sp-6);
-  background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.025) 0%, transparent 60%);
+  background: radial-gradient(circle at top right, rgba(37, 99, 235, 0.08) 0%, transparent 60%);
 }
 
 /* Digital CV Profile Header */
@@ -248,7 +248,8 @@
   width: 72px;
   height: 72px;
   border-radius: 50%;
-  border: 1.5px solid rgba(255, 255, 255, 0.24);
+  border: 2px solid var(--palette-blue-400);
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.25);
   object-fit: cover;
   background: var(--palette-dark-800);
 }
@@ -265,7 +266,7 @@
   font-family: var(--font-mono);
   font-size: var(--fs-sm);
   font-weight: var(--fw-bold);
-  color: var(--palette-teal-300);
+  color: var(--palette-teal-400);
   letter-spacing: 1px;
   text-transform: uppercase;
   margin-top: 4px;
@@ -294,8 +295,8 @@
 }
 
 .cv-contact-pill:hover {
-  color: #FAFAFA;
-  border-color: rgba(255, 255, 255, 0.24);
+  color: var(--palette-blue-400);
+  border-color: rgba(56, 189, 248, 0.35);
 }
 
 /* Digital CV Sections */
@@ -309,7 +310,7 @@
   font-family: var(--font-mono);
   font-size: var(--fs-xs);
   font-weight: var(--fw-bold);
-  color: var(--clr-text-muted);
+  color: var(--palette-teal-400);
   letter-spacing: 2px;
   text-transform: uppercase;
   display: flex;

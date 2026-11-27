@@ -10,20 +10,20 @@
    Applied to the page root — not reset, not utility.
 ══════════════════════════════════════════════════════════ */
 
-/* Thin, neutral studio scrollbar */
-::-webkit-scrollbar        { width: 6px; }
+/* Thin, gradient-tinted custom scrollbar */
+::-webkit-scrollbar        { width: 5px; }
 ::-webkit-scrollbar-track  { background: var(--clr-bg-base); }
 ::-webkit-scrollbar-thumb  {
-  background: var(--palette-dark-500);
+  background: var(--gradient-primary);
   border-radius: var(--radius-full);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--palette-dark-400);
+  filter: brightness(1.15);
 }
 
 /* Text selection highlight */
 ::selection {
-  background: rgba(255, 255, 255, 0.16);
+  background: rgba(59, 130, 246, 0.28);
   color: var(--clr-text-primary);
 }
 

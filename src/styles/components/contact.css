@@ -27,8 +27,8 @@
 }
 
 .contact-terminal {
-  background: #0B0B0E;
-  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: #080E1A;
+  border: 1px solid rgba(59, 130, 246, 0.25);
   border-radius: var(--radius-xl);
   overflow: hidden;
   box-shadow: var(--shadow-card);
@@ -36,7 +36,7 @@
 }
 
 .contact-terminal:hover {
-  border-color: rgba(255, 255, 255, 0.20);
+  border-color: rgba(45, 212, 191, 0.42);
   box-shadow: var(--shadow-card-hover);
 }
 
@@ -101,19 +101,19 @@
 }
 
 .term-val--link {
-  color: var(--palette-teal-300);
+  color: var(--palette-blue-400);
   text-decoration: none;
   transition: color 0.15s ease;
 }
 
 .term-val--link:hover {
-  color: #FFFFFF;
+  color: var(--palette-teal-300);
 }
 
 .term-copy-btn {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  color: var(--clr-text-primary);
+  background: rgba(56, 189, 248, 0.10);
+  border: 1px solid rgba(56, 189, 248, 0.28);
+  color: var(--palette-blue-400);
   border-radius: var(--radius-xs);
   padding: 3px 8px;
   font-family: var(--font-mono);
@@ -125,8 +125,8 @@
 }
 
 .term-copy-btn:hover {
-  background: #FAFAFA;
-  color: #09090B;
+  background: var(--palette-blue-400);
+  color: #060A13;
 }
 
 /* Resume Box */
@@ -206,9 +206,9 @@
 .form-input:focus,
 .form-textarea:focus {
   outline: none;
-  border-color: rgba(255, 255, 255, 0.40);
-  background: rgba(255, 255, 255, 0.04);
-  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.06);
+  border-color: var(--palette-blue-400);
+  background: rgba(56, 189, 248, 0.05);
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.16);
 }
 
 .form-textarea {

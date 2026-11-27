@@ -29,13 +29,13 @@
   flex-direction: column;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45), inset 0 1px 0 0 rgba(255, 255, 255, 0.06);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.42), inset 0 1px 0 0 rgba(255, 255, 255, 0.07);
   transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 .bento-card:hover {
-  border-color: rgba(255, 255, 255, 0.18);
-  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.60), inset 0 1px 0 0 rgba(255, 255, 255, 0.09);
+  border-color: rgba(56, 189, 248, 0.38);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.58), 0 0 22px rgba(37, 99, 235, 0.14), inset 0 1px 0 0 rgba(255, 255, 255, 0.10);
 }
 
 /* Top Badge */
@@ -45,8 +45,8 @@
   gap: var(--sp-2);
   font-family: var(--font-mono);
   font-size: var(--fs-xs);
-  font-weight: var(--fw-semi);
-  color: var(--clr-text-muted);
+  font-weight: var(--fw-bold);
+  color: var(--palette-teal-400);
   letter-spacing: var(--ls-widest);
   text-transform: uppercase;
   margin-bottom: var(--sp-4);
@@ -101,7 +101,7 @@
   font-family: var(--font-mono);
   font-size: var(--fs-base);
   font-weight: var(--fw-bold);
-  color: #FAFAFA;
+  color: var(--palette-blue-400);
   line-height: 1.2;
 }
 
@@ -114,7 +114,7 @@
 /* ── Card 2: Interactive Terminal (Span 5 cols) ──────────── */
 .bento-card--terminal {
   grid-column: span 5;
-  background: #0B0B0E;
+  background: #080E1A;
   padding: 0;
   display: flex;
   flex-direction: column;
@@ -152,8 +152,8 @@
 .terminal-tag {
   font-family: var(--font-mono);
   font-size: 0.65rem;
-  color: var(--clr-text-secondary);
-  background: rgba(255, 255, 255, 0.06);
+  color: var(--palette-teal-400);
+  background: rgba(45, 212, 191, 0.10);
   padding: 2px 6px;
   border-radius: var(--radius-xs);
 }
@@ -192,8 +192,8 @@
 }
 
 .pillar-item:hover {
-  background: rgba(255, 255, 255, 0.04);
-  border-color: rgba(255, 255, 255, 0.14);
+  background: rgba(59, 130, 246, 0.08);
+  border-color: rgba(56, 189, 248, 0.28);
 }
 
 .pillar-item__icon {
@@ -246,9 +246,9 @@
 }
 
 .bento-tag:hover {
-  border-color: rgba(255, 255, 255, 0.24);
-  color: #FAFAFA;
-  background: rgba(255, 255, 255, 0.07);
+  border-color: var(--palette-teal-400);
+  color: var(--palette-teal-300);
+  background: rgba(45, 212, 191, 0.10);
 }
 
 /* ══════════════════════════════════════════════════════════

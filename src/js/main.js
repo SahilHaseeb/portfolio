@@ -55,9 +55,8 @@ function init() {
     console.log(
       '%c  HaseebSahil — Portfolio  ',
       [
-        'background: #18181B',
-        'border: 1px solid #3F3F46',
-        'color: #FAFAFA',
+        'background: linear-gradient(135deg, #2563EB, #0EA5E9, #14B8A6)',
+        'color: #FFFFFF',
         'padding: 6px 14px',
         'border-radius: 6px',
         'font-weight: 600',

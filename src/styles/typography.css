@@ -102,14 +102,14 @@
    LABELS & NAVIGATION
 ══════════════════════════════════════════════════════════ */
 
-/* Section eyebrow label */
+/* Section eyebrow / tag label */
 .type-label {
   font-size: var(--fs-xs);
   font-weight: var(--fw-semi);
   font-family: var(--font-mono);
   letter-spacing: var(--ls-widest);
   text-transform: uppercase;
-  color: var(--clr-text-muted);
+  color: var(--palette-blue-400);
   line-height: var(--lh-none);
 }
 
@@ -172,9 +172,9 @@
   background: linear-gradient(
     135deg,
     #FFFFFF 0%,
-    #A1A1AA 45%,
-    #FFFFFF 75%,
-    #A1A1AA 100%
+    #93C5FD 40%,
+    #2DD4BF 70%,
+    #FFFFFF 100%
   );
   background-size: 200% auto;
   -webkit-background-clip: text;
@@ -241,7 +241,7 @@
   font-family: var(--font-mono);
   letter-spacing: var(--ls-widest);
   text-transform: uppercase;
-  color: var(--clr-text-muted);
+  color: var(--palette-blue-400);
   margin-bottom: var(--sp-4);
 }
 
@@ -251,8 +251,8 @@
   content: '';
   display: block;
   height: 1px;
-  width: clamp(1.25rem, 2.5vw, 2rem);
-  background: rgba(255, 255, 255, 0.16);
+  width: clamp(1.5rem, 3vw, 2.5rem);
+  background: var(--gradient-primary);
   flex-shrink: 0;
 }
 
