@@ -53,14 +53,15 @@ function init() {
 
   if (typeof console !== 'undefined') {
     console.log(
-      '%c  HaseebSahil — AI Command Center  ',
+      '%c  HaseebSahil — Portfolio  ',
       [
-        'background: linear-gradient(135deg, #6366F1, #8B5CF6, #38BDF8)',
-        'color: #fff',
-        'padding: 6px 16px',
-        'border-radius: 20px',
-        'font-weight: 700',
-        'font-size: 13px',
+        'background: #18181B',
+        'border: 1px solid #3F3F46',
+        'color: #FAFAFA',
+        'padding: 6px 14px',
+        'border-radius: 6px',
+        'font-weight: 600',
+        'font-size: 12px',
       ].join(';')
     );
     console.log('%cFast 60 FPS Engine active. 0 external dependencies.', 'color:#6B6B8D;font-size:11px;');

@@ -20,15 +20,15 @@
   z-index: 1;
 }
 
-/* ── Central Solar Core: PYTHON ──────────────────────────── */
+/* ── Central Architectural Core: PYTHON ──────────────────── */
 .constellation-core {
   position: relative;
   width: 170px;
   height: 170px;
   border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, #181c33 0%, #090b14 100%);
-  border: 1.5px solid rgba(56, 189, 248, 0.45);
-  box-shadow: 0 0 24px rgba(56, 189, 248, 0.20), inset 0 0 25px rgba(99, 102, 241, 0.25);
+  background: radial-gradient(circle at 35% 35%, #1a1a20 0%, #09090b 100%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.60), inset 0 1px 0 0 rgba(255, 255, 255, 0.10);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -39,15 +39,15 @@
 }
 
 .constellation-core:hover {
-  border-color: var(--palette-teal-400);
-  box-shadow: 0 0 35px rgba(56, 189, 248, 0.35), inset 0 0 30px rgba(99, 102, 241, 0.35);
+  border-color: rgba(255, 255, 255, 0.32);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.75);
 }
 
 .constellation-core__glow {
   position: absolute;
   inset: -14px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(56, 189, 248, 0.18) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.06) 0%, transparent 70%);
   pointer-events: none;
   animation: core-glow-pulse 3s infinite ease-in-out alternate;
 }
@@ -56,7 +56,7 @@
   position: absolute;
   inset: -22px;
   border-radius: 50%;
-  border: 1.5px dashed rgba(99, 102, 241, 0.35);
+  border: 1px dashed rgba(255, 255, 255, 0.14);
   pointer-events: none;
   animation: core-ring-spin 16s linear infinite;
 }
@@ -81,15 +81,14 @@
   font-size: var(--fs-md);
   font-weight: var(--fw-black);
   letter-spacing: 2px;
-  color: #fff;
-  text-shadow: 0 0 8px rgba(56, 189, 248, 0.5);
+  color: #FAFAFA;
 }
 
 .constellation-core__tag {
   font-family: var(--font-mono);
   font-size: 0.6rem;
-  font-weight: var(--fw-bold);
-  color: var(--palette-teal-400);
+  font-weight: var(--fw-semi);
+  color: var(--clr-text-muted);
   letter-spacing: 1.5px;
   margin-top: 2px;
 }
@@ -117,8 +116,8 @@
 }
 
 .constellation-sector:hover {
-  border-color: rgba(99, 102, 241, 0.35);
-  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.5), 0 0 20px rgba(99, 102, 241, 0.10);
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55);
 }
 
 .sector-header {
@@ -169,10 +168,9 @@
 }
 
 .node-pill:hover {
-  color: #fff;
-  border-color: var(--palette-teal-400);
-  background: rgba(56, 189, 248, 0.08);
-  box-shadow: 0 0 10px rgba(56, 189, 248, 0.18);
+  color: #FAFAFA;
+  border-color: rgba(255, 255, 255, 0.24);
+  background: rgba(255, 255, 255, 0.07);
 }
 
 /* Footer Note */

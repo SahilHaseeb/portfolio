@@ -12,46 +12,46 @@
      Raw palette values — use semantic aliases in components.
   ══════════════════════════════════════════════════════════ */
 
-  /* Primary — electric indigo & royal violet */
-  --palette-violet-50:  #EEF2FF;
-  --palette-violet-100: #E0E7FF;
-  --palette-violet-200: #C7D2FE;
-  --palette-violet-300: #A5B4FC;
-  --palette-violet-400: #6366F1;   /* ← brand primary (electric indigo) */
-  --palette-violet-500: #4F46E5;
-  --palette-violet-600: #4338CA;
-  --palette-violet-700: #3730A3;
-  --palette-violet-800: #312E81;
+  /* Primary — crisp platinum & neutral zinc hierarchy */
+  --palette-violet-50:  #FAFAFA;
+  --palette-violet-100: #F4F4F5;
+  --palette-violet-200: #E4E4E7;
+  --palette-violet-300: #D4D4D8;
+  --palette-violet-400: #F4F4F5;   /* ← brand primary (platinum highlight) */
+  --palette-violet-500: #E4E4E7;
+  --palette-violet-600: #D4D4D8;
+  --palette-violet-700: #A1A1AA;
+  --palette-violet-800: #71717A;
 
-  /* Accent — icy sky blue */
-  --palette-teal-50:  #F0F9FF;
-  --palette-teal-300: #7DD3FC;
-  --palette-teal-400: #38BDF8;     /* ← brand accent (icy sky blue) */
-  --palette-teal-500: #0EA5E9;
-  --palette-teal-600: #0284C7;
+  /* Accent — restrained steel cobalt (used sparingly) */
+  --palette-teal-50:  #EFF6FF;
+  --palette-teal-300: #93C5FD;
+  --palette-teal-400: #60A5FA;     /* ← brand accent (steel blue) */
+  --palette-teal-500: #3B82F6;
+  --palette-teal-600: #2563EB;
 
-  /* Neutral dark scale (balanced studio obsidian) */
-  --palette-dark-950: #05070B;
-  --palette-dark-900: #090B10;
-  --palette-dark-800: #0D1017;
-  --palette-dark-750: #11141E;
-  --palette-dark-700: #151926;
-  --palette-dark-650: #191E2D;
-  --palette-dark-600: #1F2638;
-  --palette-dark-500: #283147;
-  --palette-dark-400: #36415E;
-  --palette-dark-300: #48567A;
+  /* Neutral dark scale (true matte carbon / zinc) */
+  --palette-dark-950: #050507;
+  --palette-dark-900: #09090B;
+  --palette-dark-800: #0D0D10;
+  --palette-dark-750: #0F0F13;
+  --palette-dark-700: #141418;
+  --palette-dark-650: #18181D;
+  --palette-dark-600: #202027;
+  --palette-dark-500: #27272A;
+  --palette-dark-400: #3F3F46;
+  --palette-dark-300: #52525B;
 
-  /* Neutral light (high-contrast legible typography) */
+  /* Neutral light (crisp editorial typography) */
   --palette-light-50:  #FFFFFF;
-  --palette-light-100: #F4F6FB;
-  --palette-light-200: #E2E8F0;
-  --palette-light-300: #BAC4D6;
-  --palette-light-400: #94A3B8;
-  --palette-light-500: #7B89A1;
-  --palette-light-600: #5B677D;
+  --palette-light-100: #FAFAFA;
+  --palette-light-200: #E4E4E7;
+  --palette-light-300: #A1A1AA;
+  --palette-light-400: #8E8E98;
+  --palette-light-500: #71717A;
+  --palette-light-600: #52525B;
 
-  /* State colours */
+  /* State colours (desaturated studio tones) */
   --palette-green-400: #10B981;
   --palette-green-500: #059669;
   --palette-amber-400: #F59E0B;
@@ -62,22 +62,22 @@
   --palette-blue-500:  #2563EB;
 
   /* ══════════════════════════════════════════════════════════
-     SEMANTIC COLOUR TOKENS (Dark Theme — Default)
+     SEMANTIC COLOUR TOKENS (Dark Theme — Studio Carbon)
      Components reference these, not palette values directly.
   ══════════════════════════════════════════════════════════ */
 
   /* Brand */
   --clr-primary:        var(--palette-violet-400);
-  --clr-primary-hover:  var(--palette-violet-300);
+  --clr-primary-hover:  var(--palette-light-50);
   --clr-primary-dark:   var(--palette-violet-600);
   --clr-primary-light:  var(--palette-violet-200);
-  --clr-primary-subtle: rgba(99, 102, 241, 0.12);
-  --clr-primary-glow:   rgba(99, 102, 241, 0.22);
+  --clr-primary-subtle: rgba(255, 255, 255, 0.06);
+  --clr-primary-glow:   rgba(255, 255, 255, 0.10);
 
   --clr-accent:         var(--palette-teal-400);
   --clr-accent-hover:   var(--palette-teal-300);
   --clr-accent-dark:    var(--palette-teal-600);
-  --clr-accent-subtle:  rgba(56, 189, 248, 0.10);
+  --clr-accent-subtle:  rgba(96, 165, 250, 0.08);
 
   /* Backgrounds — layered depth system */
   --clr-bg-base:        var(--palette-dark-900);   /* page base */
@@ -93,57 +93,56 @@
   --clr-text-muted:     var(--palette-light-500);  /* timestamps, captions */
   --clr-text-disabled:  var(--palette-light-600);  /* disabled elements */
   --clr-text-inverse:   var(--palette-dark-900);   /* text on light bg */
-  --clr-text-on-primary:#FFFFFF;                   /* text on primary bg */
+  --clr-text-on-primary:#09090B;                   /* high-contrast ink on platinum */
 
-  /* Borders — hairline glassmorphic design */
+  /* Borders — crisp neutral hairline system */
   --clr-border-subtle:  rgba(255, 255, 255, 0.05);
   --clr-border:         rgba(255, 255, 255, 0.08);
-  --clr-border-medium:  rgba(99, 102, 241, 0.24);
-  --clr-border-strong:  rgba(99, 102, 241, 0.45);
-  --clr-border-focus:   var(--palette-violet-400);
+  --clr-border-medium:  rgba(255, 255, 255, 0.14);
+  --clr-border-strong:  rgba(255, 255, 255, 0.24);
+  --clr-border-focus:   rgba(255, 255, 255, 0.50);
 
   /* State colours */
   --clr-success:        var(--palette-green-400);
-  --clr-success-subtle: rgba(16, 185, 129, 0.12);
+  --clr-success-subtle: rgba(16, 185, 129, 0.08);
   --clr-warning:        var(--palette-amber-400);
-  --clr-warning-subtle: rgba(245, 158, 11, 0.12);
+  --clr-warning-subtle: rgba(245, 158, 11, 0.08);
   --clr-error:          var(--palette-red-400);
-  --clr-error-subtle:   rgba(248, 113, 113, 0.12);
+  --clr-error-subtle:   rgba(248, 113, 113, 0.08);
   --clr-info:           var(--palette-blue-400);
-  --clr-info-subtle:    rgba(96, 165, 250, 0.12);
+  --clr-info-subtle:    rgba(96, 165, 250, 0.08);
 
   /* ══════════════════════════════════════════════════════════
-     GRADIENTS (Refined 3-Stop Analog & Metallic Text)
+     GRADIENTS (Editorial Metallic & Subtle Hairlines)
   ══════════════════════════════════════════════════════════ */
 
-  --gradient-primary:       linear-gradient(135deg, #6366F1 0%, #8B5CF6 50%, #38BDF8 100%);
-  --gradient-primary-soft:  linear-gradient(135deg, rgba(99,102,241,0.85) 0%, rgba(139,92,246,0.80) 50%, rgba(56,189,248,0.85) 100%);
-  --gradient-primary-text:  linear-gradient(135deg, #FFFFFF 15%, #E0E7FF 60%, #38BDF8 100%);
+  --gradient-primary:       linear-gradient(135deg, #FAFAFA 0%, #D4D4D8 100%);
+  --gradient-primary-soft:  linear-gradient(135deg, rgba(250,250,250,0.85) 0%, rgba(212,212,216,0.85) 100%);
+  --gradient-primary-text:  linear-gradient(180deg, #FFFFFF 25%, #A1A1AA 100%);
   --gradient-surface:       linear-gradient(160deg, var(--clr-bg-surface) 0%, var(--clr-bg-elevated) 100%);
-  --gradient-radial-primary: radial-gradient(ellipse at 50% 0%, rgba(99,102,241,0.14) 0%, transparent 65%);
-  --gradient-radial-accent:  radial-gradient(ellipse at 50% 100%, rgba(56,189,248,0.08) 0%, transparent 60%);
+  --gradient-radial-primary: radial-gradient(ellipse at 50% 0%, rgba(255,255,255,0.035) 0%, transparent 65%);
+  --gradient-radial-accent:  radial-gradient(ellipse at 50% 100%, rgba(96,165,250,0.03) 0%, transparent 60%);
   --gradient-overlay:       linear-gradient(180deg, transparent 0%, var(--clr-bg-base) 100%);
 
   /* ══════════════════════════════════════════════════════════
-     SHADOWS (Cinematic Ambient Lighting)
+     SHADOWS (Natural Depth, Zero Neon Glow)
   ══════════════════════════════════════════════════════════ */
 
-  --shadow-xs:     0 1px 3px rgba(0, 0, 0, 0.30);
-  --shadow-sm:     0 2px 8px rgba(0, 0, 0, 0.40);
-  --shadow-md:     0 4px 16px rgba(0, 0, 0, 0.45);
-  --shadow-lg:     0 8px 32px rgba(0, 0, 0, 0.50);
-  --shadow-xl:     0 16px 48px rgba(0, 0, 0, 0.55);
-  --shadow-glow-primary: 0 0 28px rgba(99, 102, 241, 0.20);
-  --shadow-glow-accent:  0 0 28px rgba(56, 189, 248, 0.16);
-  --shadow-card:   0 4px 20px rgba(0, 0, 0, 0.40),
+  --shadow-xs:     0 1px 3px rgba(0, 0, 0, 0.35);
+  --shadow-sm:     0 2px 8px rgba(0, 0, 0, 0.45);
+  --shadow-md:     0 4px 16px rgba(0, 0, 0, 0.50);
+  --shadow-lg:     0 8px 32px rgba(0, 0, 0, 0.55);
+  --shadow-xl:     0 16px 48px rgba(0, 0, 0, 0.65);
+  --shadow-glow-primary: 0 8px 28px rgba(0, 0, 0, 0.50);
+  --shadow-glow-accent:  0 8px 28px rgba(0, 0, 0, 0.45);
+  --shadow-card:   0 4px 20px rgba(0, 0, 0, 0.45),
                    0 0 0 1px var(--clr-border),
-                   inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
-  --shadow-card-hover: 0 12px 36px rgba(0, 0, 0, 0.55),
+                   inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+  --shadow-card-hover: 0 14px 36px rgba(0, 0, 0, 0.65),
                        0 0 0 1px var(--clr-border-medium),
-                       0 0 24px rgba(99, 102, 241, 0.12),
-                       inset 0 1px 0 0 rgba(255, 255, 255, 0.12);
-  --shadow-btn-primary: 0 4px 18px rgba(99, 102, 241, 0.32);
-  --shadow-btn-primary-hover: 0 6px 24px rgba(99, 102, 241, 0.45), 0 0 14px rgba(56, 189, 248, 0.22);
+                       inset 0 1px 0 0 rgba(255, 255, 255, 0.09);
+  --shadow-btn-primary: 0 2px 10px rgba(0, 0, 0, 0.35);
+  --shadow-btn-primary-hover: 0 6px 20px rgba(0, 0, 0, 0.50);
 
   /* ══════════════════════════════════════════════════════════
      TYPOGRAPHY
@@ -279,18 +278,18 @@
   --perspective-card:     1000px;
   --perspective-subtle:   800px;
 
-  /* Surface & Subtle Ambient Glow (Performance-optimized: crisp translucent surfaces) */
-  --glass-bg:             rgba(17, 20, 30, 0.92);
-  --glass-bg-elevated:    rgba(21, 25, 38, 0.96);
-  --glass-border:         rgba(255, 255, 255, 0.07);
-  --glass-border-hover:   rgba(99, 102, 241, 0.35);
-  --glass-border-accent:  rgba(56, 189, 248, 0.30);
+  /* Surface & Subtle Edge Highlight (Studio Carbon) */
+  --glass-bg:             rgba(17, 17, 20, 0.94);
+  --glass-bg-elevated:    rgba(22, 22, 26, 0.98);
+  --glass-border:         rgba(255, 255, 255, 0.08);
+  --glass-border-hover:   rgba(255, 255, 255, 0.18);
+  --glass-border-accent:  rgba(96, 165, 250, 0.25);
   --glass-blur:           10px;
   --glass-blur-sm:        8px;
 
-  --glow-cyan:            rgba(56, 189, 248, 0.28);
-  --glow-violet:          rgba(99, 102, 241, 0.30);
-  --glow-subtle:          rgba(99, 102, 241, 0.12);
+  --glow-cyan:            rgba(96, 165, 250, 0.20);
+  --glow-violet:          rgba(255, 255, 255, 0.14);
+  --glow-subtle:          rgba(255, 255, 255, 0.06);
 
   /* ══════════════════════════════════════════════════════════
      LAYOUT

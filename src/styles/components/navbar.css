@@ -15,10 +15,10 @@
   right: 0;
   z-index: var(--z-sticky);
   height: var(--navbar-height);
-  background: rgba(9, 11, 16, 0.82);
+  background: rgba(9, 9, 11, 0.80);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   transition:
     background var(--transition-base),
     border-color var(--transition-base),
@@ -28,9 +28,9 @@
 
 /* Scrolled state — elevated glass dock */
 .navbar.is-scrolled {
-  background: rgba(11, 13, 20, 0.88);
-  border-bottom-color: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.55), 0 0 20px rgba(99, 102, 241, 0.06);
+  background: rgba(9, 9, 11, 0.92);
+  border-bottom-color: rgba(255, 255, 255, 0.09);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.55);
 }
 
 /* Inner flex row */
@@ -57,26 +57,28 @@
 }
 
 .navbar__logo-mark {
-  /* Gradient square badge */
+  /* Crisp anodized monochrome badge */
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 34px;
   height: 34px;
   border-radius: var(--radius-sm);
-  background: var(--gradient-primary);
+  background: #18181B;
+  border: 1px solid rgba(255, 255, 255, 0.16);
   font-family: var(--font-mono);
   font-size: var(--fs-md);
   font-weight: var(--fw-black);
-  color: #fff;
+  color: #FAFAFA;
   letter-spacing: var(--ls-tighter);
   flex-shrink: 0;
-  transition: transform var(--transition-base), box-shadow var(--transition-base);
+  transition: transform var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
 }
 
 .navbar__logo:hover .navbar__logo-mark {
-  transform: rotate(-4deg) scale(1.05);
-  box-shadow: var(--shadow-glow-primary);
+  transform: scale(1.04);
+  border-color: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
 }
 
 .navbar__logo-text {
@@ -125,8 +127,8 @@
   bottom: -1px;
   left: 50%;
   right: 50%;
-  height: 2px;
-  background: var(--gradient-primary);
+  height: 1.5px;
+  background: #FAFAFA;
   border-radius: var(--radius-full);
   transition: left var(--transition-base), right var(--transition-base);
 }
@@ -143,14 +145,14 @@
 
 /* Active nav link — set by JS IntersectionObserver */
 .navbar__link.is-active {
-  color: var(--clr-primary-hover);
-  background: var(--clr-primary-subtle);
+  color: #FAFAFA;
+  background: rgba(255, 255, 255, 0.06);
 }
 
 .navbar__link.is-active::after {
   left: var(--sp-3);
   right: var(--sp-3);
-  background: var(--gradient-primary);
+  background: #FAFAFA;
 }
 
 /* ══════════════════════════════════════════════════════════
